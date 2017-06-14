@@ -1,0 +1,80 @@
+<div class="page" data-ng-controller="ProductDetailCtrl">
+    <!-- Tab -->
+    <section class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header">
+                        <h4>Tên sản phẩm
+                            <small>
+                                <a href="#products"><i class="glyphicon glyphicon-circle-arrow-left"></i>&nbsp;{{'BACK_TO_PRODUCT_LIST' | translate}}</a>
+                            </small>
+                        </h4>
+                    </div>
+                    <div class="ui-tab-container ui-tab-horizontal">
+                        <uib-tabset justified="false" class="ui-tab">
+                            <uib-tab heading="{{'PRODUCT_INFO' | translate}}">
+                                <form name="form_constraints" class="form-validation">
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <label for="">{{'PRODUCT_NAME' | translate}}</label>
+                                            <input  type="text"
+                                                    class="form-control"
+                                                    required
+                                                    data-ng-model="form.required">
+                                            <br>
+                                            <label for="">{{'PRICE' | translate}} </label>
+                                            <input  type="text"
+                                                    class="form-control"
+                                                    required
+                                                    data-ng-minlength=3
+                                                    data-ng-model="form.minlength">
+                                            <br>
+                                            <label for="">{{'CATEGORY' | translate}}</label>
+                                            <br>
+                                            <span class="ui-select">
+                                                <select>
+                                                    <option>Mustard</option>
+                                                    <option>Ketchup</option>
+                                                    <option>Barbecue</option>
+                                                </select>
+                                            </span>
+                                            <br>
+                                            <br>
+                                            <label for="">{{'PICTURES' | translate}}</label>
+                                            <br>
+                                            <div class="custom-dropzone">
+                                                <div class="custom-preview custom-text-center">
+                                                    <span class="" data-translate="DROP_IMAGE_HERE"></span>
+                                                </div>
+                                                <input type="file" data-ui-file-upload class="btn-primary">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">{{'DESCRIPTION' | translate}}</label>
+                                            <section class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div text-angular ng-model="mailContent" class="ui-editor"></div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary btn-w-md">{{'SUBMIT' | translate}}</button>
+                                            <button class="btn btn-default btn-w-md">{{'REVERT_CHANGES' | translate}}</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </uib-tab>
+                            <uib-tab heading="Công thức">
+                                <p>Quod ea vel dolores earum veritatis quae sunt tempore odit molestias sit optio quaerat cupiditate iure repudiandae illum doloremque consectetur incidunt!</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, aspernatur, eum fugit officiis numquam iste aut illo quos pariatur Eligendi, veniam, accusamus.</p>
+                            </uib-tab>
+                        </uib-tabset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end Tab -->
+</div>
+

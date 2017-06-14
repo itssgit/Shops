@@ -1,0 +1,49 @@
+{
+    "ADD": "Add new",
+
+    "BACK_TO_PRODUCT_LIST": "back to product list",
+
+    "CATEGORY": "Category",
+    "CHOOSE_FILE": "Choose File",
+    "CUSTOMERS": "Customers",
+    "COPYRIGHT": "Copyright",
+
+    "DASHBOARD": "Dashboard",
+    "DELETE": "Delete",
+    "DESCRIPTION": "Description",
+    "DONT_HAVE_ACCOUNT": "Don't have an account yet? ",
+    "DROP_IMAGE_HERE": "Drop Image Here",
+
+    "EDIT": "Edit",
+    "EMAIL": "Email",
+    "ENTRIES": "entries",
+    "ENTRIES_PER_PAGE": "entries per page",
+    "EXPORT": "Export",
+
+    "FORGOT_YOUR_PASSWORD": "Forgot your password?",
+
+    "LOG_IN": "Log in",
+    "LOG_OUT": "Logout",
+
+    "MY_PROFILE": "Profile",
+
+    "ORDERS": "Orders",
+
+    "PASSWORD": "Password",
+    "PICTURES": "Pictures",
+    "PRICE": "Price",
+    "PRODUCTS": "Products",
+    "PRODUCT_INFO": "Product info",
+    "PRODUCT_NAME": "Product name",
+
+    "REVERT_CHANGES": "Revert Changes",
+
+    "SALES": "Sales",
+    "SEARCH": "Search",
+    "SELECTED": "Selected",
+    "SHOW": "Show",
+    "SHOWING": "Showing",
+    "SIGN_UP": "Sign up",
+    "SUBMIT": "Submit",
+    "STORE": "Store"
+}
