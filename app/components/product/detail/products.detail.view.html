@@ -66,8 +66,61 @@
                                 </form>
                             </uib-tab>
                             <uib-tab heading="Công thức">
-                                <p>Quod ea vel dolores earum veritatis quae sunt tempore odit molestias sit optio quaerat cupiditate iure repudiandae illum doloremque consectetur incidunt!</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, aspernatur, eum fugit officiis numquam iste aut illo quos pariatur Eligendi, veniam, accusamus.</p>
+                                <form name="form_constraints" class="form-validation">
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <label for="">{{'MATERIALS' | translate}}</label>
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <table class="table table-striped table-bordered">
+                                                        <thead>
+                                                        <tr>
+                                                            <th><input type="checkbox"/></th>
+                                                            <th>{{'MATERIALS' | translate}}</th>
+                                                            <th>{{'QUANTITY' | translate}}</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <input type="checkbox"/>
+                                                            </td>
+                                                            <td>
+                                                                <span class="ui-select">
+                                                                    <select>
+                                                                        <option>Mustard</option>
+                                                                        <option>Ketchup</option>
+                                                                        <option>Barbecue</option>
+                                                                    </select>
+                                                                </span>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" class="form-control" required/>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="form-group">
+                                                        <input type="button" class="btn btn-danger" ng-click="remove()" value="Remove">
+                                                        <input type="submit" class="btn btn-primary" value="Add New">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">{{'DESCRIPTION' | translate}}</label>
+                                            <section class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div text-angular ng-model="mailContent" class="ui-editor"></div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary btn-w-md">{{'SUBMIT' | translate}}</button>
+                                            <button class="btn btn-default btn-w-md">{{'REVERT_CHANGES' | translate}}</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </uib-tab>
                         </uib-tabset>
                     </div>

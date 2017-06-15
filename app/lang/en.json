@@ -25,6 +25,7 @@
     "LOG_IN": "Log in",
     "LOG_OUT": "Logout",
 
+    "MATERIALS": "Materials",
     "MY_PROFILE": "Profile",
 
     "ORDERS": "Orders",
@@ -35,6 +36,8 @@
     "PRODUCTS": "Products",
     "PRODUCT_INFO": "Product info",
     "PRODUCT_NAME": "Product name",
+
+    "QUANTITY": "Quantity",
 
     "REVERT_CHANGES": "Revert Changes",
 

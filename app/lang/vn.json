@@ -25,6 +25,7 @@
     "LOG_IN": "Đăng nhập",
     "LOG_OUT": "Thoát",
 
+    "MATERIALS": "Nguyên liệu",
     "MY_PROFILE": "Thông tin cá nhân",
 
     "ORDERS": "Hóa đơn",
@@ -35,6 +36,8 @@
     "PRODUCTS": "Sản phẩm",
     "PRODUCT_INFO": "Thông tin",
     "PRODUCT_NAME": "Tên sản phẩm",
+
+    "QUANTITY": "Số lượng",
 
     "REVERT_CHANGES": "Làm lại",
 
