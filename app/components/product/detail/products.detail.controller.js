@@ -2,11 +2,27 @@
     "use strict";
 
     function ProductDetailCtrl($scope) {
-        $scope.image = null;
-        $scope.imageFileName = '';
+        $scope.lstMaterial = [
+            {
+                material: "Chanh",
+                quantity: 2
+            },
+            {
+                material: "Xoài",
+                quantity: 3,
+            }
+        ];
+        //material detail
+        $scope.addNewMaterial = function(){
+            $scope.lstMaterial.push({
+                material: "",
+                quantity: ""
+            });
+        };
 
-        $scope.uploadme = {};
-        $scope.uploadme.src = '';
+        $scope.removeMaterial = function(){
+
+        }
     }
     angular.module("app").controller("ProductDetailCtrl", ["$scope", ProductDetailCtrl])
 })();

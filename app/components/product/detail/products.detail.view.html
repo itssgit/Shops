@@ -1,5 +1,4 @@
 <div class="page" data-ng-controller="ProductDetailCtrl">
-    <!-- Tab -->
     <section class="panel panel-default">
         <div class="panel-body">
             <div class="row">
@@ -69,6 +68,14 @@
                                 <form name="form_constraints" class="form-validation">
                                     <div class="form-group">
                                         <div class="col-md-6">
+                                            <label for="">{{'DESCRIPTION' | translate}}</label>
+                                            <section class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div text-angular ng-model="mailContent" class="ui-editor"></div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <div class="col-md-6">
                                             <label for="">{{'MATERIALS' | translate}}</label>
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
@@ -81,7 +88,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr>
+                                                        <tr ng-repeat="material in lstMaterial">
                                                             <td>
                                                                 <input type="checkbox"/>
                                                             </td>
@@ -95,25 +102,17 @@
                                                                 </span>
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" required/>
+                                                                <input type="text" class="form-control" ng-model="material.quantity" required/>
                                                             </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
                                                     <div class="form-group">
-                                                        <input type="button" class="btn btn-danger" ng-click="remove()" value="Remove">
-                                                        <input type="submit" class="btn btn-primary" value="Add New">
+                                                        <button class="btn btn-primary btn-w-md" ng-click="addNewMaterial()">{{'ADD' | translate}}</button>
+                                                        <button class="btn btn-danger btn-w-md" ng-click="removeMaterial()">{{'REMOVE' | translate}}</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="">{{'DESCRIPTION' | translate}}</label>
-                                            <section class="panel panel-default">
-                                                <div class="panel-body">
-                                                    <div text-angular ng-model="mailContent" class="ui-editor"></div>
-                                                </div>
-                                            </section>
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-w-md">{{'SUBMIT' | translate}}</button>
@@ -128,6 +127,5 @@
             </div>
         </div>
     </section>
-    <!-- end Tab -->
 </div>
 
