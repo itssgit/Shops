@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <!--<link rel="stylesheet" href="assets/css/main2.css">-->
     <link rel="stylesheet" href="app/shops.css">
+    <link rel="stylesheet" href="app/dropzone/dropzone.css">
+    <link rel="stylesheet" href="app/dropzone/basic.css">
 
 </head>
 <body data-ng-app="app" id="app" class="app" data-custom-page data-off-canvas-nav data-ng-controller="AppCtrl"
@@ -79,12 +81,18 @@
 <script src="assets/js/angular/angular-cookies.js"></script>
 <script src="assets/js/angular/angular-recaptcha.js"></script>
 <script src="assets/js/angular/angular-messages.js"></script>
+<script src="assets/js/lib/dropzone.js"></script>
 
 <!--service-->
 <script src="app/shared/service/http.service.js"></script>
 <script src="app/shared/service/cookies.service.js"></script>
 <script src="app/shared/service/binding.service.js"></script>
-
 <script src="app/shared/login/login.service.js"></script>
+
+<!--directives-->
+<script src="app/shared/directives/dropzone-directives.js"></script>
+<script type="text/javascript">
+    Dropzone.autoDiscover = false;
+</script>
 </body>
 </html>
