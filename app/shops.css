@@ -15,7 +15,6 @@ body {
     min-width: 200px;
     min-height: 200px;
     background-color: #F2FBEC;
-
 }
 .custom-text-center{
     text-align: center;
@@ -23,5 +22,12 @@ body {
 }
 
 .custom-button-bottom{
+    position: absolute;
+    bottom: 15px;
     text-align: center;
+}
+.fit-content{
+    display: block;
+    overflow: auto;
+    margin-bottom: 45px;
 }

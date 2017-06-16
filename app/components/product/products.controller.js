@@ -26,28 +26,41 @@
         a.filteredStores = [],
         a.row = "",
         a.select = function(b) {
+            console.log("select");
             var c, d;
             return d = (b - 1) * a.numPerPage, c = d + a.numPerPage, a.currentPageStores = a.filteredStores.slice(d, c)
         },
         a.onFilterChange = function() {
+            console.log("onFilterChange");
+
             return a.select(1), a.currentPage = 1, a.row = ""
         },
         a.onNumPerPageChange = function() {
+            console.log("onNumPerPageChange");
+
             return a.select(1), a.currentPage = 1
         },
         a.onOrderChange = function() {
+            console.log("onOrderChange");
+
             return a.select(1), a.currentPage = 1
         },
         a.search = function() {
+            console.log("search");
+
             return a.filteredStores = b("filter")(a.stores, a.searchKeywords), a.onFilterChange()
         },
         a.order = function(c) {
+            console.log("order");
+
             return a.row !== c ? (a.row = c, a.filteredStores = b("orderBy")(a.stores, c), a.onOrderChange()) : void 0
         },
         a.numPerPageOpt = [3, 5, 10, 20],
         a.numPerPage = a.numPerPageOpt[2],
         a.currentPage = 1,
         a.currentPageStores = [], (c = function() {
+            console.log("currentPageStores");
+
             return a.search(), a.select(a.currentPage)
         })()
     }

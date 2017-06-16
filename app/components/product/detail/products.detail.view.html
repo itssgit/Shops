@@ -14,7 +14,7 @@
                         <uib-tabset justified="false" class="ui-tab">
                             <uib-tab heading="{{'PRODUCT_INFO' | translate}}">
                                 <form name="form_constraints" class="form-validation">
-                                    <div class="form-group">
+                                    <div class="form-group fit-content">
                                         <div class="col-md-6">
                                             <label for="">{{'PRODUCT_NAME' | translate}}</label>
                                             <input  type="text"
@@ -57,16 +57,18 @@
                                                 </div>
                                             </section>
                                         </div>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-w-md">{{'SUBMIT' | translate}}</button>
-                                            <button class="btn btn-default btn-w-md">{{'REVERT_CHANGES' | translate}}</button>
+                                        <div class="custom-button-bottom col-md-12">
+                                            <div>
+                                                <button type="submit" class="btn btn-primary btn-w-md">{{'SUBMIT' | translate}}</button>
+                                                <button class="btn btn-default btn-w-md">{{'REVERT_CHANGES' | translate}}</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
                             </uib-tab>
-                            <uib-tab heading="Công thức">
+                            <uib-tab heading="{{'PRODUCT_STRUCTURE' | translate}}">
                                 <form name="form_constraints" class="form-validation">
-                                    <div class="form-group">
+                                    <div class="form-group fit-content">
                                         <div class="col-md-6">
                                             <label for="">{{'DESCRIPTION' | translate}}</label>
                                             <section class="panel panel-default">
@@ -81,7 +83,7 @@
                                                 <div class="panel-body">
                                                     <table class="table table-striped table-bordered">
                                                         <thead>
-                                                        <tr>
+                                                        <tr class="bg-dark">
                                                             <th><input type="checkbox"/></th>
                                                             <th>{{'MATERIALS' | translate}}</th>
                                                             <th>{{'QUANTITY' | translate}}</th>
@@ -109,14 +111,16 @@
                                                     </table>
                                                     <div class="form-group">
                                                         <button class="btn btn-primary btn-w-md" ng-click="addNewMaterial()">{{'ADD' | translate}}</button>
-                                                        <button class="btn btn-danger btn-w-md" ng-click="removeMaterial()">{{'REMOVE' | translate}}</button>
+                                                        <button class="btn btn-danger btn-w-md" ng-click="removeMaterial('quantity')">{{'REMOVE' | translate}}</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-w-md">{{'SUBMIT' | translate}}</button>
-                                            <button class="btn btn-default btn-w-md">{{'REVERT_CHANGES' | translate}}</button>
+                                        <div class="custom-button-bottom col-md-12">
+                                            <div>
+                                                <button type="submit" class="btn btn-primary btn-w-md">{{'SUBMIT' | translate}}</button>
+                                                <button class="btn btn-default btn-w-md">{{'REVERT_CHANGES' | translate}}</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>

@@ -5,7 +5,7 @@
         $scope.lstMaterial = [
             {
                 material: "Chanh",
-                quantity: 2
+                quantity: 23
             },
             {
                 material: "Xoài",
@@ -20,8 +20,7 @@
             });
         };
 
-        $scope.removeMaterial = function(){
-
+        $scope.removeMaterial = function(property){
         }
     }
     angular.module("app").controller("ProductDetailCtrl", ["$scope", ProductDetailCtrl])
