@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module("app").controller("StoreCtrl", ["$scope", "$filter", "$http", StoreCtrl]);
-    function StoreCtrl($scope, $filter, $http) {
+    function StoreCtrl($scope) {
         $scope.lstMaterial = [
             {
                 name: "Chanh",
@@ -36,23 +36,5 @@
                 unit: 'cái'
             }
         ];
-
-        $scope.users = [
-            {id: 1, name: 'awesome user1', status: 2, group: 4, groupName: 'admin'},
-            {id: 2, name: 'awesome user2', status: undefined, group: 3, groupName: 'vip'},
-            {id: 3, name: 'awesome user3', status: 2, group: null}
-        ];
-
-        $scope.statuses = [
-            {value: 1, text: 'status1'},
-            {value: 2, text: 'status2'},
-            {value: 3, text: 'status3'}
-        ];
-
-        $scope.groups = [
-            {value: 1, text: 'status1'},
-            {value: 2, text: 'status2'},
-            {value: 3, text: 'status3'}
-            ];
     }
 })();

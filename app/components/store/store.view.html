@@ -6,49 +6,53 @@
                 <span data-translate="MATERIALS"/>
             </strong>
             <div class="pull-right">
-                <a href="#store-import" class="btn btn-primary btn-w-md"><span class="glyphicon glyphicon-plus"></span>&nbsp;{{'IMPORT' | translate}}</a>
-                <button class="btn btn-success btn-w-md"><span class="glyphicon glyphicon-save"></span>&nbsp;{{'EXPORT' | translate}}</button>
-                <button class="btn btn-danger btn-w-md"><span class="glyphicon glyphicon-trash"></span>&nbsp;{{'DELETE' | translate}}&nbsp;({{'SELECTED' | translate}})</button>
+                <a href="#store-import" class="btn btn-primary btn-w-md"><span class="glyphicon glyphicon-plus"></span>&nbsp;{{'IMPORT'
+                    | translate}}</a>
+                <button class="btn btn-success btn-w-md"><span class="glyphicon glyphicon-save"></span>&nbsp;{{'EXPORT'
+                    | translate}}
+                </button>
+                <button class="btn btn-danger btn-w-md"><span class="glyphicon glyphicon-trash"></span>&nbsp;{{'DELETE'
+                    | translate}}&nbsp;({{'SELECTED' | translate}})
+                </button>
             </div>
         </div>
         <div class="panel-body">
-            <section class="table-flip-scroll">
-                <table class="table table-bordered table-striped cf">
-                    <thread class="cf">
-                    <tr style="font-weight: bold">
-                        <td style="width:35%">Name</td>
-                        <td style="width:20%">Status</td>
-                        <td style="width:20%">Group</td>
-                        <td style="width:25%">Edit</td>
+            <section class="table-responsive">
+                <table class="table table-bordered table-striped"">
+                    <thead>
+                    <tr class="bg-dark">
+                        <th>Code</th>
+                        <th>Company</th>
+                        <th>Price</th>
+                        <th>Change</th>
                     </tr>
-                    </thread>
+                    </thead>
                     <tbody>
-                    <tr ng-repeat="user in users">
+                    <tr ng-repeat="material in lstMaterial">
                         <td>
-                            <!-- editable username (text with validation) -->
-                            <span editable-text="user.name" e-name="name" e-form="rowform" e-required>
-          {{ user.name}}
-        </span>
+                            <span editable-text="material.name" e-name="name" e-form="rowform" e-required>
+                            {{ material.name || '1'}}
+                            </span>
                         </td>
                         <td>
-                            <!-- editable status (select-local) -->
-                            <span editable-text="user.status" e-name="status" e-form="rowform">
-          {{ user.status }}
-        </span>
+                            <span editable-text="material.quantity" e-name="quantity" e-form="rowform">
+                            {{ material.quantity || '1'}}
+                            </span>
                         </td>
                         <td>
-                            <!-- editable group (select-remote) -->
-                            <span editable-select="user.group" e-name="group"  e-form="rowform">
-          {{ user.group }}
-        </span>
+                            <span editable-text="material.unit" e-name="unit" e-form="rowform">
+                            {{ material.unit || '1'}}
+                            </span>
                         </td>
-                        <td style="white-space: nowrap">
+                        <td style="white-space: nowrap; padding: 5px;">
                             <!-- form -->
-                            <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == user">
+                            <form editable-form name="rowform" ng-show="rowform.$visible"
+                                  class="form-buttons form-inline" shown="inserted == material">
                                 <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
                                     save
                                 </button>
-                                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                                        class="btn btn-default">
                                     cancel
                                 </button>
                             </form>
@@ -60,7 +64,6 @@
                     </tr>
                     </tbody>
                 </table>
-{{users | json}}
             </section>
         </div>
     </section>
