@@ -1,6 +1,14 @@
 ! function() {
     "use strict";
-    angular.module("app", ["ngRoute", "ngAnimate", "ngAria", "ui.bootstrap", "ui.tree", "ngMap", "ngTagsInput", "textAngular", "angular-loading-bar", "ui.calendar", "duScroll", "mgo-angular-wizard", "app.nav", "app.lang", "app.chart", "app.ui", "app.ui.form", "app.ui.form.validation", "app.page", "app.table", "app.task", "app.calendar","ngCookies", "vcRecaptcha", "ngMessages"])
+    angular.module("app", ["ngRoute",
+        "ngAnimate", "ngAria", "ui.bootstrap",
+        "ui.tree", "ngMap", "ngTagsInput", "textAngular",
+        "angular-loading-bar", "ui.calendar", "duScroll",
+        "mgo-angular-wizard", "app.nav", "app.lang",
+        "app.chart", "app.ui", "app.ui.form",
+        "app.ui.form.validation", "app.page", "app.table",
+        "app.task", "app.calendar","ngCookies",
+        "vcRecaptcha", "ngMessages", "xeditable"])
 }(),
     function() {
         "use strict";
