@@ -226,6 +226,10 @@
                 templateUrl: "app/components/product/detail/products.detail.view.html"
             }).when("/products-edit", {
                 templateUrl: "app/components/product/detail/products.detail.view.html"
+            }).when("/store", {
+                templateUrl: "app/components/store/store.view.html"
+            }).when("/store-import", {
+                templateUrl: "app/components/store/detail/store.detail.view.html"
             }).when("/404", {
                 templateUrl: "app/shared/page/404.html"
             }).otherwise({

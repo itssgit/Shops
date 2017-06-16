@@ -1,10 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="page page-table" data-ng-controller="StoreCtrl">
+    <section class="panel panel-default">
+        <div class="panel-heading clearfix">
+            <strong>
+                <span class="glyphicon glyphicon-th"/>
+                <span data-translate="MATERIALS"/>
+            </strong>
+            <div class="pull-right">
+                <a href="#store-import" class="btn btn-primary btn-w-md"><span class="glyphicon glyphicon-plus"></span>&nbsp;{{'IMPORT' | translate}}</a>
+                <button class="btn btn-success btn-w-md"><span class="glyphicon glyphicon-save"></span>&nbsp;{{'EXPORT' | translate}}</button>
+                <button class="btn btn-danger btn-w-md"><span class="glyphicon glyphicon-trash"></span>&nbsp;{{'DELETE' | translate}}&nbsp;({{'SELECTED' | translate}})</button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <section class="table-flip-scroll">
+                <table class="table table-bordered table-striped cf">
+                    <thead class="cf">
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>Tên</th>
+                        <th class="numeric">Số lượng</th>
+                        <th class="numeric">Đơn vị</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="material in lstMaterial">
+                        <td><input type="checkbox"></td>
+                        <td>AUSTRALIAN AGRICULTURAL COMPANY LIMITED.</td>
+                        <td class="numeric">$1.38</td>
+                        <td class="numeric">-0.01</td>
+                        <td>
+                            <a href="#store-edit" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </section>
+</div>
