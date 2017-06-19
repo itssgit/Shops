@@ -4,6 +4,7 @@
     "BACK_TO_PRODUCT_LIST": "back to product list",
 
     "CATEGORY": "Category",
+    "CANCEL": "Cancel",
     "CHOOSE_FILE": "Choose File",
     "CUSTOMERS": "Customers",
     "COPYRIGHT": "Copyright",
@@ -46,11 +47,14 @@
     "REMOVE": "Remove",
 
     "SALES": "Sales",
+    "SAVE": "Save",
     "SEARCH": "Search",
     "SELECTED": "Selected",
     "SHOW": "Show",
     "SHOWING": "Showing",
     "SIGN_UP": "Sign up",
     "SUBMIT": "Submit",
-    "STORE": "Store"
+    "STORE": "Store",
+
+    "UNIT": "Unit"
 }

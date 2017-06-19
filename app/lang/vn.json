@@ -4,6 +4,7 @@
     "BACK_TO_PRODUCT_LIST": "Danh sách sản phẩm",
 
     "CATEGORY": "Nhóm sản phẩm",
+    "CANCEL": "Hủy",
     "CHOOSE_FILE": "Chọn file",
     "CUSTOMERS": "Khách hàng",
     "COPYRIGHT": "Copyright",
@@ -46,11 +47,14 @@
     "REMOVE": "Xóa",
 
     "SALES": "Bán hàng",
+    "SAVE": "Lưu",
     "SEARCH": "Tìm kiếm",
     "SELECTED": "Được chọn",
     "SHOW": "Hiển thị",
     "SHOWING": "Hiển thị",
     "SIGN_UP": "Đăng kí",
     "SUBMIT": "Lưu",
-    "STORE": "Kho"
+    "STORE": "Kho",
+
+    "UNIT": "Đơn vị"
 }

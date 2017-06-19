@@ -34,51 +34,59 @@
             </div>
         </div>
 
-        <table class="table table-bordered table-striped table-responsive">
-            <thead>
-            <tr class="bg-dark">
-                <th><div class="th">
-                    <label class="ui-checkbox"><input name="checkbox1" type="checkbox" ><span></span></label>
-                </div></th>
-                <th><div class="th">
-                    {{'PICTURES' | translate}}
-                </div></th>
-                <th><div class="th">
-                    {{'PRODUCTS' | translate}}
-                    <span class="fa fa-angle-up"
-                          data-ng-click=" order('name') "
-                          data-ng-class="{active: row == 'name'}"></span>
-                    <span class="fa fa-angle-down"
-                          data-ng-click=" order('-name') "
-                          data-ng-class="{active: row == '-name'}"></span>
-                </div></th>
-                <th><div class="th">
-                    {{'PRICE' | translate}}
-                    <span class="fa fa-angle-up"
-                          data-ng-click=" order('price') "
-                          data-ng-class="{active: row == 'price'}"></span>
-                    <span class="fa fa-angle-down"
-                          data-ng-click=" order('-price') "
-                          data-ng-class="{active: row == '-price'}"></span>
-                </div></th>
-                <th>
-                    <div class="th"></div>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr data-ng-repeat="store in currentPageStores">
-                <td><label class="ui-checkbox"><input name="checkbox1" type="checkbox" ><span></span></label></td>
-                <td>path picture</td>
-                <td>{{store.name}}</td>
-                <td>{{store.price}}</td>
-                <td>
-                    <a href="#products-edit" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
-                    <!--<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</button>-->
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-product-custom">
+                    <thead>
+                    <tr class="bg-dark">
+                        <th class="th-checkbox"><input type="checkbox"/></th>
+                        <th><div class="th">
+                            {{'PICTURES' | translate}}
+                            <span class="fa fa-angle-up"
+                                  data-ng-click=" order('name') "
+                                  data-ng-class="{active: row == 'name'}"></span>
+                            <span class="fa fa-angle-down"
+                                  data-ng-click=" order('-name') "
+                                  data-ng-class="{active: row == '-name'}"></span>
+                        </div>
+
+                        </th>
+                        <th><div class="th">
+                            {{'PRODUCTS' | translate}}
+                            <span class="fa fa-angle-up"
+                                  data-ng-click=" order('name') "
+                                  data-ng-class="{active: row == 'name'}"></span>
+                            <span class="fa fa-angle-down"
+                                  data-ng-click=" order('-name') "
+                                  data-ng-class="{active: row == '-name'}"></span>
+                        </div></th>
+                        <th><div class="th">
+                            {{'PRICE' | translate}}
+                            <span class="fa fa-angle-up"
+                                  data-ng-click=" order('price') "
+                                  data-ng-class="{active: row == 'price'}"></span>
+                            <span class="fa fa-angle-down"
+                                  data-ng-click=" order('-price') "
+                                  data-ng-class="{active: row == '-price'}"></span>
+                        </div></th>
+                        <th>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="store in currentPageStores">
+                        <td><input type="checkbox"/></td>
+                        <td>path picture</td>
+                        <td>{{store.name}}</td>
+                        <td>{{store.price}}</td>
+                        <td class="th-button">
+                            <a href="#products-edit" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
         <footer class="table-footer">
             <div class="row">
