@@ -169,14 +169,22 @@
     function() {
         "use strict";
 
-        function a(a, b, c, d, e) {
+        function AppCtrl(a, b, c, d, e) {
             a.pageTransitionOpts = e.pageTransitionOpts, a.main = e.main, a.color = e.color, a.$watch("main", function(c, d) {
                 "horizontal" === c.menu && "vertical" === d.menu && b.$broadcast("nav:reset"), c.fixedHeader === !1 && c.fixedSidebar === !0 && (d.fixedHeader === !1 && d.fixedSidebar === !1 && (a.main.fixedHeader = !0, a.main.fixedSidebar = !0), d.fixedHeader === !0 && d.fixedSidebar === !0 && (a.main.fixedHeader = !1, a.main.fixedSidebar = !1)), c.fixedSidebar === !0 && (a.main.fixedHeader = !0), c.fixedHeader === !1 && (a.main.fixedSidebar = !1)
             }, !0), b.$on("$routeChangeSuccess", function(a, b, c) {
                 d.scrollTo(0, 0)
-            })
+            });
+
+            a.checkAll = function(){
+                if (a.selectedAll) {
+                    a.selectedAll = true;
+                } else {
+                    a.selectedAll = false;
+                }
+            }
         }
-        angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", a])
+        angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", AppCtrl])
     }(),
 
     // custom page

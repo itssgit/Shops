@@ -21,7 +21,7 @@
                 <table class="table table-bordered table-striped table-material-custom">
                     <thead>
                     <tr class="bg-dark">
-                        <th class="th-checkbox"><input type="checkbox"/></th>
+                        <th class="th-checkbox"><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()"/></th>
                         <th>
                             <div class="th">
                                 {{'MATERIALS' | translate}}
@@ -60,7 +60,7 @@
                     </thead>
                     <tbody>
                     <tr data-ng-repeat="material in lstMaterial">
-                        <td><input type="checkbox"/></td>
+                        <td><input type="checkbox" ng-model="selectedAll"/></td>
                         <td>
                             <span editable-text="material.name" e-name="name" e-form="rowform" e-required>
                             {{ material.name || '1'}}
