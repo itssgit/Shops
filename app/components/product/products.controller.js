@@ -1,68 +1,58 @@
 (function() {
     "use strict";
 
-    function ProductsCtrl(a, b) {
+    function ProductsCtrl($scope, $filter) {
         var c;
-        a.stores = [{
+        $scope.stores = [{
             name: "Nijiya Market",
-            price: "10"
+            price: 10
         }, {
             name: "Eat On Monday Truck",
-            price: "15"
+            price: 15
         }, {
             name: "Tea Era",
-            price: "50"
+            price: 50
         }, {
             name: "Rogers Deli",
-            price: "5"
+            price: 5
         }, {
             name: "MoBowl",
-            price: "32"
+            price: 32
         }, {
             name: "The Milk Pail Market",
-            price: "17"
-        }],
-        a.searchKeywords = "",
-        a.filteredStores = [],
-        a.row = "",
-        a.select = function(b) {
-            console.log("select");
+            price: 17
+        }];
+        $scope.filteredStores = $scope.stores;
+        $scope.searchKeywords = "";
+        $scope.row = "";
+        $scope.select = function(b) {
             var c, d;
-            return d = (b - 1) * a.numPerPage, c = d + a.numPerPage, a.currentPageStores = a.filteredStores.slice(d, c)
-        },
-        a.onFilterChange = function() {
-            console.log("onFilterChange");
+            return d = (b - 1) * $scope.numPerPage, c = d + $scope.numPerPage, $scope.currentPageStores = $scope.filteredStores.slice(d, c)
+        };
 
-            return a.select(1), a.currentPage = 1, a.row = ""
-        },
-        a.onNumPerPageChange = function() {
-            console.log("onNumPerPageChange");
+        $scope.order = function(property){
+            return $scope.filteredStores = $filter("orderBy")($scope.stores, property), $scope.onOrderChange();
+        };
 
-            return a.select(1), a.currentPage = 1
-        },
-        a.onOrderChange = function() {
-            console.log("onOrderChange");
+        $scope.search = function(){
+            return $scope.filteredStores = $filter("filter")($scope.stores, $scope.searchKeywords), $scope.onFilterChange();
+        };
+        $scope.onFilterChange = function() {
+            return $scope.select(1), $scope.currentPage = 1
+        };
 
-            return a.select(1), a.currentPage = 1
-        },
-        a.search = function() {
-            console.log("search");
-
-            return a.filteredStores = b("filter")(a.stores, a.searchKeywords), a.onFilterChange()
-        },
-        a.order = function(c) {
-            console.log("order");
-
-            return a.row !== c ? (a.row = c, a.filteredStores = b("orderBy")(a.stores, c), a.onOrderChange()) : void 0
-        },
-        a.numPerPageOpt = [3, 5, 10, 20],
-        a.numPerPage = a.numPerPageOpt[2],
-        a.currentPage = 1,
-        a.currentPageStores = [], (c = function() {
-            console.log("currentPageStores");
-
-            return a.search(), a.select(a.currentPage)
-        })()
+        $scope.onOrderChange = function() {
+            return $scope.select(1), $scope.currentPage = 1
+        };
+        $scope.onNumPerPageChange = function() {
+            return $scope.select(1), $scope.currentPage = 1
+        };
+        $scope.numPerPageOpt = [3, 5, 10, 20];
+        $scope.numPerPage = $scope.numPerPageOpt[2];
+        $scope.currentPage = 1;
+        $scope.currentPageStores = [], (c = function() {
+            return $scope.search(), $scope.select($scope.currentPage)
+        })();
     }
-    angular.module("app.table").controller("ProductsCtrl", ["$scope", "$filter", ProductsCtrl])
+    angular.module("app").controller("ProductsCtrl", ["$scope", "$filter", ProductsCtrl])
 })();
