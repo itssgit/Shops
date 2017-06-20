@@ -39,7 +39,7 @@
                 <table class="table table-bordered table-striped table-product-custom">
                     <thead>
                     <tr class="bg-dark">
-                        <th class="th-checkbox"><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()"/></th>
+                        <td><label class="ui-checkbox"><input name="checkbox1" ng-model="selectAll" type="checkbox" ng-click="checkAll()"><span></span></label></td>
                         <th><div class="th">
                             {{'PICTURES' | translate}}
                         </div>
@@ -69,7 +69,7 @@
                     </thead>
                     <tbody>
                     <tr data-ng-repeat="store in currentPageStores">
-                        <td><input type="checkbox" ng-model="selectedAll"/></td>
+                        <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="selectAll" type="checkbox" ><span></span></label></th>
                         <td>hình ảnh</td>
                         <td>{{store.name}}</td>
                         <td>{{store.price}}</td>
