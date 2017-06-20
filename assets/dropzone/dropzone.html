@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/dropzone/dropzone.css">
+
+</head>
+
+<body ng-cloak> <!-- put controller here-->
+<div>
+    <div class="custom-dropzone">
+        <form class="dropzone" dropzone="" id="dropzone">
+            <div class="dz-default dz-message">
+            </div>
+        </form>
+        <button class="btn btn-danger" ng-click="reset()">{{'REMOVE' | translate}}</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    Dropzone.autoDiscover = false;
+</script>
+</body>
+</html>

@@ -46,19 +46,7 @@
         "use strict";
         angular.module("app.ui", [])
     }(),
-    function() {
-        "use strict";
 
-        function a() {
-            return {
-                restrict: "A",
-                link: function(a, b) {
-                    b.bootstrapFileInput()
-                }
-            }
-        }
-        angular.module("app.ui.form").directive("uiFileUpload", a)
-    }(),
     function() {
         "use strict";
         function a(a) {
@@ -163,7 +151,6 @@
         }
         angular.module("app.ui").factory("logger", a)
     }(),
-
     //keep this code
     // controller
     function() {

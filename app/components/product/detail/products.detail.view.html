@@ -42,12 +42,7 @@
                                             <br>
                                             <label for="">{{'PICTURES' | translate}}</label>
                                             <br>
-                                            <div class="custom-dropzone">
-                                                <div class="custom-preview custom-text-center">
-                                                    <span class="" data-translate="DROP_IMAGE_HERE"></span>
-                                                </div>
-                                                <input type="file" data-ui-file-upload class="btn-primary">
-                                            </div>
+                                            <div data-ng-include=" 'assets/dropzone/dropzone.html' "></div>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="">{{'DESCRIPTION' | translate}}</label>
@@ -124,6 +119,8 @@
                                         </div>
                                     </div>
                                 </form>
+                            </uib-tab>
+                            <uib-tab heading="hêlo">
                             </uib-tab>
                         </uib-tabset>
                     </div>

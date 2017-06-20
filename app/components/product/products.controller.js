@@ -22,7 +22,7 @@
             name: "The Milk Pail Market",
             price: 17
         }];
-        $scope.filteredStores = $scope.stores;
+        $scope.filteredStores = [];
         $scope.searchKeywords = "";
         $scope.row = "";
         $scope.select = function(b) {
