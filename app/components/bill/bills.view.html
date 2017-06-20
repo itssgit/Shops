@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="fileApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div>
+    <div>
+        <form class="dropzone" dropzone="" id="dropzone">
+            <div class="dz-default dz-message">
+            </div>
+        </form>
+    </div>
+    <div class="pull-right">
+        <button class="btn btn-success" ng-click="uploadFile()">Upload File</button>
+        <button class="btn btn-danger" ng-click="reset()">Reset Dropzone</button>
+    </div>
+</div>
+
+</body>
+</html>
