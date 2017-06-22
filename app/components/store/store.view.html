@@ -6,7 +6,7 @@
                 <span data-translate="MATERIALS"/>
             </strong>
             <div class="pull-right">
-                <a href="#store-import" class="btn btn-primary btn-w-md"><span class="glyphicon glyphicon-plus"></span>&nbsp;{{'IMPORT'
+                <a href="#stores-import" class="btn btn-primary btn-w-md"><span class="glyphicon glyphicon-plus"></span>&nbsp;{{'IMPORT'
                     | translate}}</a>
                 <button class="btn btn-success btn-w-md"><span class="glyphicon glyphicon-save"></span>&nbsp;{{'EXPORT'
                     | translate}}
@@ -21,7 +21,6 @@
                 <table class="table table-bordered table-striped table-material-custom">
                     <thead>
                     <tr class="bg-dark">
-                        <!--<th class="th-checkbox"><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()"/></th>-->
                         <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="selectAll" ng-click="checkAll()" type="checkbox" ><span></span></label></th>
                         <th>
                             <div class="th">
@@ -61,7 +60,6 @@
                     </thead>
                     <tbody>
                     <tr data-ng-repeat="material in lstMaterial">
-                        <!--<td><input type="checkbox" ng-model="selectedAll"/></td>-->
                         <td><label class="ui-checkbox"><input name="checkbox1" ng-model="selectAll" type="checkbox" ><span></span></label></td>
                         <td>
                             <span editable-text="material.name" e-name="name" e-form="rowform" e-required>

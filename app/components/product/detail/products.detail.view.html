@@ -13,12 +13,13 @@
                     <div class="ui-tab-container ui-tab-horizontal">
                         <uib-tabset justified="false" class="ui-tab">
                             <uib-tab heading="{{'PRODUCT_INFO' | translate}}">
-                                <form name="form_constraints" class="form-validation">
+                                <form name="form_constraints" class="form-validation" novalidate>
                                     <div class="form-group fit-content">
                                         <div class="col-md-6">
                                             <label for="">{{'PRODUCT_NAME' | translate}}</label>
                                             <input  type="text"
                                                     class="form-control"
+                                                    data-ng-model="Product.Name"
                                                     required
                                                     data-ng-model="form.required">
                                             <br>
@@ -55,7 +56,7 @@
                                         <div class="custom-button-bottom col-md-12">
                                             <div>
                                                 <button type="submit" class="btn btn-primary btn-w-md">{{'SUBMIT' | translate}}</button>
-                                                <button class="btn btn-default btn-w-md">{{'REVERT_CHANGES' | translate}}</button>
+                                                <button class="btn btn-default btn-w-md" data-ng-click="revert()">{{'REVERT_CHANGES' | translate}}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -76,19 +77,17 @@
                                             <label for="">{{'MATERIALS' | translate}}</label>
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
-                                                    <table class="table table-striped table-bordered">
+                                                    <table class="table table-striped table-bordered table-product-custom">
                                                         <thead>
                                                         <tr class="bg-dark">
-                                                            <th><input type="checkbox"/></th>
+                                                            <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="selectAll" type="checkbox" ng-click="checkAll()"><span></span></label></th>
                                                             <th>{{'MATERIALS' | translate}}</th>
                                                             <th>{{'QUANTITY' | translate}}</th>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
                                                         <tr ng-repeat="material in lstMaterial">
-                                                            <td>
-                                                                <input type="checkbox"/>
-                                                            </td>
+                                                            <td><label class="ui-checkbox"><input name="checkbox1" ng-model="selectAll" type="checkbox" ng-click="checkAll()"><span></span></label></td>
                                                             <td>
                                                                 <span class="ui-select">
                                                                     <select>
@@ -106,7 +105,7 @@
                                                     </table>
                                                     <div class="form-group">
                                                         <button class="btn btn-primary btn-w-md" ng-click="addNewMaterial()">{{'ADD' | translate}}</button>
-                                                        <button class="btn btn-danger btn-w-md" ng-click="removeMaterial('quantity')">{{'REMOVE' | translate}}</button>
+                                                        <button class="btn btn-danger btn-w-md" ng-click="removeMaterial()">{{'REMOVE' | translate}}</button>
                                                     </div>
                                                 </div>
                                             </div>

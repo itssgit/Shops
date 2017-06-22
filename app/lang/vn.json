@@ -2,6 +2,7 @@
     "ADD": "Thêm mới",
 
     "BACK_TO_PRODUCT_LIST": "Danh sách sản phẩm",
+    "BACK_TO_STORE_LIST": "Kho",
 
     "CATEGORY": "Nhóm sản phẩm",
     "CANCEL": "Hủy",
@@ -24,6 +25,7 @@
     "FORGOT_YOUR_PASSWORD": "Quên mật khẩu?",
 
     "IMPORT": "Nhập",
+    "IMPORT_LIST_MATERIAL": "Nhập nguyên liệu",
 
     "LOG_IN": "Đăng nhập",
     "LOG_OUT": "Thoát",

@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="page page-table" data-ng-controller="StoreDetailCtrl">
+    <section class="panel panel-default table-dynamic">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header">
+                        <h4>{{'IMPORT_LIST_MATERIAL' | translate}}
+                            <small>
+                                <a href="#stores"><i class="glyphicon glyphicon-circle-arrow-left"></i>&nbsp;{{'BACK_TO_STORE_LIST' | translate}}</a>
+                            </small>
+                        </h4>
+                    </div>
+                </div>
+            </div>
 
-</body>
-</html>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-product-custom">
+                        <thead>
+                        <tr class="bg-dark">
+                            <th><div class="th">
+                                {{'MATERIALS' | translate}}
+                            </div>
+                            </th>
+                            <th><div class="th">
+                                {{'QUANTITY' | translate}}
+                            </div></th>
+                            <th><div class="th">
+                                {{'UNIT' | translate}}
+                            </div></th>
+                            <th>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="material in lstMaterial">
+                            <td><input type="text" class="form-control" data-ng-model="material.name"></td>
+                            <td><input type="text" class="form-control" data-ng-model="material.quanityt"></td>
+                            <td><input type="text" class="form-control" data-ng-model="material.unit"></td>
+                            <td class="th-button">
+                                <button class="btn btn-danger" ng-click="removeMaterial($index)"><span class="glyphicon glyphicon-trash"></span>&nbsp;{{'DELETE' | translate}}</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-primary btn-w-md" ng-click="addNewMaterial()">{{'ADD' | translate}}</button>
+                </div>
+        </div>
+    </section>
+</div>
+

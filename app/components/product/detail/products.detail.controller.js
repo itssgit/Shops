@@ -20,7 +20,19 @@
             });
         };
 
-        $scope.removeMaterial = function(property){
+        $scope.Product =
+            {
+                Name: "Apple",
+                Price: 10
+            };
+
+
+        $scope.removeMaterial = function(){
+
+        }
+
+        $scope.revert = function () {
+            $scope.Product = [];
         }
     }
     angular.module("app").controller("ProductDetailCtrl", ["$scope", ProductDetailCtrl])

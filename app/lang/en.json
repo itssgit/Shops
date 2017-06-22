@@ -2,6 +2,7 @@
     "ADD": "Add new",
 
     "BACK_TO_PRODUCT_LIST": "back to product list",
+    "BACK_TO_STORE_LIST": "back to store",
 
     "CATEGORY": "Category",
     "CANCEL": "Cancel",
@@ -24,6 +25,7 @@
     "FORGOT_YOUR_PASSWORD": "Forgot your password?",
 
     "IMPORT": "Import",
+    "IMPORT_LIST_MATERIAL": "Import materials",
 
     "LOG_IN": "Log in",
     "LOG_OUT": "Logout",
