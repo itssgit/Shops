@@ -29,7 +29,7 @@
                             <th><div class="th">
                                 {{'UNIT' | translate}}
                             </div></th>
-                            <th>
+                            <th class="th-button">
                             </th>
                         </tr>
                         </thead>
@@ -38,7 +38,7 @@
                             <td><input type="text" class="form-control" data-ng-model="material.name"></td>
                             <td><input type="text" class="form-control" data-ng-model="material.quanityt"></td>
                             <td><input type="text" class="form-control" data-ng-model="material.unit"></td>
-                            <td class="th-button">
+                            <td>
                                 <button class="btn btn-danger" ng-click="removeMaterial($index)"><span class="glyphicon glyphicon-trash"></span>&nbsp;{{'DELETE' | translate}}</button>
                             </td>
                         </tr>
