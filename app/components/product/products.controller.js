@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    function ProductsCtrl($scope, $filter) {
+    function ProductsCtrl($scope, $filter, ProductService) {
         var c;
         $scope.stores = [{
             name: "Nijiya Market",
@@ -53,6 +53,7 @@
         $scope.currentPageStores = [], (c = function() {
             return $scope.search(), $scope.select($scope.currentPage)
         })();
+
     }
-    angular.module("app").controller("ProductsCtrl", ["$scope", "$filter", ProductsCtrl])
+    angular.module("app").controller("ProductsCtrl", ["$scope", "$filter","ProductService", ProductsCtrl])
 })();

@@ -163,17 +163,27 @@
                 d.scrollTo(0, 0)
             });
 
-            a.checkAll = function(){
-                if (a.selectedAll) {
-                    a.selectedAll = false;
+            /*Check all & select row*/
+            a.isCheck=false;
+            a.selectAll = function(data){
+                if (a.isCheck) {
+                    a.isCheck = false;
                 } else {
-                    a.selectedAll = true;
+                    a.isCheck = true;
+                }
+                angular.forEach(data, function (dt) {
+                    dt.selected = a.isCheck;
+                });
+            }
+
+            a.selectedRow = function(row){
+                if(row.selected == false){
+                    a.isCheck=false;
                 }
             }
         }
         angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", AppCtrl])
     }(),
-
     // custom page
     function() {
         "use strict";

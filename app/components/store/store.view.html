@@ -21,7 +21,7 @@
                 <table class="table table-bordered table-striped table-material-custom">
                     <thead>
                     <tr class="bg-dark">
-                        <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="selectAll" ng-click="checkAll()" type="checkbox" ><span></span></label></th>
+                        <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-checked="isCheck" ng-click="selectAll(lstMaterial)" type="checkbox" ><span></span></label></th>
                         <th>
                             <div class="th">
                                 {{'MATERIALS' | translate}}
@@ -60,7 +60,7 @@
                     </thead>
                     <tbody>
                     <tr data-ng-repeat="material in lstMaterial">
-                        <td><label class="ui-checkbox"><input name="checkbox1" ng-model="selectAll" type="checkbox" ><span></span></label></td>
+                        <td><label class="ui-checkbox"><input name="checkbox1" ng-model="material.selected" ng-click="selectedRow(material)" type="checkbox" ><span></span></label></td>
                         <td>
                             <span editable-text="material.name" e-name="name" e-form="rowform" e-required>
                             {{ material.name || '1'}}
@@ -111,14 +111,14 @@
                     </div>
                     <div class="col-md-6 text-right pagination-container">
                         <uib-pagination class="pagination-sm"
-                                        ng-model="currentPage"
-                                        total-items="filteredStores.length"
-                                        max-size="4"
-                                        ng-change="select(currentPage)"
-                                        items-per-page="numPerPage"
-                                        rotate="false"
-                                        previous-text="&lsaquo;" next-text="&rsaquo;"
-                                        boundary-links="true"></uib-pagination>
+                            ng-model="currentPage"
+                            total-items="filteredStores.length"
+                            max-size="4"
+                            ng-change="select(currentPage)"
+                            items-per-page="numPerPage"
+                            rotate="false"
+                            previous-text="&lsaquo;" next-text="&rsaquo;"
+                            boundary-links="true"></uib-pagination>
                     </div>
                 </div>
             </footer>

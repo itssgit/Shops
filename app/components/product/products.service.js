@@ -6,5 +6,6 @@
     angular.module("app").service("ProductService", ProductService);
     ProductService.$inject = ["orderByFilter"];
     function ProductService(orderByFilter){
+
     }
 })();
