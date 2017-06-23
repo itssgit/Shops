@@ -3,13 +3,15 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="section-header">
+                    <div class="section-header col-md-4">
                         <h4>{{'IMPORT_LIST_MATERIAL' | translate}}
                             <small>
                                 <a href="#stores"><i class="glyphicon glyphicon-circle-arrow-left"></i>&nbsp;{{'BACK_TO_STORE_LIST' | translate}}</a>
                             </small>
                         </h4>
                     </div>
+                    <button class="btn btn-success btn-w-md pull-right"><span class="glyphicon glyphicon-floppy-open"/>&nbsp;{{'IMPORT_FILE' | translate}}</button>
+
                 </div>
             </div>
 
@@ -42,7 +44,8 @@
                         </tr>
                         </tbody>
                     </table>
-                    <button class="btn btn-primary btn-w-md" ng-click="addNewMaterial()">{{'ADD' | translate}}</button>
+                    <button class="btn btn-primary btn-w-md" ng-click="addNewMaterial()"><span class="glyphicon glyphicon-plus"/>&nbsp;{{'ADD' | translate}}</button>
+                    <button class="btn btn-primary btn-w-md" ><span class="glyphicon glyphicon-save">&nbsp;{{'SAVE' | translate}}</button>
                 </div>
         </div>
     </section>
