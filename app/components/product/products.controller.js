@@ -45,5 +45,5 @@
             $scope.search();
         })();
     }
-    angular.module("app").controller("ProductsCtrl", ["$scope", "$filter","ProductService", ProductsCtrl])
+    angular.module("app").controller("ProductsCtrl", ["$scope","ProductService", ProductsCtrl])
 })();

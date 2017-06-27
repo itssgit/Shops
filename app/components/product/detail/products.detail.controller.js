@@ -13,11 +13,7 @@
             }
         ];
         //material detail
-        $scope.addNewMaterial = function(){
-            $scope.lstMaterial.push({
-                material: "",
-                quantity: ""
-            });
+        $scope.addMaterial = function(){
         };
 
         $scope.Product =
@@ -27,13 +23,14 @@
             };
 
 
-        $scope.removeMaterial = function(){
-
+        $scope.removeMaterial = function($index){
+            $scope.lstMaterial.splice($index, 1);
         }
 
         $scope.revert = function () {
             $scope.Product = [];
         }
+
     }
     angular.module("app").controller("ProductDetailCtrl", ["$scope", ProductDetailCtrl])
 })();

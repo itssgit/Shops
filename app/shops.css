@@ -23,10 +23,17 @@ body {
     padding: 5px 5px 5px 15px !important;
     vertical-align: middle;
 }
+
+.table-margin-custom{
+    margin-bottom: 0px;
+}
 .th-checkbox{
     width: 44px;
 }
 .th-button{
     width: 180px;
+}
+.th-button-min{
+    width: 70px;
 }
 
