@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-sm-3 col-xs-6 filter-result-info">
                     <span>
-                        {{'SHOWING' | translate }} {{filteredStores.length}}/{{stores.length}} {{'ENTRIES' | translate }}
+                        {{'SHOWING' | translate }} {{filteredTodos.length}}/{{stores.length}} {{'ENTRIES' | translate }}
                     </span>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <table class="table table-bordered table-striped table-product-custom">
                     <thead>
                     <tr class="bg-dark">
-                        <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-checked="isCheck" type="checkbox" ng-click="selectAll(currentPageStores)"><span></span></label></th>
+                        <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-checked="isCheck" type="checkbox" ng-click="selectAll(filteredTodos)"><span></span></label></th>
                         <th><div class="th">
                             {{'PICTURES' | translate}}
                         </div>
@@ -68,7 +68,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="store in currentPageStores">
+                    <tr data-ng-repeat="store in lstData">
                         <td><label class="ui-checkbox"><input name="checkbox1" ng-model="store.selected" ng-click="selectedRow(store)" type="checkbox" ><span></span></label></td>
                         <td>hình ảnh</td>
                         <td>{{store.name}}</td>
@@ -88,7 +88,7 @@
                         {{'SHOW' | translate}}
                         <select data-ng-model="numPerPage"
                                 data-ng-options="num for num in numPerPageOpt"
-                                data-ng-change="onNumPerPageChange()">
+                                data-ng-change="onChange()">
                         </select>
                         {{'ENTRIES_PER_PAGE' | translate}}
                     </span>
@@ -96,9 +96,9 @@
                 <div class="col-md-6 text-right pagination-container">
                     <uib-pagination class="pagination-sm"
                                     ng-model="currentPage"
-                                    total-items="filteredStores.length"
-                                    max-size="4"
+                                    total-items="filteredTodos.length"
                                     ng-change="select(currentPage)"
+                                    max-size="4"
                                     items-per-page="numPerPage"
                                     rotate="false"
                                     previous-text="&lsaquo;" next-text="&rsaquo;"

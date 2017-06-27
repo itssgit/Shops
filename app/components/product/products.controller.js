@@ -1,8 +1,7 @@
 (function() {
     "use strict";
 
-    function ProductsCtrl($scope, $filter, ProductService) {
-        var c;
+    function ProductsCtrl($scope, ProductService) {
         $scope.stores = [{
             name: "Nijiya Market",
             price: 10
@@ -22,38 +21,29 @@
             name: "The Milk Pail Market",
             price: 17
         }];
-        $scope.filteredStores = [];
-        $scope.searchKeywords = "";
-        $scope.row = "";
-        $scope.select = function(b) {
-            var c, d;
-            return d = (b - 1) * $scope.numPerPage, c = d + $scope.numPerPage, $scope.currentPageStores = $scope.filteredStores.slice(d, c)
-        };
 
-        $scope.order = function(property){
-            return $scope.filteredStores = $filter("orderBy")($scope.stores, property), $scope.onOrderChange();
-        };
+        $scope.filteredTodos = [];
 
         $scope.search = function(){
-            return $scope.filteredStores = $filter("filter")($scope.stores, $scope.searchKeywords), $scope.onFilterChange();
-        };
-        $scope.onFilterChange = function() {
-            return $scope.select(1), $scope.currentPage = 1
-        };
+            $scope.filteredTodos = ProductService.search($scope.stores, $scope.searchKeywords);
+        }
 
-        $scope.onOrderChange = function() {
-            return $scope.select(1), $scope.currentPage = 1
-        };
-        $scope.onNumPerPageChange = function() {
-            return $scope.select(1), $scope.currentPage = 1
-        };
-        $scope.numPerPageOpt = [3, 5, 10, 20];
-        $scope.numPerPage = $scope.numPerPageOpt[2];
-        $scope.currentPage = 1;
-        $scope.currentPageStores = [], (c = function() {
-            return $scope.search(), $scope.select($scope.currentPage)
+        $scope.order = function(property){
+            $scope.filteredTodos = ProductService.order($scope.stores, property);
+        }
+
+
+        var begin, end;
+        $scope.$watch('currentPage + numPerPage', function() {
+            begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+
+            $scope.lstData = $scope.filteredTodos.slice(begin, end);
+        });
+
+        (function(){
+            $scope.search();
         })();
-
     }
     angular.module("app").controller("ProductsCtrl", ["$scope", "$filter","ProductService", ProductsCtrl])
 })();

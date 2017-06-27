@@ -156,31 +156,36 @@
     function() {
         "use strict";
 
-        function AppCtrl(a, b, c, d, e) {
-            a.pageTransitionOpts = e.pageTransitionOpts, a.main = e.main, a.color = e.color, a.$watch("main", function(c, d) {
-                "horizontal" === c.menu && "vertical" === d.menu && b.$broadcast("nav:reset"), c.fixedHeader === !1 && c.fixedSidebar === !0 && (d.fixedHeader === !1 && d.fixedSidebar === !1 && (a.main.fixedHeader = !0, a.main.fixedSidebar = !0), d.fixedHeader === !0 && d.fixedSidebar === !0 && (a.main.fixedHeader = !1, a.main.fixedSidebar = !1)), c.fixedSidebar === !0 && (a.main.fixedHeader = !0), c.fixedHeader === !1 && (a.main.fixedSidebar = !1)
+        function AppCtrl($scope, b, c, d, e) {
+            $scope.pageTransitionOpts = e.pageTransitionOpts, $scope.main = e.main, $scope.color = e.color, $scope.$watch("main", function(c, d) {
+                "horizontal" === c.menu && "vertical" === d.menu && b.$broadcast("nav:reset"), c.fixedHeader === !1 && c.fixedSidebar === !0 && (d.fixedHeader === !1 && d.fixedSidebar === !1 && ($scope.main.fixedHeader = !0, $scope.main.fixedSidebar = !0), d.fixedHeader === !0 && d.fixedSidebar === !0 && ($scope.main.fixedHeader = !1, $scope.main.fixedSidebar = !1)), c.fixedSidebar === !0 && ($scope.main.fixedHeader = !0), c.fixedHeader === !1 && ($scope.main.fixedSidebar = !1)
             }, !0), b.$on("$routeChangeSuccess", function(a, b, c) {
                 d.scrollTo(0, 0)
             });
 
             /*Check all & select row*/
-            a.isCheck=false;
-            a.selectAll = function(data){
-                if (a.isCheck) {
-                    a.isCheck = false;
+            $scope.isCheck=false;
+            $scope.selectAll = function(data){
+                if ($scope.isCheck) {
+                    $scope.isCheck = false;
                 } else {
-                    a.isCheck = true;
+                    $scope.isCheck = true;
                 }
                 angular.forEach(data, function (dt) {
-                    dt.selected = a.isCheck;
+                    dt.selected = $scope.isCheck;
                 });
             }
-
-            a.selectedRow = function(row){
+            $scope.selectedRow = function(row){
                 if(row.selected == false){
-                    a.isCheck=false;
+                    $scope.isCheck=false;
                 }
             }
+
+            /*Pagination*/
+            $scope.numPerPageOpt = [3, 5, 10, 20];
+            $scope.numPerPage = $scope.numPerPageOpt[2];
+            $scope.currentPage = 1;
+
         }
         angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", AppCtrl])
     }(),
