@@ -43,9 +43,9 @@
             },
 
             //Khai bao link webservice
-            uri =  "https://reqres.in/api/",
+            uri =  "http://localhost:8080/shops-services/",
             productURI = {
-                login: uri + "login"
+                list: uri + "sanpham/find"
             };
 
 

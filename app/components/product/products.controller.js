@@ -2,6 +2,11 @@
     "use strict";
 
     function ProductsCtrl($scope, ProductService) {
+
+        /*list product*/
+
+        ProductService.listProduct();
+
         $scope.stores = [{
             name: "Nijiya Market",
             price: 10
@@ -22,7 +27,7 @@
             price: 17
         }];
 
-        $scope.filteredTodos = [];
+        $scope.filteredTodos = $scope.stores;
 
         $scope.search = function(){
             $scope.filteredTodos = ProductService.search($scope.stores, $scope.searchKeywords);
@@ -40,10 +45,6 @@
 
             $scope.lstData = $scope.filteredTodos.slice(begin, end);
         });
-
-        (function(){
-            $scope.search();
-        })();
     }
     angular.module("app").controller("ProductsCtrl", ["$scope","ProductService", ProductsCtrl])
 })();

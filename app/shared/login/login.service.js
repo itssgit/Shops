@@ -5,7 +5,7 @@
     function LoginService(HttpService, AppConfig) {
 
         this.login = function(data, onSuccess, onError) {
-            var serviceUrl = AppConfig.productURI.login;
+            var serviceUrl = "";
             HttpService.callGetService(serviceUrl, onSuccess, onError);
         };
     }
