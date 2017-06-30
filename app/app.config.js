@@ -43,9 +43,11 @@
             },
 
             //Khai bao link webservice
-            uri =  "http://localhost:8080/shops-services/",
+            uri =  "http://localhost:8080/shops-services/sanpham/",
             productURI = {
-                list: uri + "sanpham/find"
+                list: uri + "find",
+                product: uri + "findOne?sanPhamID=",
+                update: uri + "update"
             };
 
 

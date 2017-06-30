@@ -17,15 +17,10 @@
             return result;
         };
 
-        this.listProduct = function(){
+        this.listProduct = function(onSuccess, onError){
             var url = AppConfig.productURI.list;
             HttpService.callGetService(url, onSuccess, onError);
         }
-        var onSuccess = function success(data){
-            alert(data);
-        }
-        var onError = function error(data){
-            alert(data);
-        }
+
     }
 })();

@@ -1,62 +1,62 @@
-(function () {
-    function dropzone($http) {
+/* js/fileAppDirectives */
 
-        return function(scope, element, attrs) {
+function dropzone($http) {
 
-            var config = {
-                url: 'http://localhost/Frontend/',
-                maxFilesize: 100,
-                paramName: "uploadfile",
-                maxThumbnailFilesize: 10,
-                parallelUploads: 1,
-                autoProcessQueue: false
-            };
+    return function(scope, element, attrs) {
 
-            var eventHandlers = {
-                'addedfile': function(file) {
-                    scope.file = file;
-                    if (this.files[1]!=null) {
-                        this.removeFile(this.files[0]);
-                    }
-                    scope.$apply(function() {
-                        scope.fileAdded = true;
-                    });
-                },
+        var config = {
+            url: 'http://localhost/Frontend/',
+            maxFilesize: 100,
+            paramName: "uploadfile",
+            maxThumbnailFilesize: 10,
+            parallelUploads: 1,
+            autoProcessQueue: false
+        };
 
-                'success': function (file, response) {
-                    console.log(file);
-                    var fd = new FormData();
-                    fd.append('file', file);
+        var eventHandlers = {
+            'addedfile': function(file) {
+                scope.file = file;
+                if (this.files[1]!=null) {
+                    this.removeFile(this.files[0]);
+                }
+                scope.$apply(function() {
+                    scope.fileAdded = true;
+                });
+            },
 
-                    $http.post("http://localhost/Frontend/", fd, {
-                        transformRequest: angular.identity,
-                        headers: {'Content-Type': undefined}
+            'success': function (file, response) {
+                console.log(file);
+                var fd = new FormData();
+                fd.append('file', file);
+
+                $http.post("http://localhost/Frontend/", fd, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                })
+
+                    .success(function(){
+                        console.log("ok");
                     })
 
-                        .success(function(){
-                            console.log("ok");
-                        })
-
-                        .error(function(){
-                        });
-                }
-            };
-
-            dropzone = new Dropzone(element[0], config);
-
-            angular.forEach(eventHandlers, function(handler, event) {
-                dropzone.on(event, handler);
-            });
-
-            scope.processDropzone = function() {
-                dropzone.processQueue();
-            };
-
-            scope.resetDropzone = function() {
-                dropzone.removeAllFiles();
+                    .error(function(){
+                    });
             }
+        };
+
+        dropzone = new Dropzone(element[0], config);
+
+        angular.forEach(eventHandlers, function(handler, event) {
+            dropzone.on(event, handler);
+        });
+
+        scope.processDropzone = function() {
+            dropzone.processQueue();
+        };
+
+        scope.resetDropzone = function() {
+            dropzone.removeAllFiles();
         }
     }
+}
 
-    angular.module('app').directive('dropzone', ['$http',dropzone]);
-})();
+angular.module('app').directive('dropzone', ['$http',dropzone]);

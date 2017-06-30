@@ -123,34 +123,7 @@
         }
         angular.module("app.nav").directive("toggleNavCollapsedMin", ["$rootScope", a]).directive("collapseNav", b).directive("highlightActive", c).directive("toggleOffCanvas", d)
     }(),
-    function() {
-        "use strict";
 
-        function a() {
-            var a;
-            return toastr.options = {
-                closeButton: !0,
-                positionClass: "toast-bottom-right",
-                timeOut: "3000"
-            }, a = function(a, b) {
-                return toastr[b](a)
-            }, {
-                log: function(b) {
-                    a(b, "info")
-                },
-                logWarning: function(b) {
-                    a(b, "warning")
-                },
-                logSuccess: function(b) {
-                    a(b, "success")
-                },
-                logError: function(b) {
-                    a(b, "error")
-                }
-            }
-        }
-        angular.module("app.ui").factory("logger", a)
-    }(),
     //keep this code
     // controller
     function() {
@@ -188,6 +161,22 @@
 
         }
         angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", AppCtrl])
+    }(),
+    function(){
+        function fileCtrl ($scope) {
+            $scope.partialDownloadLink = 'http://localhost:8080/download?filename=';
+            $scope.filename = '';
+
+            $scope.uploadFile = function() {
+                $scope.processDropzone();
+            };
+
+            $scope.reset = function() {
+                $scope.resetDropzone();
+            };
+        }
+
+        angular.module('app').controller('fileCtrl', ["$scope",fileCtrl]);
     }(),
     // custom page
     function() {

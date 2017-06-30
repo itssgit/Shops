@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-sm-3 col-xs-6 filter-result-info">
                     <span>
-                        {{'SHOWING' | translate }} {{filteredTodos.length}}/{{stores.length}} {{'ENTRIES' | translate }}
+                        {{'SHOWING' | translate }} {{filtered.length}}/{{lstProduct.length}} {{'ENTRIES' | translate }}
                     </span>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <table class="table table-bordered table-striped table-product-custom">
                     <thead>
                     <tr class="bg-dark">
-                        <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-checked="isCheck" type="checkbox" ng-click="selectAll(filteredTodos)"><span></span></label></th>
+                        <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-checked="isCheck" type="checkbox" ng-click="selectAll(filtered)"><span></span></label></th>
                         <th><div class="th">
                             {{'PICTURES' | translate}}
                         </div>
@@ -48,33 +48,35 @@
                         <th><div class="th">
                             {{'PRODUCTS' | translate}}
                             <span class="fa fa-angle-up"
-                                  data-ng-click=" order('name') "
-                                  data-ng-class="{active: row == 'name'}"></span>
+                                  data-ng-click=" order('tenSanPham') "
+                                  data-ng-class="{active: row == 'tenSanPham'}"></span>
                             <span class="fa fa-angle-down"
-                                  data-ng-click=" order('-name') "
-                                  data-ng-class="{active: row == '-name'}"></span>
+                                  data-ng-click=" order('-tenSanPham') "
+                                  data-ng-class="{active: row == '-tenSanPham'}"></span>
                         </div></th>
                         <th><div class="th">
                             {{'PRICE' | translate}}
                             <span class="fa fa-angle-up"
-                                  data-ng-click=" order('price') "
-                                  data-ng-class="{active: row == 'price'}"></span>
+                                  data-ng-click=" order('donGia') "
+                                  data-ng-class="{active: row == 'donGia'}"></span>
                             <span class="fa fa-angle-down"
-                                  data-ng-click=" order('-price') "
-                                  data-ng-class="{active: row == '-price'}"></span>
+                                  data-ng-click=" order('-donGia') "
+                                  data-ng-class="{active: row == '-donGia'}"></span>
                         </div></th>
+                        <th>{{'DESCRIPTION' | translate}}</th>
                         <th>
                         </th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="store in lstData">
-                        <td><label class="ui-checkbox"><input name="checkbox1" ng-model="store.selected" ng-click="selectedRow(store)" type="checkbox" ><span></span></label></td>
-                        <td>hình ảnh</td>
-                        <td>{{store.name}}</td>
-                        <td>{{store.price}}</td>
+                    <tr data-ng-repeat="product in lstData">
+                        <td><label class="ui-checkbox"><input name="checkbox1" ng-model="product.selected" ng-click="selectedRow(product)" type="checkbox" ><span></span></label></td>
+                        <td>{{product.hinhAnh}}</td>
+                        <td>{{product.tenSanPham}}</td>
+                        <td>{{product.donGia}}</td>
+                        <td>{{product.moTa}}</td>
                         <td class="th-button">
-                            <a href="#products-edit" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
+                            <a href="#products-edit?id={{product.sanPhamId}}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
                         </td>
                     </tr>
                     </tbody>
@@ -96,7 +98,7 @@
                 <div class="col-md-6 text-right pagination-container">
                     <uib-pagination class="pagination-sm"
                                     ng-model="currentPage"
-                                    total-items="filteredTodos.length"
+                                    total-items="filtered.length"
                                     max-size="4"
                                     items-per-page="numPerPage"
                                     rotate="false"

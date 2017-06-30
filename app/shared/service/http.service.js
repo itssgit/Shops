@@ -44,6 +44,21 @@
                     onError(rejectResponse.data);
                 });
         };
+
+        vm.callPutService = function (url, data, onSuccess, onError) {
+            $http(
+                {
+                    method: 'PUT',
+                    url: url,
+                    data: data
+                }
+            ).then(function (response) {
+                onSuccess(response.data);
+            })
+                .catch(function (rejectResponse) {
+                    onError(rejectResponse.data);
+                });
+        };
         
         vm.callPostServiceWithSessionHeader = function (url, data, onSuccess, onError) {
             var sessionKey = '';

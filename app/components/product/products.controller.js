@@ -4,46 +4,37 @@
     function ProductsCtrl($scope, ProductService) {
 
         /*list product*/
+        $scope.lstProduct=[];
+        var onSuccess = function success(data){
+            $scope.lstProduct = data.value.list;
+            $scope.filtered = $scope.lstProduct;
+        }
+        var onError = function error(data){
+            alert(data.message);
+        }
+        ProductService.listProduct(onSuccess, onError);
+        $scope.filtered = [];
 
-        ProductService.listProduct();
 
-        $scope.stores = [{
-            name: "Nijiya Market",
-            price: 10
-        }, {
-            name: "Eat On Monday Truck",
-            price: 15
-        }, {
-            name: "Tea Era",
-            price: 50
-        }, {
-            name: "Rogers Deli",
-            price: 5
-        }, {
-            name: "MoBowl",
-            price: 32
-        }, {
-            name: "The Milk Pail Market",
-            price: 17
-        }];
-
-        $scope.filteredTodos = $scope.stores;
-
+        /*search*/
         $scope.search = function(){
-            $scope.filteredTodos = ProductService.search($scope.stores, $scope.searchKeywords);
+            $scope.filtered = ProductService.search($scope.lstProduct, $scope.searchKeywords);
         }
 
+        /*sort*/
         $scope.order = function(property){
-            $scope.filteredTodos = ProductService.order($scope.stores, property);
+            $scope.filtered = ProductService.order($scope.lstProduct, property);
         }
 
-
+        /*pagination*/
+        $scope.$watch('filtered', function() {
+            $scope.lstData = $scope.filtered;
+        });
         var begin, end;
         $scope.$watch('currentPage + numPerPage', function() {
             begin = (($scope.currentPage - 1) * $scope.numPerPage)
                 , end = begin + $scope.numPerPage;
-
-            $scope.lstData = $scope.filteredTodos.slice(begin, end);
+            $scope.lstData = $scope.filtered.slice(begin, end);
         });
     }
     angular.module("app").controller("ProductsCtrl", ["$scope","ProductService", ProductsCtrl])
