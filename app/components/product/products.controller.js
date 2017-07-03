@@ -1,20 +1,34 @@
 (function() {
     "use strict";
 
-    function ProductsCtrl($scope, ProductService) {
+    function ProductsCtrl($scope, $filter, ProductService) {
 
         /*list product*/
         $scope.lstProduct=[];
-        var onSuccess = function success(data){
+        var onGetListSuccess = function success(data){
             $scope.lstProduct = data.value.list;
             $scope.filtered = $scope.lstProduct;
         }
-        var onError = function error(data){
+        var onGetListError = function error(data){
             alert(data.message);
         }
-        ProductService.listProduct(onSuccess, onError);
+        ProductService.listProduct(onGetListSuccess, onGetListError);
         $scope.filtered = [];
 
+
+        /*delete product*/
+        $scope.delete = function(){
+            var selectedProduct = $filter('filter')($scope.lstProduct, {selected: 'true'});
+            var lstId = selectedProduct.map(function(a) {return a.sanPhamId;});
+            var onDeleteSuccess = function success(data){
+                $scope.lstProduct = data.value.list;
+                $scope.filtered = $scope.lstProduct;
+            }
+            var onDeleteError = function error(data){
+                alert(data.message);
+            }
+            ProductService.delete(lstId, onDeleteSuccess, onDeleteError);
+        }
 
         /*search*/
         $scope.search = function(){
@@ -37,5 +51,5 @@
             $scope.lstData = $scope.filtered.slice(begin, end);
         });
     }
-    angular.module("app").controller("ProductsCtrl", ["$scope","ProductService", ProductsCtrl])
+    angular.module("app").controller("ProductsCtrl", ["$scope", "$filter", "ProductService", ProductsCtrl])
 })();

@@ -22,5 +22,9 @@
             HttpService.callGetService(url, onSuccess, onError);
         }
 
+        this.deleteProduct = function(lstProductId, onSuccess, onError){
+
+        }
+
     }
 })();
