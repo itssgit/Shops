@@ -19,17 +19,10 @@
         /*get category*/
 
         //////////////////////////////////
-        $scope.lstMaterial = [
-            {
-                material: "Chanh",
-                quantity: 23
-            },
-            {
-                material: "Xoài",
-                quantity: 3,
-            }
-        ];
-        //material detail
+        $scope.lstMaterial = [];
+
+        /*material detail*/
+        $scope.lstProductMaterial=[];
         $scope.addMaterial = function(){
         };
 
@@ -37,17 +30,18 @@
             $scope.lstMaterial.splice($index, 1);
         }
 
+
         /*save*/
-        $scope.saveInfo = function(product){
-            product = {
-                "chiTietSanPhamDTOList": [],
-                "donGia": 0,
-                "hienThi": true,
-                "hinhAnh": "string",
-                "moTa": "string",
-                "nhomSanPhamId": 0,
-                "sanPhamId": 20,
-                "tenSanPham": "ádfghgfdsdfgf"
+        $scope.saveInfo = function(){
+            var product = {
+                "chiTietSanPhamDTOList": $scope.product.chiTietSanPhamDTOList,
+                "donGia": $scope.product.donGia,
+                "hienThi": $scope.product.hienThi,
+                "hinhAnh": $scope.product.hinhAnh,
+                "moTa": $scope.product.moTa,
+                "nhomSanPhamId": $scope.product.nhomSanPhamId,
+                "sanPhamId": $scope.product.sanPhamId,
+                "tenSanPham": $scope.product.tenSanPham
             };
             var onSaveInfoSuccess = function success(data){
                 alert("ok");
@@ -59,7 +53,6 @@
         }
 
         $scope.revert = function () {
-            $scope.Product = [];
         }
 
     }

@@ -423,12 +423,12 @@
   width: 100%;
   height: 100%;
 }
-/*.custom-dropzone>button{*/
-  /*position: absolute;*/
-  /*bottom: 0;*/
-  /*margin-left: 10px;*/
-/*}*/
+.dropzone-custom-display{
+  display: -webkit-box;
+}
 
-/*.custom-dropzone{*/
-  /*display: -webkit-box;*/
-/*}*/
+.btn-reset-custom{
+  position: absolute;
+  bottom: 0;
+  margin-left: 10px;
+}
