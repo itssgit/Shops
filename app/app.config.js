@@ -25,7 +25,7 @@
                 name: "Vương Anh Vũ",
                 year: c,
                 layout: "wide",
-                menu: "vertical",
+                menu: "horizontal",
                 isMenuCollapsed: !1,
                 fixedHeader: !0,
                 fixedSidebar: !0,

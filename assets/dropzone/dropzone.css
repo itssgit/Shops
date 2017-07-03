@@ -44,8 +44,8 @@
   vertical-align: top;
   border: 1px solid #acacac;
   padding: 3px 3px 3px 3px;
-  min-width: 250px;
-  min-height: 250px;
+  min-width: 200px;
+  min-height: 200px;
 }
 .dropzone .dz-preview.dz-file-preview [data-dz-thumbnail],
 .dropzone-previews .dz-preview.dz-file-preview [data-dz-thumbnail] {
@@ -158,10 +158,10 @@
 }
 .dropzone {
   border: 1px solid rgba(0,0,0,0.03);
-  min-height: 250px;
-  max-height: 250px;
-  min-width: 250px;
-  max-width: 250px;
+  min-height: 200px;
+  max-height: 200px;
+  min-width: 200px;
+  max-width: 200px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   background: rgba(0,0,0,0.03);
@@ -180,8 +180,8 @@
   background-repeat: no-repeat;
   background-position: 0 0;
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-size: contain;
   /*margin-left: -214px;*/
   /*margin-top: -61.5px;*/

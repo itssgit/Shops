@@ -23,11 +23,12 @@
 
         /*material detail*/
         $scope.lstProductMaterial=[];
-        $scope.addMaterial = function(){
+        $scope.addNewMaterial = function(){
+            $scope.lstProductMaterial.push({});
         };
 
         $scope.removeMaterial = function($index){
-            $scope.lstMaterial.splice($index, 1);
+            $scope.lstProductMaterial.splice($index, 1);
         }
 
 
@@ -52,7 +53,8 @@
             ProductDetailService.saveInfo(product, onSaveInfoSuccess, onSaveInfoError);
         }
 
-        $scope.revert = function () {
+        $scope.revertInfo = function () {
+            // $scope.product = $scope.originData;
         }
 
     }

@@ -12,7 +12,7 @@
             HttpService.callGetService(url, onSuccess, onError);
         }
 
-        this.saveInfo = function(product, onError){
+        this.saveInfo = function(product, onSuccess, onError){
             var url = AppConfig.productURI.update;
             HttpService.callPutService(url, product, onSuccess, onError);
         }
