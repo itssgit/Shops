@@ -45,7 +45,7 @@
                 "tenSanPham": $scope.product.tenSanPham
             };
             var onSaveInfoSuccess = function success(data){
-                alert("ok");
+                $location.url('/products');
             }
             var onSaveInfoError = function error(data){
                 alert("error");
@@ -53,10 +53,16 @@
             ProductDetailService.saveInfo(product, onSaveInfoSuccess, onSaveInfoError);
         }
 
-        $scope.revertInfo = function () {
-            // $scope.product = $scope.originData;
+        /*delete*/
+        $scope.delete = function(){
+            var onDeleteSuccess = function success(data){
+                $location.url('/products');
+            }
+            var onDeleteError = function error(data){
+                alert("error");
+            }
+            ProductDetailService.delete(id, onDeleteSuccess, onDeleteError);
         }
-
     }
     angular.module("app").controller("ProductDetailCtrl", ["$scope", "$routeParams","$location", "ProductDetailService", ProductDetailCtrl])
 })();

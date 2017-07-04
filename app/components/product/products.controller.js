@@ -18,11 +18,13 @@
 
         /*delete product*/
         $scope.delete = function(){
-            var selectedProduct = $filter('filter')($scope.lstProduct, {selected: 'true'});
+            var selectedProduct = $filter('filter')($scope.filtered, {selected: 'true'});
             var lstId = selectedProduct.map(function(a) {return a.sanPhamId;});
             var onDeleteSuccess = function success(data){
-                $scope.lstProduct = data.value.list;
-                $scope.filtered = $scope.lstProduct;
+                angular.forEach(selectedProduct, function(value, key){
+                    var index = $scope.filtered.indexOf(value);
+                    $scope.filtered.splice(index, 1);
+                });
             }
             var onDeleteError = function error(data){
                 alert(data.message);

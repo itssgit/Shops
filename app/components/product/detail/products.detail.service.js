@@ -16,5 +16,10 @@
             var url = AppConfig.productURI.update;
             HttpService.callPutService(url, product, onSuccess, onError);
         }
+
+        this.delete = function(id, onSuccess, onError){
+            var url = AppConfig.productURI.delete;
+            HttpService.callPutService(url, id, onSuccess, onError);
+        }
     }
 })();

@@ -22,8 +22,9 @@
             HttpService.callGetService(url, onSuccess, onError);
         }
 
-        this.deleteProduct = function(lstProductId, onSuccess, onError){
-
+        this.delete = function(lstProductId, onSuccess, onError){
+            var url = AppConfig.productURI.deleteList;
+            HttpService.callPutService(url, lstProductId, onSuccess, onError);
         }
 
     }

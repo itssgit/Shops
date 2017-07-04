@@ -25,7 +25,7 @@
                 name: "Vương Anh Vũ",
                 year: c,
                 layout: "wide",
-                menu: "horizontal",
+                menu: "vertical",
                 isMenuCollapsed: !1,
                 fixedHeader: !0,
                 fixedSidebar: !0,
@@ -47,7 +47,9 @@
             productURI = {
                 list: uri + "find",
                 product: uri + "findOne?sanPhamID=",
-                update: uri + "update"
+                update: uri + "update",
+                deleteList: uri + "deleteList",
+                delete: uri + "delete"
             };
 
 
