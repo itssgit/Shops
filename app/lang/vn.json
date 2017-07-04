@@ -35,6 +35,7 @@
 
     "MATERIALS": "Nguyên liệu",
     "MY_PROFILE": "Thông tin cá nhân",
+    "MSG_PRODUCT_NAME_REQUIRED": "Tên sản phẩm không được để trống",
 
     "ORDERS": "Hóa đơn",
 
@@ -45,6 +46,8 @@
     "PRODUCT_STRUCTURE": "Công thức",
     "PRODUCT_INFO": "Thông tin",
     "PRODUCT_NAME": "Tên sản phẩm",
+    "PRODUCT_PUBLISHED": "Hiển thị",
+    "PRODUCT_DISPLAY_STATUS": "Trạng thái hiển thị",
 
     "QUANTITY": "Số lượng",
 

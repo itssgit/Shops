@@ -10,7 +10,8 @@ body {
 .fit-content{
     display: block;
     overflow: auto;
-    margin-bottom: 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 .table-product-custom>tbody>tr>td,
 .table-material-custom>tbody>tr>td{

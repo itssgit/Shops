@@ -21,34 +21,52 @@
                         <uib-tabset justified="false" class="ui-tab">
                             <uib-tab heading="{{'PRODUCT_INFO' | translate}}">
                                 <div class="form-group fit-content">
+                                    <form name="productInfo" novalidate>
+                                        <fieldset>
+                                            <div class="col-md-6">
+                                                <div class="form-group" ng-class="{ 'has-error': productInfo.tenSanPham.$touched && productInfo.tenSanPham.$invalid }">
+                                                    <label>{{'PRODUCT_NAME' | translate}}</label>
+                                                    <input  type="text"
+                                                            class="form-control"
+                                                            name="tenSanPham"
+                                                            data-ng-model="product.tenSanPham"
+                                                            required>
+                                                    <div class="help-block" ng-messages="productInfo.tenSanPham.$error" ng-if="productInfo.tenSanPham.$touched">
+                                                        <p ng-message="required">{{'MSG_PRODUCT_NAME_REQUIRED' | translate}}</p>
+                                                    </div>
+                                                </div>
+                                                <label>{{'PRICE' | translate}} </label>
+                                                <input  type="text"
+                                                        class="form-control"
+                                                        data-ng-model="product.donGia"
+                                                        format="currency"
+                                                        required
+                                                        data-ng-minlength=3>
+                                                <br>
+                                                <label>{{'CATEGORY' | translate}}</label>
+                                                <br>
+                                                <span class="ui-select">
+                                                    <select>
+                                                        <option>Mustard</option>
+                                                        <option>Ketchup</option>
+                                                        <option>Barbecue</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>{{'DESCRIPTION' | translate}}</label>
+                                                <textarea class="form-control" ng-model="product.moTa" rows="5"></textarea>
+                                                <br>
+                                                <label>{{'PRODUCT_DISPLAY_STATUS' | translate}}</label>
+                                                <div>
+                                                    <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" type="checkbox"><span data-translate="PRODUCT_PUBLISHED"></span></label></th>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
                                     <div class="col-md-6">
-                                        <label for="">{{'PRODUCT_NAME' | translate}}</label>
-                                        <input  type="text"
-                                                class="form-control"
-                                                data-ng-model="product.tenSanPham"
-                                                required>
                                         <br>
-                                        <label for="">{{'PRICE' | translate}} </label>
-                                        <input  type="text"
-                                                class="form-control"
-                                                data-ng-model="product.donGia"
-                                                format="currency"
-                                                required
-                                                data-ng-minlength=3>
-                                        <br>
-                                        <label for="">{{'CATEGORY' | translate}}</label>
-                                        <br>
-                                        <span class="ui-select">
-                                            <select>
-                                                <option>Mustard</option>
-                                                <option>Ketchup</option>
-                                                <option>Barbecue</option>
-                                            </select>
-                                        </span>
-                                        <br>
-                                        <br>
-                                        <label for="">{{'PICTURES' | translate}}</label>
-                                        <br>
+                                        <label>{{'PICTURES' | translate}}</label>
                                         <div ng-controller="fileCtrl" class="dropzone-custom-display">
                                             <form class="dropzone" dropzone="" id="dropzone">
                                                 <div class="dz-default dz-message">
@@ -58,15 +76,6 @@
                                                 <button class="btn btn-danger btn-reset-custom" ng-click="reset()">{{'REMOVE' | translate}}</button>
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">{{'DESCRIPTION' | translate}}</label>
-                                        <section class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div text-angular ng-model="product.moTa" class="ui-editor"></div>
-                                            </div>
-                                        </section>
                                     </div>
                                 </div>
                             </uib-tab>
@@ -74,11 +83,7 @@
                                 <div class="form-group fit-content">
                                     <div class="col-md-6">
                                         <label for="">{{'DESCRIPTION' | translate}}</label>
-                                        <section class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div text-angular ng-model="mailContent" class="ui-editor"></div>
-                                            </div>
-                                        </section>
+                                        <textarea class="form-control" rows="5"></textarea>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">{{'MATERIALS' | translate}}</label>

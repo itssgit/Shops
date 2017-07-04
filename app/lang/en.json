@@ -35,6 +35,7 @@
 
     "MATERIALS": "Materials",
     "MY_PROFILE": "Profile",
+    "MSG_PRODUCT_NAME_REQUIRED": "Product name is required",
 
     "ORDERS": "Orders",
 
@@ -45,6 +46,8 @@
     "PRODUCT_STRUCTURE": "Structure",
     "PRODUCT_INFO": "Product info",
     "PRODUCT_NAME": "Product name",
+    "PRODUCT_PUBLISHED": "Published",
+    "PRODUCT_DISPLAY_STATUS": "Display status",
 
     "QUANTITY": "Quantity",
 
