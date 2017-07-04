@@ -50,6 +50,10 @@
                 update: uri + "update",
                 deleteList: uri + "deleteList",
                 delete: uri + "delete"
+            },
+
+            constant = {
+                DELETED: 1
             };
 
 
@@ -57,7 +61,8 @@
             pageTransitionOpts: a,
             main: d,
             color: e,
-            productURI: productURI
+            productURI: productURI,
+            constant: constant
         }
     }
     angular.module("app").factory("AppConfig", [AppConfig])

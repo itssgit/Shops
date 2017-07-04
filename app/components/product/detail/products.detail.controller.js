@@ -1,11 +1,14 @@
 (function() {
     "use strict";
 
-    function ProductDetailCtrl($scope, $routeParams,$location, ProductDetailService) {
+    function ProductDetailCtrl($scope, $routeParams,$location, AppConfig, ProductDetailService) {
         /*product info*/
         var id = $routeParams.id;
         if($location.$$path == "/products-edit"){
             var onGetInfoSuccess = function success(data){
+                if(data.value.trangThaiXoa == 1){
+                    $location.url('/404');
+                }
                 $scope.product = data.value;
                 $scope.title = $scope.product.tenSanPham;
             }
@@ -64,5 +67,5 @@
             ProductDetailService.delete(id, onDeleteSuccess, onDeleteError);
         }
     }
-    angular.module("app").controller("ProductDetailCtrl", ["$scope", "$routeParams","$location", "ProductDetailService", ProductDetailCtrl])
+    angular.module("app").controller("ProductDetailCtrl", ["$scope", "$routeParams","$location", "AppConfig", "ProductDetailService", ProductDetailCtrl])
 })();
