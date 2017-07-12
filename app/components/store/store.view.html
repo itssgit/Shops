@@ -59,7 +59,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="material in lstMaterial">
+                    <tr data-ng-repeat="material in lstData">
                         <td><label class="ui-checkbox"><input name="checkbox1" ng-model="material.selected" ng-click="selectedRow(material)" type="checkbox" ><span></span></label></td>
                         <td>
                             <span editable-text="material.ten" e-name="ten" e-form="rowform" e-required>
@@ -104,21 +104,20 @@
                         {{'SHOW' | translate}}
                         <select data-ng-model="numPerPage"
                                 data-ng-options="num for num in numPerPageOpt"
-                                data-ng-change="onNumPerPageChange()">
+                                data-ng-change="onChange()">
                         </select>
                         {{'ENTRIES_PER_PAGE' | translate}}
                     </span>
                     </div>
                     <div class="col-md-6 text-right pagination-container">
                         <uib-pagination class="pagination-sm"
-                            ng-model="currentPage"
-                            total-items="filteredStores.length"
-                            max-size="4"
-                            ng-change="select(currentPage)"
-                            items-per-page="numPerPage"
-                            rotate="false"
-                            previous-text="&lsaquo;" next-text="&rsaquo;"
-                            boundary-links="true"></uib-pagination>
+                                        ng-model="currentPage"
+                                        total-items="filtered.length"
+                                        max-size="4"
+                                        items-per-page="numPerPage"
+                                        rotate="false"
+                                        previous-text="&lsaquo;" next-text="&rsaquo;"
+                                        boundary-links="true"></uib-pagination>
                     </div>
                 </div>
             </footer>

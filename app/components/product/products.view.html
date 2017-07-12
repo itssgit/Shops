@@ -42,7 +42,7 @@
                     <thead>
                     <tr class="bg-dark">
                         <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-checked="isCheck" type="checkbox" ng-click="selectAll(filtered)"><span></span></label></th>
-                        <th><div class="th">
+                        <th class="th-picture-custom"><div class="th">
                             {{'PICTURES' | translate}}
                         </div>
 
@@ -73,7 +73,7 @@
                     <tbody>
                     <tr data-ng-repeat="product in lstData">
                         <td><label class="ui-checkbox"><input name="checkbox1" ng-model="product.selected" ng-click="selectedRow(product)" type="checkbox" ><span></span></label></td>
-                        <td>{{product.hinhAnh}}</td>
+                        <td><img src="http://wallpapersdsc.net/wp-content/uploads/2016/09/Yogurt-Images.jpg" class="image-table-custom"/></td>
                         <td>{{product.tenSanPham}}</td>
                         <td>{{product.donGia}}</td>
                         <td>{{product.moTa}}</td>

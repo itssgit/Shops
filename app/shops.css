@@ -41,3 +41,9 @@ body {
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
+.image-table-custom{
+    width: 100px;
+}
+.th-picture-custom{
+    width: 130px;
+}
