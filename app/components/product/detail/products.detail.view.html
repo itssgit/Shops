@@ -4,17 +4,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-header clearfix">
-                        <div>
+                        <div class="col-md-6 col-custom">
                             <h3>{{title | translate}}
                                 <small>
                                     <a href="#products"><i class="glyphicon glyphicon-circle-arrow-left"></i>&nbsp;{{'BACK_TO_PRODUCT_LIST' | translate}}</a>
                                 </small>
                             </h3>
                         </div>
-                        <div class="pull-right">
+                        <div class="col-md-6 col-custom text-right" ng-if="title !== 'CREATE_PRODUCT'">
                             <button class="btn btn-primary btn-w-md" ng-click="saveInfo()"><span class="glyphicon glyphicon-save"/>&nbsp;{{'SAVE' | translate}}</button>
-                            <button class="btn btn-primary btn-w-md"><span class="glyphicon glyphicon-save"/>&nbsp;{{'SAVE_AND_CONTINUE' | translate}}</button>
                             <button class="btn btn-danger btn-w-md" ng-click="delete()"><span class="glyphicon glyphicon-trash"/>&nbsp;{{'DELETE' | translate}}</button>
+                        </div>
+                        <div class="col-md-6 col-custom text-right" ng-if="title === 'CREATE_PRODUCT'">
+                            <button class="btn btn-primary btn-w-md" ng-click="create()"><span class="glyphicon glyphicon-save"/>&nbsp;{{'SAVE' | translate}}</button>
                         </div>
                     </div>
                     <div class="ui-tab-container ui-tab-horizontal">
@@ -59,7 +61,7 @@
                                                 <br>
                                                 <label>{{'PRODUCT_DISPLAY_STATUS' | translate}}</label>
                                                 <div>
-                                                    <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" type="checkbox"><span data-translate="PRODUCT_PUBLISHED"></span></label></th>
+                                                    <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" type="checkbox" ng-model="product.hienThi"><span data-translate="PRODUCT_PUBLISHED"></span></label></th>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -74,6 +76,7 @@
                                             </form>
                                             <div>
                                                 <button class="btn btn-danger btn-reset-custom" ng-click="reset()">{{'REMOVE' | translate}}</button>
+                                                <button class="btn btn-primary" ng-click="uploadFile()">{{'REMOVE' | translate}}</button>
                                             </div>
                                         </div>
                                     </div>

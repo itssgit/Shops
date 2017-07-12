@@ -130,8 +130,16 @@
         "use strict";
 
         function AppCtrl($scope, b, c, d, e) {
-            $scope.pageTransitionOpts = e.pageTransitionOpts, $scope.main = e.main, $scope.color = e.color, $scope.$watch("main", function(c, d) {
-                "horizontal" === c.menu && "vertical" === d.menu && b.$broadcast("nav:reset"), c.fixedHeader === !1 && c.fixedSidebar === !0 && (d.fixedHeader === !1 && d.fixedSidebar === !1 && ($scope.main.fixedHeader = !0, $scope.main.fixedSidebar = !0), d.fixedHeader === !0 && d.fixedSidebar === !0 && ($scope.main.fixedHeader = !1, $scope.main.fixedSidebar = !1)), c.fixedSidebar === !0 && ($scope.main.fixedHeader = !0), c.fixedHeader === !1 && ($scope.main.fixedSidebar = !1)
+            $scope.pageTransitionOpts = e.pageTransitionOpts,
+            $scope.main = e.main,
+            $scope.color = e.color,
+            $scope.$watch("main", function(c, d) {
+                "horizontal" === c.menu && "vertical" === d.menu && b.$broadcast("nav:reset"),
+                c.fixedHeader === !1 && c.fixedSidebar === !0 && (d.fixedHeader === !1 && d.fixedSidebar === !1 && ($scope.main.fixedHeader = !0,
+                    $scope.main.fixedSidebar = !0),
+                d.fixedHeader === !0 && d.fixedSidebar === !0 && ($scope.main.fixedHeader = !1,
+                    $scope.main.fixedSidebar = !1)), c.fixedSidebar === !0 && ($scope.main.fixedHeader = !0),
+                c.fixedHeader === !1 && ($scope.main.fixedSidebar = !1)
             }, !0), b.$on("$routeChangeSuccess", function(a, b, c) {
                 d.scrollTo(0, 0)
             });
@@ -159,14 +167,16 @@
             $scope.numPerPage = $scope.numPerPageOpt[2];
             $scope.currentPage = 1;
 
+            /*alert*/
+            $scope.alerts = [];
+            $scope.closeAlert = function($index) {
+                return $scope.alerts.splice($index, 1)
+            };
         }
         angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", AppCtrl])
     }(),
     function(){
         function fileCtrl ($scope) {
-            $scope.partialDownloadLink = 'http://localhost:8080/download?filename=';
-            $scope.filename = '';
-
             $scope.uploadFile = function() {
                 $scope.processDropzone();
             };
@@ -229,9 +239,9 @@
                 templateUrl: "app/shared/forgot-password/forgot-password.view.html"
             }).when("/products", {
                 templateUrl: "app/components/product/products.view.html"
-            }).when("/products-create", {
+            }).when("/products/create", {
                 templateUrl: "app/components/product/detail/products.detail.view.html"
-            }).when("/products-edit", {
+            }).when("/products/edit", {
                 templateUrl: "app/components/product/detail/products.detail.view.html"
             }).when("/stores", {
                 templateUrl: "app/components/store/store.view.html"

@@ -26,33 +26,33 @@
                             <div class="th">
                                 {{'MATERIALS' | translate}}
                                 <span class="fa fa-angle-up"
-                                      data-ng-click=" order('name') "
-                                      data-ng-class="{active: row == 'name'}"></span>
+                                      data-ng-click=" order('ten') "
+                                      data-ng-class="{active: row == 'ten'}"></span>
                                 <span class="fa fa-angle-down"
-                                      data-ng-click=" order('-name') "
-                                      data-ng-class="{active: row == '-name'}"></span>
+                                      data-ng-click=" order('-ten') "
+                                      data-ng-class="{active: row == '-ten'}"></span>
                             </div>
                         </th>
                         <th>
                             <div class="th">
                                 {{'QUANTITY' | translate}}
                                 <span class="fa fa-angle-up"
-                                      data-ng-click=" order('name') "
-                                      data-ng-class="{active: row == 'name'}"></span>
+                                      data-ng-click=" order('soLuong') "
+                                      data-ng-class="{active: row == 'soLuong'}"></span>
                                 <span class="fa fa-angle-down"
-                                      data-ng-click=" order('-name') "
-                                      data-ng-class="{active: row == '-name'}"></span>
+                                      data-ng-click=" order('-soLuong') "
+                                      data-ng-class="{active: row == '-soLuong'}"></span>
                             </div>
                         </th>
                         <th>
                             <div class="th">
                                 {{'UNIT' | translate}}
                                 <span class="fa fa-angle-up"
-                                      data-ng-click=" order('name') "
-                                      data-ng-class="{active: row == 'name'}"></span>
+                                      data-ng-click=" order('donVi') "
+                                      data-ng-class="{active: row == 'donVi'}"></span>
                                 <span class="fa fa-angle-down"
-                                      data-ng-click=" order('-name') "
-                                      data-ng-class="{active: row == '-name'}"></span>
+                                      data-ng-click=" order('-donVi') "
+                                      data-ng-class="{active: row == '-donVi'}"></span>
                             </div>
                         </th>
                         <th class="th-button"></th>
@@ -62,18 +62,18 @@
                     <tr data-ng-repeat="material in lstMaterial">
                         <td><label class="ui-checkbox"><input name="checkbox1" ng-model="material.selected" ng-click="selectedRow(material)" type="checkbox" ><span></span></label></td>
                         <td>
-                            <span editable-text="material.name" e-name="name" e-form="rowform" e-required>
-                            {{ material.name || '1'}}
+                            <span editable-text="material.ten" e-name="ten" e-form="rowform" e-required>
+                            {{ material.ten || ' '}}
                             </span>
                         </td>
                         <td>
-                            <span editable-text="material.quantity" e-name="quantity" e-form="rowform">
-                            {{ material.quantity || '1'}}
+                            <span editable-text="material.soLuong" e-name="soLuong" e-form="rowform">
+                            {{ material.soLuong || ' '}}
                             </span>
                         </td>
                         <td>
-                            <span editable-text="material.unit" e-name="unit" e-form="rowform">
-                            {{ material.unit || '1'}}
+                            <span editable-text="material.donVi" e-name="donVi" e-form="rowform">
+                            {{ material.donVi || ' '}}
                             </span>
                         </td>
                         <td style="white-space: nowrap;">

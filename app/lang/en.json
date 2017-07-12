@@ -36,6 +36,12 @@
     "MATERIALS": "Materials",
     "MY_PROFILE": "Profile",
     "MSG_PRODUCT_NAME_REQUIRED": "Product name is required",
+    "MSG_PRODUCT_UPDATED": "The product has been updated successfully.",
+    "MSG_PRODUCT_UPDATE_ERR": "The product has not been update.",
+    "MSG_PRODUCT_DELETED": "The product has been deleted.",
+    "MSG_PRODUCT_DELETE_ERR": "The product has not been delete.",
+    "MSG_PRODUCT_CREATED": "The product has been created.",
+    "MSG_PRODUCT_CREATE_ERR": "The product has not been created.",
 
     "ORDERS": "Orders",
 

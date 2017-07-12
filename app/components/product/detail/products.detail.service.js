@@ -21,5 +21,10 @@
             var url = AppConfig.productURI.delete;
             HttpService.callPutService(url, id, onSuccess, onError);
         }
+
+        this.create = function(product, onSuccess, onError){
+            var  url = AppConfig.productURI.create;
+            HttpService.callPostService(url, product, onSuccess, onError);
+        }
     }
 })();

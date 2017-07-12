@@ -36,6 +36,12 @@
     "MATERIALS": "Nguyên liệu",
     "MY_PROFILE": "Thông tin cá nhân",
     "MSG_PRODUCT_NAME_REQUIRED": "Tên sản phẩm không được để trống",
+    "MSG_PRODUCT_UPDATED": "Đã cập nhật sản phẩm.",
+    "MSG_PRODUCT_UPDATE_ERR": "Sản phẩm chưa được cập nhật.",
+    "MSG_PRODUCT_DELETED": "Đã xóa sản phẩm",
+    "MSG_PRODUCT_DELETE_ERR": "Sản phẩm chưa được xóa.",
+    "MSG_PRODUCT_CREATED": "Đã thêm sản phẩm.",
+    "MSG_PRODUCT_CREATE_ERR": "Sản phẩm chưa được thêm.",
 
     "ORDERS": "Hóa đơn",
 

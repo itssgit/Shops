@@ -1,6 +1,8 @@
 
 <div class="page page-table" data-ng-controller="ProductsCtrl">
-
+    <div ng-if="alerts.length > 0">
+        <uib-alert type="{{alerts[alerts.length - 1].type}}" close="closeAlert($index)">{{alerts[alerts.length - 1].msg | translate}}</uib-alert>
+    </div>
     <section class="panel panel-default table-dynamic">
         <div class="panel-heading clearfix">
             <strong>
@@ -9,7 +11,7 @@
             </strong>
 
             <div class="pull-right">
-                <a href="#products-create" class="btn btn-primary btn-w-md"><span class="glyphicon glyphicon-plus"></span>&nbsp;{{'ADD' | translate}}</a>
+                <a href="#products/create" class="btn btn-primary btn-w-md"><span class="glyphicon glyphicon-plus"></span>&nbsp;{{'ADD' | translate}}</a>
                 <button class="btn btn-success btn-w-md"><span class="glyphicon glyphicon-save"></span>&nbsp;{{'EXPORT' | translate}}</button>
                 <button class="btn btn-danger btn-w-md" ng-click="delete()"><span class="glyphicon glyphicon-trash"></span>&nbsp;{{'DELETE' | translate}}&nbsp;({{'SELECTED' | translate}})</button>
             </div>
@@ -76,7 +78,7 @@
                         <td>{{product.donGia}}</td>
                         <td>{{product.moTa}}</td>
                         <td class="th-button">
-                            <a href="#products-edit?id={{product.sanPhamId}}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
+                            <a href="#products/edit?id={{product.sanPhamId}}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
                         </td>
                     </tr>
                     </tbody>

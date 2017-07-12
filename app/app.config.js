@@ -43,13 +43,18 @@
             },
 
             //Khai bao link webservice
-            uri =  "http://localhost:8080/shops-services/sanpham/",
+            uriProduct =  "http://localhost:8080/shops-services/sanpham/",
             productURI = {
-                list: uri + "find",
-                product: uri + "findOne?sanPhamID=",
-                update: uri + "update",
-                deleteList: uri + "deleteList",
-                delete: uri + "delete"
+                list: uriProduct + "find",
+                product: uriProduct + "findOne?sanPhamID=",
+                update: uriProduct + "update",
+                deleteList: uriProduct + "deleteList",
+                delete: uriProduct + "delete",
+                create: uriProduct + "create"
+            },
+            uriMaterial = "http://localhost:8080/shops-services/nguyenlieu/",
+            materialURI = {
+                list: uriMaterial + "find"
             },
 
             constant = {
@@ -62,6 +67,7 @@
             main: d,
             color: e,
             productURI: productURI,
+            materialURI: materialURI,
             constant: constant
         }
     }

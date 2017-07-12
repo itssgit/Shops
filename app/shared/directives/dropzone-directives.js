@@ -15,6 +15,7 @@ function dropzone($http) {
 
         var eventHandlers = {
             'addedfile': function(file) {
+                console.log(file);
                 scope.file = file;
                 if (this.files[1]!=null) {
                     this.removeFile(this.files[0]);
@@ -24,22 +25,18 @@ function dropzone($http) {
                 });
             },
 
-            'success': function (file, response) {
-                console.log(file);
+            'success': function (file, response){
                 var fd = new FormData();
                 fd.append('file', file);
 
                 $http.post("http://localhost/Frontend/", fd, {
                     transformRequest: angular.identity,
                     headers: {'Content-Type': undefined}
-                })
-
-                    .success(function(){
+                }).success(function(){
                         console.log("ok");
-                    })
+                }).error(function(){
 
-                    .error(function(){
-                    });
+                });
             }
         };
 
