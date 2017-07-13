@@ -15,7 +15,7 @@ body {
 }
 .table-product-custom>tbody>tr>td,
 .table-material-custom>tbody>tr>td{
-    padding: 5px 5px 5px 15px;
+    padding: 5px 15px 5px 15px;
     vertical-align: middle;
 }
 
@@ -24,6 +24,9 @@ body {
     padding: 5px 5px 5px 15px !important;
     vertical-align: middle;
 }
+.table-dynamic .table-bordered thead th>.th {
+    padding: 8px 0px 8px 0px !important;
+}
 
 .table-margin-custom{
     margin-bottom: 0px;
@@ -31,8 +34,12 @@ body {
 .th-checkbox{
     width: 44px;
 }
+.td-checkbox{
+    padding: 5px 5px 5px 15px !important;
+}
 .th-button{
-    width: 180px;
+    white-space: nowrap;
+    width: 1%;
 }
 .th-button-min{
     width: 70px;
@@ -42,8 +49,15 @@ body {
     padding-right: 0px !important;
 }
 .image-table-custom{
-    width: 100px;
+    width: 70px;
+    height: 70px;
 }
 .th-picture-custom{
-    width: 130px;
+    width: 100px;
+}
+.ui-checkbox {
+    margin: 0px 0px 0px 20px !important;
+}
+.price-custom{
+    text-align: right;
 }

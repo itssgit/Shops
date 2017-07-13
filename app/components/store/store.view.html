@@ -60,7 +60,7 @@
                     </thead>
                     <tbody>
                     <tr data-ng-repeat="material in lstData">
-                        <td><label class="ui-checkbox"><input name="checkbox1" ng-model="material.selected" ng-click="selectedRow(material)" type="checkbox" ><span></span></label></td>
+                        <td class="td-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="material.selected" ng-click="selectedRow(material)" type="checkbox" ><span></span></label></td>
                         <td>
                             <span editable-text="material.ten" e-name="ten" e-form="rowform" e-required>
                             {{ material.ten || ' '}}

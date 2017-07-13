@@ -13,6 +13,8 @@
             alert(data.message);
         }
         ProductService.listProduct(onGetListSuccess, onGetListError);
+        $scope.filtered = [];
+
 
         /*delete product*/
         $scope.delete = function(){

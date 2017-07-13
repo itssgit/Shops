@@ -14,7 +14,7 @@
             alert(data.message);
         }
         StoreService.listMaterial(onGetListSuccess, onGetListError);
-
+        $scope.filtered = [];
 
         /*pagination*/
         $scope.$watch('filtered', function() {
