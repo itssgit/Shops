@@ -35,9 +35,9 @@
                         </thead>
                         <tbody>
                         <tr data-ng-repeat="material in lstMaterial">
-                            <td><input type="text" class="form-control" data-ng-model="material.name"></td>
-                            <td><input type="text" class="form-control" data-ng-model="material.quanityt"></td>
-                            <td><input type="text" class="form-control" data-ng-model="material.unit"></td>
+                            <td><input type="text" class="form-control" data-ng-model="material.ten"></td>
+                            <td><input type="number" class="form-control" data-ng-model="material.soLuong"></td>
+                            <td><input type="text" class="form-control" data-ng-model="material.donVi"></td>
                             <td>
                                 <button class="btn btn-danger" ng-click="removeMaterial($index)"><span class="glyphicon glyphicon-trash"></span>&nbsp;{{'DELETE' | translate}}</button>
                             </td>
@@ -45,7 +45,7 @@
                         </tbody>
                     </table>
                     <button class="btn btn-primary btn-w-md" ng-click="addNewMaterial()"><span class="glyphicon glyphicon-plus"/>&nbsp;{{'ADD' | translate}}</button>
-                    <button class="btn btn-primary btn-w-md" ><span class="glyphicon glyphicon-save"/>&nbsp;{{'SAVE' | translate}}</button>
+                    <button class="btn btn-primary btn-w-md" ng-click="create(lstMaterial)"><span class="glyphicon glyphicon-save"/>&nbsp;{{'SAVE' | translate}}</button>
                 </div>
         </div>
     </section>

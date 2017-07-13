@@ -10,5 +10,20 @@
             var url = AppConfig.materialURI.list;
             HttpService.callGetService(url, onSuccess, onError);
         }
+
+        this.update = function(material, onSuccess, onError){
+            var url = AppConfig.materialURI.update;
+            HttpService.callPostService(url, material, onSuccess, onError);
+        }
+
+        this.deleteList = function(lstMaterial, onSuccess, onError){
+            var url = AppConfig.materialURI.createList;
+            HttpService.callPostService(url, lstMaterial, onSuccess, onError);
+        }
+
+        this.deleteList = function(lstId, onSuccess, onError){
+            var url = AppConfig.materialURI.deleteList;
+            HttpService.callPostService(url, lstId, onSuccess, onError);
+        }
     }
 })();

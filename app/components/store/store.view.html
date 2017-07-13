@@ -1,4 +1,7 @@
 <div class="page page-table" data-ng-controller="StoreCtrl">
+    <div ng-if="alerts.length > 0">
+        <uib-alert type="{{alerts[alerts.length - 1].type}}" close="closeAlert($index)">{{alerts[alerts.length - 1].msg | translate}}</uib-alert>
+    </div>
     <section class="panel panel-default table-dynamic">
         <div class="panel-heading clearfix">
             <strong>
@@ -11,7 +14,7 @@
                 <button class="btn btn-success btn-w-md"><span class="glyphicon glyphicon-save"></span>&nbsp;{{'EXPORT'
                     | translate}}
                 </button>
-                <button class="btn btn-danger btn-w-md"><span class="glyphicon glyphicon-trash"></span>&nbsp;{{'DELETE'
+                <button class="btn btn-danger btn-w-md" ng-click="delete()"><span class="glyphicon glyphicon-trash"></span>&nbsp;{{'DELETE'
                     | translate}}&nbsp;({{'SELECTED' | translate}})
                 </button>
             </div>
@@ -90,7 +93,6 @@
                             </form>
                             <div class="buttons" ng-show="!rowform.$visible">
                                 <button class="btn btn-default" ng-click="rowform.$show()"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</button>
-                                <button class="btn btn-danger" ng-click="removeUser($index)"><span class="glyphicon glyphicon-trash"></span>&nbsp;{{'DELETE' | translate}}</button>
                             </div>
                         </td>
                     </tr>

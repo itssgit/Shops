@@ -43,6 +43,9 @@
     "MSG_PRODUCT_CREATED": "Đã thêm sản phẩm.",
     "MSG_PRODUCT_CREATE_ERR": "Sản phẩm chưa được thêm.",
 
+    "MSG_MATERIAL_CREATED": "Đã thêm nguyên liệu.",
+    "MSG_MATERIAL_DELETED": "Đã xóa nguyên liệu.",
+
     "ORDERS": "Hóa đơn",
 
     "PASSWORD": "Mật khẩu",

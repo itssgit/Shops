@@ -54,7 +54,10 @@
             },
             uriMaterial = "http://localhost:8080/shops-services/nguyenlieu/",
             materialURI = {
-                list: uriMaterial + "find"
+                list: uriMaterial + "find",
+                update: uriMaterial + "update",
+                createList: uriMaterial + "createList",
+                deleteList: uriMaterial + "deleteList"
             },
 
             constant = {

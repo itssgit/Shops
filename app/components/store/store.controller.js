@@ -2,19 +2,49 @@
  * Created by vietdd on 16/06/2017.
  */
 (function () {
-    angular.module("app").controller("StoreCtrl", ["$scope","StoreService", StoreCtrl]);
-    function StoreCtrl($scope, StoreService) {
+    angular.module("app").controller("StoreCtrl", ["$scope","$filter", "StoreService", StoreCtrl]);
+    function StoreCtrl($scope, $filter, StoreService) {
 
         /*get list materials*/
         var onGetListSuccess = function success(data){
             $scope.lstMaterial = data.value.list;
             $scope.filtered = $scope.lstMaterial;
         }
-        var onGetListError = function error(data){
+        var onError = function error(data){
             alert(data.message);
         }
-        StoreService.listMaterial(onGetListSuccess, onGetListError);
+        StoreService.listMaterial(onGetListSuccess, onError);
         $scope.filtered = [];
+
+
+        /*update*/
+        $scope.update = function () {
+            var onUpdateSuccess = function success(data){
+                console.log("ok");
+            }
+            StoreService.update(material, onUpdateSuccess, onError);
+        }
+
+        /*delete*/
+        $scope.delete = function(){
+            var selectedMaterial = $filter('filter')($scope.filtered, {selected: 'true'});
+            var lstId = selectedMaterial.map(function(a) {return a.nguyenLieuId;});
+            var onDeleteSuccess = function success(data){
+                angular.forEach(selectedMaterial, function(value, key){
+                    var index = $scope.filtered.indexOf(value);
+                    $scope.filtered.splice(index, 1);
+                });
+
+                $scope.alerts.push({
+                    type: "success",
+                    msg: 'MSG_MATERIAL_DELETED'
+                });
+            }
+
+            StoreService.deleteList(lstId, onDeleteSuccess, onError);
+        }
+
+
 
         /*pagination*/
         $scope.$watch('filtered', function() {
