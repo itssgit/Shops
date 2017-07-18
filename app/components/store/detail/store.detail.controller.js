@@ -21,7 +21,7 @@
         var onError = function error(data){
             alert(data.message);
         }
-        $scope.deleteList = function(lstMaterial){
+        $scope.createList = function(lstMaterial){
             var onCreateListSuccess = function success(data) {
                 $scope.alerts.push({
                     type: "success",
@@ -29,7 +29,7 @@
                 });
                 $location.url('/stores');
             }
-            StoreService.create(lstMaterial, onCreateListSuccess, onError);
+            StoreService.createList(lstMaterial, onCreateListSuccess, onError);
         }
 
     }

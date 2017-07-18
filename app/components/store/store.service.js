@@ -12,11 +12,12 @@
         }
 
         this.update = function(material, onSuccess, onError){
+            console.log(material);
             var url = AppConfig.materialURI.update;
             HttpService.callPostService(url, material, onSuccess, onError);
         }
 
-        this.deleteList = function(lstMaterial, onSuccess, onError){
+        this.createList = function(lstMaterial, onSuccess, onError){
             var url = AppConfig.materialURI.createList;
             HttpService.callPostService(url, lstMaterial, onSuccess, onError);
         }

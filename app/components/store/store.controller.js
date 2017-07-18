@@ -18,11 +18,15 @@
 
 
         /*update*/
-        $scope.update = function () {
+        $scope.update = function ($index) {
             var onUpdateSuccess = function success(data){
-                console.log("ok");
-            }
-            StoreService.update(material, onUpdateSuccess, onError);
+                console.log(data);
+                $scope.alerts.push({
+                    type: "success",
+                    msg: 'MSG_MATERIAL_UPDATED'
+                });
+            };
+            StoreService.update($scope.lstMaterial[$index], onUpdateSuccess, onError);
         }
 
         /*delete*/

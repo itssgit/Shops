@@ -83,7 +83,7 @@
                             <!-- form -->
                             <form editable-form name="rowform" ng-show="rowform.$visible"
                                   class="form-buttons form-inline" shown="inserted == material">
-                                <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                                <button type="submit" data-ng-click="update($index)" ng-disabled="rowform.$waiting" class="btn btn-primary">
                                     {{'SAVE' | translate}}
                                 </button>
                                 <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
@@ -125,4 +125,5 @@
             </footer>
         </div>
     </section>
+    {{lstMaterial[0] | json}}
 </div>
