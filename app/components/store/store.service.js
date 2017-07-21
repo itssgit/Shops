@@ -4,8 +4,8 @@
 (function () {
     'use strict'
     angular.module("app").service("StoreService", StoreService);
-    StoreService.$inject = ["HttpService","AppConfig"];
-    function StoreService(HttpService, AppConfig){
+    StoreService.$inject = ["$filter", "HttpService","AppConfig"];
+    function StoreService($filter, HttpService, AppConfig){
         this.listMaterial = function(onSuccess, onError){
             var url = AppConfig.materialURI.list;
             HttpService.callGetService(url, onSuccess, onError);
@@ -26,5 +26,10 @@
             var url = AppConfig.materialURI.deleteList;
             HttpService.callPostService(url, lstId, onSuccess, onError);
         }
+
+        this.order = function(data, property){
+            var result = $filter("orderBy")(data, property);
+            return result;
+        };
     }
 })();

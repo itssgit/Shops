@@ -48,6 +48,10 @@
             StoreService.deleteList(lstId, onDeleteSuccess, onError);
         }
 
+        /*sort*/
+        $scope.order = function(property){
+            $scope.filtered = StoreService.order($scope.lstMaterial, property);
+        }
 
 
         /*pagination*/
