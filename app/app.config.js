@@ -43,8 +43,7 @@
             },
 
             //Khai bao link webservice
-            uri = "http://giaiphapshop.com:8088/shops-services/api/",
-            // uri = "http://localhost:8080/shops-services/api/",
+            uri = "http://giaiphapshop.com:8088/shops-services/",
             uriProduct =  uri + "sanpham/",
             productURI = {
                 list: uriProduct + "find",
