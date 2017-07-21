@@ -30,6 +30,7 @@
     "IMPORT_FILE": "Import File",
     "IMPORT_LIST_MATERIAL": "Import materials",
 
+    "LIST_MATERIAL": "List all material",
     "LOG_IN": "Log in",
     "LOG_OUT": "Logout",
 
@@ -48,6 +49,12 @@
     "MSG_MATERIAL_UPDATED": "Materials have been updated.",
 
     "ORDERS": "Orders",
+    "ORDER_NO": "Order #",
+    "ORDER_STATUS": "Order status",
+    "ORDER_TIME": "Created on",
+    "ORDER_TOTAL": "Order total",
+    "ORDER_NOTE": "Note",
+    "ORDER_TABLE": "Table .no",
 
     "PASSWORD": "Password",
     "PICTURES": "Pictures",

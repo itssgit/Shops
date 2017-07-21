@@ -60,7 +60,7 @@
                 createList: uriMaterial + "createList",
                 deleteList: uriMaterial + "deleteList"
             },
-
+            uriSales = uri + "donhang/",
             constant = {
                 DELETED: 1
             };

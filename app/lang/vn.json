@@ -30,6 +30,7 @@
     "IMPORT_FILE": "File",
     "IMPORT_LIST_MATERIAL": "Nhập nguyên liệu",
 
+    "LIST_MATERIAL": "Danh sách nguyên liệu",
     "LOG_IN": "Đăng nhập",
     "LOG_OUT": "Thoát",
 
@@ -48,6 +49,12 @@
     "MSG_MATERIAL_UPDATED": "Đã cập nhật nguyên liệu.",
 
     "ORDERS": "Hóa đơn",
+    "ORDER_NO": "Đơn hàng #",
+    "ORDER_STATUS": "Trạng thái",
+    "ORDER_TIME": "Thời gian",
+    "ORDER_TOTAL": "Tổng tiền",
+    "ORDER_NOTE": "Ghi chú",
+    "ORDER_TABLE": "Bàn",
 
     "PASSWORD": "Mật khẩu",
     "PICTURES": "Hình ảnh",
