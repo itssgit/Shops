@@ -67,6 +67,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <tr ng-if="order.chiTietDonHangDTOList.length ==0"><td colspan="6" class="text-center">{{'MSG_TABLE_EMPTY' | translate}}</td></tr>
                                 <tr ng-repeat="detail in order.chiTietDonHangDTOList">
                                     <td><img src="detail.sanPhamDTO.hinhAnh" class="image-table-custom"/></td>
                                     <td><a href="#products/edit?id={{detail.sanPhamDTO.sanPhamId}}">{{detail.sanPhamDTO.tenSanPham}}</a></td>

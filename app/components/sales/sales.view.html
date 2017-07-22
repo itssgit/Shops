@@ -88,23 +88,24 @@
                     </tr>
                     </thead>
                     <tbody>
+                        <tr ng-if="lstData.length ==0"><td colspan="8" class="text-center">{{'MSG_TABLE_EMPTY' | translate}}</td></tr>
                         <tr data-ng-repeat="order in lstData">
-                            <td class="td-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="order.selected" ng-click="selectedRow(order)" type="checkbox" ><span></span></label></td>
-                            <td>{{order.donHangId}}</td>
-                            <td>
-                                <span ng-if="order.trangThai == 1" class="label label-success" data-translate="ORDER_STATUS_PAID"></span>
-                                <span ng-if="order.trangThai == 2" class="label label-warning" data-translate="ORDER_STATUS_PENDING"></span>
-                            </td>
-                            <td>{{order.thoiGian | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-                            <td>{{order.ghiChu}}</td>
-                            <td>
-                                {{order.banId}}
-                            </td>
-                            <td class="price-custom">
-                                {{order.tongTien | customCurrency}}
-                            </td>
-                            <td>
-                                <a href="#sales/order/detail?id={{order.donHangId}}" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;{{'DETAIL' | translate}}</a>
+                                <td class="td-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="order.selected" ng-click="selectedRow(order)" type="checkbox" ><span></span></label></td>
+                                <td>{{order.donHangId}}</td>
+                                <td>
+                                    <span ng-if="order.trangThai == 1" class="label label-success" data-translate="ORDER_STATUS_PAID"></span>
+                                    <span ng-if="order.trangThai == 2" class="label label-warning" data-translate="ORDER_STATUS_PENDING"></span>
+                                </td>
+                                <td>{{order.thoiGian | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+                                <td>{{order.ghiChu}}</td>
+                                <td>
+                                    {{order.banId}}
+                                </td>
+                                <td class="price-custom">
+                                    {{order.tongTien | customCurrency}}
+                                </td>
+                                <td>
+                                    <a href="#sales/order/detail?id={{order.donHangId}}" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;{{'DETAIL' | translate}}</a>
                             </td>
                         </tr>
                     <tr class="tr-total-custom">

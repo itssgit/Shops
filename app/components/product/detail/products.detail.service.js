@@ -4,8 +4,8 @@
 (function(){
     'use strict'
     angular.module("app").service("ProductDetailService", ProductDetailService);
-    ProductDetailService.$inject = ["HttpService","AppConfig"];
-    function ProductDetailService(HttpService, AppConfig){
+    ProductDetailService.$inject = ["HttpService","AppConfig", "$filter"];
+    function ProductDetailService(HttpService, AppConfig, $filter){
 
         this.getProductById = function(id, onSuccess, onError){
             var url = AppConfig.productURI.product + id;
@@ -26,5 +26,10 @@
             var  url = AppConfig.productURI.create;
             HttpService.callPostService(url, product, onSuccess, onError);
         }
+
+        this.search = function(data, keyWord){
+            var result = $filter("filter")(data, keyWord);
+            return result;
+        };
     }
 })();

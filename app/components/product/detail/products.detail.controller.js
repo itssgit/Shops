@@ -1,7 +1,11 @@
 (function() {
     "use strict";
 
-    function ProductDetailCtrl($scope, $routeParams,$location, ProductDetailService) {
+    function ProductDetailCtrl($scope, $routeParams,$location, ProductDetailService, StoreService) {
+        $scope.lstProductMaterial=[];
+        $scope.lstMaterial = [];
+        $scope.searchKeywords="";
+
         /*product info*/
         var id = $routeParams.id;
         if($location.$$path == "/products/edit"){
@@ -11,6 +15,7 @@
                 }
                 $scope.product = data.value;
                 $scope.title = $scope.product.tenSanPham;
+                $scope.lstProductMaterial = $scope.product.chiTietSanPhamDTOList;
             }
             var onGetInfoError = function error(data){
                 alert(data.message);
@@ -22,21 +27,50 @@
         /*get category*/
 
         //////////////////////////////////
-        $scope.lstMaterial = [];
-
         /*material detail*/
-        $scope.lstProductMaterial=[];
-        $scope.addNewMaterial = function(){
-            $scope.lstProductMaterial.push({});
+        $scope.addProductMaterial = function(material, $index){
+            $scope.lstProductMaterial.push(
+                {
+                    sanPhamId: id,
+                    nguyenLieuId: material.nguyenLieuId,
+                    soLuong: 0,
+                    chiTietSanPhamId: 0,
+                    nguyenLieuDTO: {
+                        ten: material.ten,
+                        donVi: material.donVi,
+                        nguyenLieuId: material.nguyenLieuId,
+                        soLuong: material.soLuong
+                    }
+                });
+            $scope.lstMaterial.splice($index, 1);
         };
 
-        $scope.removeMaterial = function($index){
+        $scope.removeMaterial = function(material, $index){
             $scope.lstProductMaterial.splice($index, 1);
+            $scope.lstMaterial.push(
+                {
+                    ten: material.nguyenLieuDTO.ten,
+                    soLuong: 0
+                });
+        }
+        var onGetListSuccess = function success(data){
+            $scope.lstMaterial = data.value.list;
+        }
+        var onError = function error(data){
+            alert(data.message);
+        }
+        StoreService.listMaterial(onGetListSuccess, onError);
+
+        /*search materials*/
+        $scope.search = function(){
+            $scope.filtered = ProductDetailService.search($scope.lstMaterial, $scope.searchKeywords);
+            console.log( $scope.filtered);
         }
 
+
+        //////////////////////////////////
         /*create*/
         $scope.create = function(){
-            console.log($scope.product);
             var product = {
                 "chiTietSanPhamDTOList": [],
                 "donGia": $scope.product.donGia,
@@ -64,6 +98,7 @@
             ProductDetailService.create(product, onCreateSuccess, onCreateError);
         }
 
+        ///////////////////////////////////
         /*save*/
         $scope.saveInfo = function(){
             var product = {
@@ -111,6 +146,7 @@
             }
             ProductDetailService.delete(id, onDeleteSuccess, onDeleteError);
         }
+
     }
-    angular.module("app").controller("ProductDetailCtrl", ["$scope", "$routeParams","$location", "ProductDetailService", ProductDetailCtrl])
+    angular.module("app").controller("ProductDetailCtrl", ["$scope", "$routeParams","$location", "ProductDetailService", "StoreService", ProductDetailCtrl])
 })();

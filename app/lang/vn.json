@@ -52,6 +52,8 @@
     "MSG_MATERIAL_DELETED": "Đã xóa nguyên liệu.",
     "MSG_MATERIAL_UPDATED": "Đã cập nhật nguyên liệu.",
 
+    "MSG_TABLE_EMPTY": "Không có dữ liệu.",
+
     "ORDERS": "Hóa đơn",
     "ORDER_NO": "Đơn hàng #",
     "ORDER_STATUS": "Trạng thái",
