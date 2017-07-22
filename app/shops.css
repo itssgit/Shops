@@ -73,3 +73,6 @@ body {
 .note{
     font-style: italic;
 }
+.tr-total-custom>td{
+    border: hidden !important;
+}
