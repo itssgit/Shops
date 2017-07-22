@@ -10,12 +10,12 @@ function formatPrice($filter) {
             if (!ctrl) return;
 
             ctrl.$formatters.unshift(function (a) {
-                return $filter(attrs.format)(ctrl.$modelValue, "vnđ ")
+                return $filter(attrs.format)(ctrl.$modelValue, "VND ")
             });
 
             elem.bind('blur', function(event) {
                 var plainNumber = elem.val().replace(/[^\d|\-+|\.+]/g, '');
-                elem.val($filter(attrs.format)(plainNumber, "vnđ "));
+                elem.val($filter(attrs.format)(plainNumber, "VND "));
             });
         }
     };
