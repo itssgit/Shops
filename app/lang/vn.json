@@ -15,6 +15,7 @@
 
     "DASHBOARD": "Tổng quan",
     "DELETE": "Xóa",
+    "DETAIL": "Chi tiết",
     "DESCRIPTION": "Giới thiệu",
     "DONT_HAVE_ACCOUNT": "Bạn chưa có tài khoản? ",
     "DROP_IMAGE_HERE": "Kéo thả hình ảnh vào đây",
@@ -58,6 +59,8 @@
     "ORDER_TOTAL": "Tổng tiền",
     "ORDER_NOTE": "Ghi chú",
     "ORDER_TABLE": "Bàn",
+    "ORDER_STATUS_PENDING": "Chờ thanh toán",
+    "ORDER_STATUS_PAID": "Đã thanh toán",
 
     "PASSWORD": "Mật khẩu",
     "PICTURES": "Hình ảnh",

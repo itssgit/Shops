@@ -15,6 +15,7 @@
 
     "DASHBOARD": "Dashboard",
     "DELETE": "Delete",
+    "DETAIL": "Detail",
     "DESCRIPTION": "Description",
     "DONT_HAVE_ACCOUNT": "Don't have an account yet? ",
     "DROP_IMAGE_HERE": "Drop Image Here",
@@ -58,6 +59,8 @@
     "ORDER_TOTAL": "Order total",
     "ORDER_NOTE": "Note",
     "ORDER_TABLE": "Table .no",
+    "ORDER_STATUS_PENDING": "Pending",
+    "ORDER_STATUS_PAID": "Paid",
 
     "PASSWORD": "Password",
     "PICTURES": "Pictures",

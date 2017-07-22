@@ -1,6 +1,7 @@
 /**
  * Created by vietdd on 03/07/2017.
  */
+
 function formatPrice($filter) {
 
     return {
@@ -21,3 +22,4 @@ function formatPrice($filter) {
 }
 
 angular.module('app').directive('format', ['$filter',formatPrice]);
+

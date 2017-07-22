@@ -75,7 +75,7 @@
                         <td class="td-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="product.selected" ng-click="selectedRow(product)" type="checkbox" ><span></span></label></td>
                         <td><img src="http://wallpapersdsc.net/wp-content/uploads/2016/09/Yogurt-Images.jpg" class="image-table-custom"/></td>
                         <td>{{product.tenSanPham}}</td>
-                        <td class="price-custom">{{product.donGia}}</td>
+                        <td class="price-custom">{{product.donGia | customCurrency}}</td>
                         <td>{{product.moTa}}</td>
                         <td>
                             <a href="#products/edit?id={{product.sanPhamId}}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
