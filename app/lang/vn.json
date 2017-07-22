@@ -3,6 +3,7 @@
 
     "BACK_TO_PRODUCT_LIST": "Danh sách sản phẩm",
     "BACK_TO_STORE_LIST": "Kho",
+    "BACK_TO_SALES": "bán hàng",
 
     "CATEGORY": "Nhóm sản phẩm",
     "CANCEL": "Hủy",
@@ -17,6 +18,7 @@
     "DESCRIPTION": "Giới thiệu",
     "DONT_HAVE_ACCOUNT": "Bạn chưa có tài khoản? ",
     "DROP_IMAGE_HERE": "Kéo thả hình ảnh vào đây",
+    "DISCOUNT": "Giảm giá",
 
     "EDIT": "Sửa",
     "EMAIL": "Email",
@@ -36,6 +38,7 @@
 
     "MATERIALS": "Nguyên liệu",
     "MY_PROFILE": "Thông tin cá nhân",
+
     "MSG_PRODUCT_NAME_REQUIRED": "Tên sản phẩm không được để trống",
     "MSG_PRODUCT_UPDATED": "Đã cập nhật sản phẩm.",
     "MSG_PRODUCT_UPDATE_ERR": "Sản phẩm chưa được cập nhật.",
@@ -81,6 +84,8 @@
     "SIGN_UP": "Đăng kí",
     "SUBMIT": "Lưu",
     "STORE": "Kho",
+
+    "TOTAL": "Tổng tiền",
 
     "UNIT": "Đơn vị"
 }

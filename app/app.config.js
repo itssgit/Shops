@@ -60,7 +60,10 @@
                 createList: uriMaterial + "createList",
                 deleteList: uriMaterial + "deleteList"
             },
-            uriSales = uri + "donhang/",
+            uriOrder = uri + "donhang/",
+            orderURI = {
+                list: uriOrder + "find"
+            },
             constant = {
                 DELETED: 1
             };
@@ -72,6 +75,7 @@
             color: e,
             productURI: productURI,
             materialURI: materialURI,
+            orderURI: orderURI,
             constant: constant
         }
     }

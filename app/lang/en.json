@@ -3,6 +3,7 @@
 
     "BACK_TO_PRODUCT_LIST": "back to product list",
     "BACK_TO_STORE_LIST": "back to store",
+    "BACK_TO_SALES": "back to sales",
 
     "CATEGORY": "Category",
     "CANCEL": "Cancel",
@@ -17,6 +18,7 @@
     "DESCRIPTION": "Description",
     "DONT_HAVE_ACCOUNT": "Don't have an account yet? ",
     "DROP_IMAGE_HERE": "Drop Image Here",
+    "DISCOUNT": "Discount",
 
     "EDIT": "Edit",
     "EMAIL": "Email",
@@ -36,6 +38,7 @@
 
     "MATERIALS": "Materials",
     "MY_PROFILE": "Profile",
+
     "MSG_PRODUCT_NAME_REQUIRED": "Product name is required",
     "MSG_PRODUCT_UPDATED": "The product has been updated successfully.",
     "MSG_PRODUCT_UPDATE_ERR": "The product has not been update.",
@@ -81,6 +84,8 @@
     "SIGN_UP": "Sign up",
     "SUBMIT": "Submit",
     "STORE": "Store",
+
+    "TOTAL": "Total",
 
     "UNIT": "Unit"
 }

@@ -36,10 +36,15 @@
                     <thead>
                     <tr class="bg-dark">
                         <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-checked="isCheck" type="checkbox" ng-click="selectAll(filtered)"><span></span></label></th>
-                        <th class="th-picture-custom"><div class="th">
+                        <th><div class="th">
                             {{'ORDER_NO' | translate}}
+                            <span class="fa fa-angle-up"
+                                  data-ng-click=" order('tenSanPham') "
+                                  data-ng-class="{active: row == 'tenSanPham'}"></span>
+                            <span class="fa fa-angle-down"
+                                  data-ng-click=" order('-tenSanPham') "
+                                  data-ng-class="{active: row == '-tenSanPham'}"></span>
                         </div>
-
                         </th>
                         <th><div class="th">
                             {{'ORDER_STATUS' | translate}}
@@ -67,14 +72,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="product in lstData">
-                        <td class="td-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="product.selected" ng-click="selectedRow(product)" type="checkbox" ><span></span></label></td>
-                        <td><img src="http://wallpapersdsc.net/wp-content/uploads/2016/09/Yogurt-Images.jpg" class="image-table-custom"/></td>
-                        <td>{{product.tenSanPham}}</td>
-                        <td class="price-custom">{{product.donGia}}</td>
-                        <td>{{product.moTa}}</td>
+                    <tr data-ng-repeat="order in lstData">
+                        <td class="td-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="order.selected" ng-click="selectedRow(order)" type="checkbox" ><span></span></label></td>
+                        <td>{{order.donHangId}}</td>
+                        <td><span class="label label-danger">Blocked</span></td>
+                        <td>{{order.thoiGian}}</td>
+                        <td>{{order.ghiChu}}</td>
                         <td>
-                            <a href="#products/edit?id={{product.sanPhamId}}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
+                            {{order.banId}}
+                        </td>
+                        <td>
+                            {{order.tongTien}}
+                        </td>
+                        <td>
+                            <a href="#sales/order/detail?id={{order.donHangId}}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
                         </td>
                     </tr>
                     </tbody>
