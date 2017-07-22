@@ -62,7 +62,8 @@
             },
             uriOrder = uri + "donhang/",
             orderURI = {
-                list: uriOrder + "find"
+                list: uriOrder + "find",
+                order: uriOrder + "findOne?donHangID="
             },
             constant = {
                 DELETED: 1

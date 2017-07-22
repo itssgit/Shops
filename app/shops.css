@@ -40,6 +40,7 @@ body {
 .th-button{
     white-space: nowrap;
     width: 1%;
+    min-width: 70px;
 }
 .th-button-min{
     width: 70px;
@@ -60,4 +61,15 @@ body {
 }
 .price-custom{
     text-align: right;
+}
+.scroll-custom{
+    height: 400px;
+    overflow: auto;
+    margin-top: 15px;
+}
+.text-row-custom{
+    padding-top: 5px;
+}
+.note{
+    font-style: italic;
 }

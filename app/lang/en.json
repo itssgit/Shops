@@ -58,9 +58,11 @@
     "ORDER_TIME": "Created on",
     "ORDER_TOTAL": "Order total",
     "ORDER_NOTE": "Note",
+    "ORDER_NOTE_EMPTY": "No note",
     "ORDER_TABLE": "Table .no",
     "ORDER_STATUS_PENDING": "Pending",
     "ORDER_STATUS_PAID": "Paid",
+    "ORDER_DETAIL": "Order detail",
 
     "PASSWORD": "Password",
     "PICTURES": "Pictures",

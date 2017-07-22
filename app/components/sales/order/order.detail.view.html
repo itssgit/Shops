@@ -1,11 +1,11 @@
-<div class="page">
+<div class="page" data-ng-controller="OrderDetailCtrl">
     <section class="panel panel-default">
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-header clearfix">
                         <div class="col-md-6 col-custom">
-                            <h3>Order detail # 1
+                            <h3>{{'ORDER_DETAIL' | translate}}&nbsp;#&nbsp;{{order.donHangId}}
                                 <small>
                                     <a href="#sales"><i class="glyphicon glyphicon-circle-arrow-left"></i>&nbsp;{{'BACK_TO_SALES' | translate}}</a>
                                 </small>
@@ -18,15 +18,41 @@
             <div class="panel panel-default table-dynamic">
                 <div class="panel-body">
                     <div class="col-md-4">
-                        <label>Order no</label>
-                        <br>
-                        <label>Order time</label>
-                        <br>
-                        <label>Order table</label>
-                        <br>
-                        <label>Order note</label>
-                        <br>
-                        <label>Order total</label>
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <div>
+                                    <label data-translate="ORDER_NO"></label>
+                                </div>
+                                <br>
+                                <div>
+                                    <label data-translate="ORDER_TIME"></label>
+                                </div>
+                                <br>
+                                <div>
+                                    <label data-translate="ORDER_TABLE"></label>
+                                </div>
+                                <br>
+                                <div>
+                                    <label data-translate="ORDER_NOTE"></label>
+                                </div>
+                                <br>
+                                <div>
+                                    <label data-translate="ORDER_TOTAL"></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div>{{order.banId}}</div>
+                                <br>
+                                <div class="text-row-custom">{{order.createdTime | date:'dd/MM/yyyy hh:mm:ss'}}</div>
+                                <br>
+                                <div class="text-row-custom">{{order.banId}}</div>
+                                <br>
+                                <div class="text-row-custom note">{{order.ghiChu || 'ORDER_NOTE_EMPTY' | translate}}</div>
+                                <br>
+                                <div class="text-row-custom">{{order.tongTien | customCurrency}}</div>
+                            </div>
+                        </div>
+
                     </div>
                         <div class="col-md-8 table-responsive">
                             <table class="table table-bordered table-striped table-product-custom">
@@ -44,30 +70,6 @@
                                 <tr>
                                     <td><img src="http://wallpapersdsc.net/wp-content/uploads/2016/09/Yogurt-Images.jpg" class="image-table-custom"/></td>
                                     <td><a href="#product-edit/">Xinh to xoai</a></td>
-                                    <td class="price-custom">10000</td>
-                                    <td>2</td>
-                                    <td>
-                                        0
-                                    </td>
-                                    <td class="price-custom">
-                                        20000
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="http://wallpapersdsc.net/wp-content/uploads/2016/09/Yogurt-Images.jpg" class="image-table-custom"/></td>
-                                    <td>Sinh to xoai</td>
-                                    <td class="price-custom">10000</td>
-                                    <td>2</td>
-                                    <td>
-                                        0
-                                    </td>
-                                    <td class="price-custom">
-                                        20000
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="http://wallpapersdsc.net/wp-content/uploads/2016/09/Yogurt-Images.jpg" class="image-table-custom"/></td>
-                                    <td>Sinh to xoai</td>
                                     <td class="price-custom">10000</td>
                                     <td>2</td>
                                     <td>

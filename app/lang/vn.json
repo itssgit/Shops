@@ -58,9 +58,11 @@
     "ORDER_TIME": "Thời gian",
     "ORDER_TOTAL": "Tổng tiền",
     "ORDER_NOTE": "Ghi chú",
+    "ORDER_NOTE_EMPTY": "Không có ghi chú",
     "ORDER_TABLE": "Bàn",
     "ORDER_STATUS_PENDING": "Chờ thanh toán",
     "ORDER_STATUS_PAID": "Đã thanh toán",
+    "ORDER_DETAIL": "Chi tiết đơn hàng",
 
     "PASSWORD": "Mật khẩu",
     "PICTURES": "Hình ảnh",
