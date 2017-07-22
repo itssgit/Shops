@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-sm-3 col-xs-6 filter-result-info">
                     <span>
-                        {{'SHOWING' | translate }} {{filtered.length}}/{{lstProduct.length}} {{'ENTRIES' | translate }}
+                        {{'SHOWING' | translate }} {{filtered.length}}/{{lstOrder.length}} {{'ENTRIES' | translate }}
                     </span>
                 </div>
             </div>
@@ -39,34 +39,50 @@
                         <th><div class="th">
                             {{'ORDER_NO' | translate}}
                             <span class="fa fa-angle-up"
-                                  data-ng-click=" order('tenSanPham') "
-                                  data-ng-class="{active: row == 'tenSanPham'}"></span>
+                                  data-ng-click=" order('donHangId') "
+                                  data-ng-class="{active: row == 'donHangId'}"></span>
                             <span class="fa fa-angle-down"
-                                  data-ng-click=" order('-tenSanPham') "
-                                  data-ng-class="{active: row == '-tenSanPham'}"></span>
+                                  data-ng-click=" order('-donHangId') "
+                                  data-ng-class="{active: row == '-donHangId'}"></span>
                         </div>
                         </th>
                         <th><div class="th">
                             {{'ORDER_STATUS' | translate}}
                             <span class="fa fa-angle-up"
-                                  data-ng-click=" order('tenSanPham') "
-                                  data-ng-class="{active: row == 'tenSanPham'}"></span>
+                                  data-ng-click=" order('trangThai') "
+                                  data-ng-class="{active: row == 'trangThai'}"></span>
                             <span class="fa fa-angle-down"
-                                  data-ng-click=" order('-tenSanPham') "
-                                  data-ng-class="{active: row == '-tenSanPham'}"></span>
+                                  data-ng-click=" order('-trangThai') "
+                                  data-ng-class="{active: row == '-trangThai'}"></span>
                         </div></th>
                         <th><div class="th">
                             {{'ORDER_TIME' | translate}}
                             <span class="fa fa-angle-up"
-                                  data-ng-click=" order('donGia') "
-                                  data-ng-class="{active: row == 'donGia'}"></span>
+                                  data-ng-click=" order('thoiGian') "
+                                  data-ng-class="{active: row == 'thoiGian'}"></span>
                             <span class="fa fa-angle-down"
-                                  data-ng-click=" order('-donGia') "
-                                  data-ng-class="{active: row == '-donGia'}"></span>
+                                  data-ng-click=" order('-thoiGian') "
+                                  data-ng-class="{active: row == '-thoiGian'}"></span>
                         </div></th>
                         <th>{{'ORDER_NOTE' | translate}}</th>
-                        <th>{{'ORDER_TABLE' | translate}}</th>
-                        <th>{{'ORDER_TOTAL' | translate}}</th>
+                        <th><div class="th">
+                            {{'ORDER_TABLE' | translate}}
+                            <span class="fa fa-angle-up"
+                                  data-ng-click=" order('banId') "
+                                  data-ng-class="{active: row == 'banId'}"></span>
+                            <span class="fa fa-angle-down"
+                                  data-ng-click=" order('-banId') "
+                                  data-ng-class="{active: row == '-banId'}"></span>
+                            </div></th>
+                        <th><div class="th">
+                            {{'ORDER_TOTAL' | translate}}
+                            <span class="fa fa-angle-up"
+                                  data-ng-click=" order('tongTien') "
+                                  data-ng-class="{active: row == 'tongTien'}"></span>
+                            <span class="fa fa-angle-down"
+                                  data-ng-click=" order('-tongTien') "
+                                  data-ng-class="{active: row == '-tongTien'}"></span>
+                        </div></th>
                         <th class="th-button">
                         </th>
                     </tr>
@@ -97,7 +113,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>{{'ORDER_TOTAL' | translate}}</td>
+                        <td>{{'ORDER_TOTAL' | translate}}:</td>
                         <td class="price-custom">{{lstData | SumTotalOrder:'tongTien' | customCurrency}}</td>
                         <td></td>
                     </tr>

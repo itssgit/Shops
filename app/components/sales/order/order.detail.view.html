@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-7">
-                                <div>{{order.banId}}</div>
+                                <div>{{order.donHangId}}</div>
                                 <br>
                                 <div class="text-row-custom">{{order.createdTime | date:'dd/MM/yyyy hh:mm:ss'}}</div>
                                 <br>
@@ -67,16 +67,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td><img src="http://wallpapersdsc.net/wp-content/uploads/2016/09/Yogurt-Images.jpg" class="image-table-custom"/></td>
-                                    <td><a href="#product-edit/">Xinh to xoai</a></td>
-                                    <td class="price-custom">10000</td>
-                                    <td>2</td>
+                                <tr ng-repeat="detail in order.chiTietDonHangDTOList">
+                                    <td><img src="detail.sanPhamDTO.hinhAnh" class="image-table-custom"/></td>
+                                    <td><a href="#products/edit?id={{detail.sanPhamDTO.sanPhamId}}">{{detail.sanPhamDTO.tenSanPham}}</a></td>
+                                    <td class="price-custom">{{detail.sanPhamDTO.donGia | customCurrency}}</td>
+                                    <td>{{detail.soLuong}}</td>
                                     <td>
-                                        0
                                     </td>
                                     <td class="price-custom">
-                                        20000
                                     </td>
                                 </tr>
                                 </tbody>

@@ -74,5 +74,7 @@ body {
     font-style: italic;
 }
 .tr-total-custom>td{
+    height: 70px;
+    background: #fffcec;
     border: hidden !important;
 }

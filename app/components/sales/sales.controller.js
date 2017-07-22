@@ -6,6 +6,7 @@
 
     function SalesCtrl($scope, $filter, SalesService) {
         $scope.filtered = [];
+        $scope.searchKeywords="";
 
         var onError = function error(data){
             alert(data.message);
@@ -13,10 +14,22 @@
 
         /*list order*/
         var onGetListSuccess = function success(data){
-            $scope.lstProduct = data.value.list;
-            $scope.filtered = $scope.lstProduct;
+            $scope.lstOrder = data.value.list;
+            $scope.filtered = $scope.lstOrder;
         }
         SalesService.listOrder(onGetListSuccess, onError);
+
+
+        /*search*/
+        $scope.search = function(){
+            $scope.filtered = SalesService.search($scope.lstOrder, $scope.searchKeywords);
+        }
+
+        /*sort*/
+        $scope.order = function(property){
+            $scope.filtered = SalesService.order($scope.lstOrder, property);
+        }
+
 
         /*pagination*/
         $scope.$watch('filtered', function() {

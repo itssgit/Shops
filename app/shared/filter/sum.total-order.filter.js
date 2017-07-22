@@ -3,7 +3,6 @@
  */
 function sumTotalOrder() {
     return function(data, key) {
-        debugger;
         if (angular.isUndefined(data) || angular.isUndefined(key))
             return 0;
         var sum = 0;
