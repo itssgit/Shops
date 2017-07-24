@@ -4,7 +4,7 @@
     function ProductDetailCtrl($scope, $routeParams,$location, ProductDetailService, StoreService) {
         $scope.lstProductMaterial=[];
         $scope.lstMaterial = [];
-        $scope.searchKeywords="";
+        $scope.keyword="";
 
         /*product info*/
         var id = $routeParams.id;
@@ -55,6 +55,7 @@
         }
         var onGetListSuccess = function success(data){
             $scope.lstMaterial = data.value.list;
+            $scope.filtered = $scope.lstMaterial;
         }
         var onError = function error(data){
             alert(data.message);
@@ -62,10 +63,12 @@
         StoreService.listMaterial(onGetListSuccess, onError);
 
         /*search materials*/
-        $scope.search = function(){
-            $scope.filtered = ProductDetailService.search($scope.lstMaterial, $scope.searchKeywords);
-            console.log( $scope.filtered);
+        $scope.search = function(keyword){
+            $scope.filtered = ProductDetailService.search($scope.lstMaterial, keyword);
         }
+        $scope.$watch('filtered', function() {
+            $scope.lstData = $scope.filtered;
+        });
 
 
         //////////////////////////////////

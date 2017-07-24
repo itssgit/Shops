@@ -28,7 +28,7 @@
         }
 
         this.search = function(data, keyWord){
-            var result = $filter("filter")(data, keyWord);
+            var result = $filter("filter")(data, {'ten': keyWord});
             return result;
         };
     }
