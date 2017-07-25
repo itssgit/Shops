@@ -17,7 +17,7 @@ function OrderDetailCtrl($scope, $routeParams,$window, OrderDetailService){
         $scope.order.chiTietDonHangDTOList.splice($index, 1);
     }
     $scope.addProduct = function(){
-        $window.open("#sales/order/detail/edit/addproduct", "popup", "width=500,height=600,scrollbars=1");
+        $window.open("#sales/order/detail/edit/addproduct", "popup", "width=500,height=600");
     }
 
 }
