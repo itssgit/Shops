@@ -1,5 +1,7 @@
 {
     "ADD": "Thêm mới",
+    "ADD_CATEGORY": "Thêm nhóm sản phẩm",
+    "ADD_PRODUCT": "Thêm sản phẩm",
 
     "BACK_TO_PRODUCT_LIST": "Danh sách sản phẩm",
     "BACK_TO_STORE_LIST": "Kho",
@@ -22,6 +24,7 @@
     "DISCOUNT": "Giảm giá",
 
     "EDIT": "Sửa",
+    "EDIT_ORDER": "Sửa thông tin đơn hàng",
     "EMAIL": "Email",
     "ENTRIES": "mục",
     "ENTRIES_PER_PAGE": "mục trên trang",
@@ -32,8 +35,10 @@
     "IMPORT": "Nhập",
     "IMPORT_FILE": "File",
     "IMPORT_LIST_MATERIAL": "Nhập nguyên liệu",
+    "INFO": "Thông tin",
 
     "LIST_MATERIAL": "Danh sách nguyên liệu",
+    "LIST_PRODUCT": "Danh sách sản phẩm",
     "LOG_IN": "Đăng nhập",
     "LOG_OUT": "Thoát",
 

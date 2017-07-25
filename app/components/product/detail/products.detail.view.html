@@ -26,59 +26,87 @@
                                     <form name="productInfo" novalidate>
                                         <fieldset>
                                             <div class="col-md-6">
-                                                <div class="form-group" ng-class="{ 'has-error': productInfo.tenSanPham.$touched && productInfo.tenSanPham.$invalid }">
-                                                    <label>{{'PRODUCT_NAME' | translate}}</label>
-                                                    <input  type="text"
-                                                            class="form-control"
-                                                            name="tenSanPham"
-                                                            data-ng-model="product.tenSanPham"
-                                                            required>
-                                                    <div class="help-block" ng-messages="productInfo.tenSanPham.$error" ng-if="productInfo.tenSanPham.$touched">
-                                                        <p ng-message="required">{{'MSG_PRODUCT_NAME_REQUIRED' | translate}}</p>
+                                                <section class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <strong>
+                                                            <span data-translate="INFO"/>
+                                                        </strong>
                                                     </div>
-                                                </div>
-                                                <label>{{'PRICE' | translate}} </label>
-                                                <input  type="text"
-                                                        class="form-control"
-                                                        data-ng-model="product.donGia"
-                                                        format="currency"
-                                                        required
-                                                        data-ng-minlength=3>
-                                                <br>
-                                                <label>{{'CATEGORY' | translate}}</label>
-                                                <br>
-                                                <span class="ui-select">
-                                                    <select>
-                                                        <option>Mustard</option>
-                                                        <option>Ketchup</option>
-                                                        <option>Barbecue</option>
-                                                    </select>
-                                                </span>
+                                                    <div class="panel-body">
+                                                        <div class="form-group" ng-class="{ 'has-error': productInfo.tenSanPham.$touched && productInfo.tenSanPham.$invalid }">
+                                                            <label>{{'PRODUCT_NAME' | translate}}</label>
+                                                            <input  type="text"
+                                                                    class="form-control"
+                                                                    name="tenSanPham"
+                                                                    data-ng-model="product.tenSanPham"
+                                                                    required>
+                                                            <div class="help-block" ng-messages="productInfo.tenSanPham.$error" ng-if="productInfo.tenSanPham.$touched">
+                                                                <p ng-message="required">{{'MSG_PRODUCT_NAME_REQUIRED' | translate}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <label>{{'PRICE' | translate}} </label>
+                                                        <input  type="text"
+                                                                class="form-control"
+                                                                data-ng-model="product.donGia"
+                                                                format="currency"
+                                                                required
+                                                                data-ng-minlength=3>
+                                                        <br>
+                                                        <label>{{'DESCRIPTION' | translate}}</label>
+                                                        <textarea class="form-control" ng-model="product.moTa" rows="5"></textarea>
+                                                        <br>
+                                                        <label>{{'PRODUCT_DISPLAY_STATUS' | translate}}</label>
+                                                        <div>
+                                                            <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" type="checkbox" ng-model="product.hienThi"><span data-translate="PRODUCT_PUBLISHED"></span></label></th>
+                                                        </div>
+                                                    </div>
+                                                </section>
                                             </div>
                                             <div class="col-md-6">
-                                                <label>{{'DESCRIPTION' | translate}}</label>
-                                                <textarea class="form-control" ng-model="product.moTa" rows="5"></textarea>
-                                                <br>
-                                                <label>{{'PRODUCT_DISPLAY_STATUS' | translate}}</label>
-                                                <div>
-                                                    <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" type="checkbox" ng-model="product.hienThi"><span data-translate="PRODUCT_PUBLISHED"></span></label></th>
-                                                </div>
+                                                <section class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <strong>
+                                                            <span data-translate="CATEGORY"/>
+                                                        </strong>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered table-striped table-product-custom">
+                                                                <thead>
+                                                                <tr class="bg-dark">
+                                                                    <th>{{'CATEGORY' | translate}}</th>
+                                                                    <th class="th-button">{{'DELETE' | translate}}</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr ng-if="product.nhomSanPhamId.length ==0"><td colspan="6" class="text-center">{{'MSG_TABLE_EMPTY' | translate}}</td></tr>
+                                                                <tr>
+                                                                    <td>{{product.nhomSanPhamId}}</td>
+                                                                    <td>
+                                                                        <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"/>&nbsp;{{'DELETE' | translate}}</button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <button class="btn btn-primary"><span class="glyphicon glyphicon-plus"/>&nbsp;{{'ADD_CATEGORY' | translate}}</button>
+                                                        </div>
+                                                    </div>
+                                                </section>
                                             </div>
                                         </fieldset>
                                     </form>
-                                    <div class="col-md-6">
-                                        <br>
-                                        <label>{{'PICTURES' | translate}}</label>
-                                        <div ng-controller="fileCtrl" class="dropzone-custom-display">
-                                            <form class="dropzone" dropzone="" id="dropzone">
-                                                <div class="dz-default dz-message">
-                                                </div>
-                                            </form>
-                                            <div>
-                                                <button class="btn btn-danger btn-reset-custom" ng-click="reset()">{{'REMOVE' | translate}}</button>
-                                                <button class="btn btn-primary" ng-click="uploadFile()">{{'REMOVE' | translate}}</button>
-                                            </div>
+                                </div>
+                            </uib-tab>
+                            <uib-tab heading="{{'PICTURES' | translate}}">
+                                <label>{{'PICTURES' | translate}}</label>
+                                <div ng-controller="fileCtrl" class="dropzone-custom-display">
+                                    <form class="dropzone" dropzone="" id="dropzone">
+                                        <div class="dz-default dz-message">
                                         </div>
+                                    </form>
+                                    <div>
+                                        <button class="btn btn-danger btn-reset-custom" ng-click="reset()">{{'REMOVE' | translate}}</button>
+                                        <button class="btn btn-primary" ng-click="uploadFile()">{{'REMOVE' | translate}}</button>
                                     </div>
                                 </div>
                             </uib-tab>

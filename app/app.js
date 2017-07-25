@@ -172,6 +172,14 @@
             $scope.closeAlert = function($index) {
                 return $scope.alerts.splice($index, 1)
             };
+
+            /*date picker*/
+            $scope.popupDialog = {
+                opened: !1
+            };
+            $scope.datePicker = function(){
+                $scope.popupDialog.opened = !0;
+            }
         }
         angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", AppCtrl])
     }(),
@@ -209,6 +217,8 @@
                             return b.addClass("body-wide body-auth");
                         case "/page/lock-screen":
                             return b.addClass("body-wide body-lock")
+                        case "/sales/order/detail/edit/addproduct":
+                            return b.addClass("body-wide");
                     }
                 }, d(c.path()), a.$watch(e, function(a, b) {
                     return a !== b ? d(c.path()) : void 0
@@ -251,6 +261,10 @@
                 templateUrl: "app/components/sales/sales.view.html"
             }).when("/sales/order/detail", {
                 templateUrl: "app/components/sales/order/order.detail.view.html"
+            }).when("/sales/order/detail/edit", {
+                templateUrl: "app/components/sales/order/order.detail.edit.html"
+            }).when("/sales/order/detail/edit/addproduct", {
+                templateUrl: "app/components/product/popup/products.choose.popup.html"
             }).when("/404", {
                 templateUrl: "app/shared/page/404.html"
             }).otherwise({

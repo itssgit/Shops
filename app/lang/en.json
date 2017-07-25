@@ -1,5 +1,7 @@
 {
     "ADD": "Add new",
+    "ADD_CATEGORY": "Add category",
+    "ADD_PRODUCT": "Add product",
 
     "BACK_TO_PRODUCT_LIST": "back to product list",
     "BACK_TO_STORE_LIST": "back to store",
@@ -22,6 +24,7 @@
     "DISCOUNT": "Discount",
 
     "EDIT": "Edit",
+    "EDIT_ORDER": "Edit order info",
     "EMAIL": "Email",
     "ENTRIES": "entries",
     "ENTRIES_PER_PAGE": "entries per page",
@@ -32,8 +35,10 @@
     "IMPORT": "Import",
     "IMPORT_FILE": "Import File",
     "IMPORT_LIST_MATERIAL": "Import materials",
+    "INFO": "Info",
 
     "LIST_MATERIAL": "List all material",
+    "LIST_PRODUCT": "List product",
     "LOG_IN": "Log in",
     "LOG_OUT": "Logout",
 
