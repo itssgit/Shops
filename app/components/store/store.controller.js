@@ -18,15 +18,16 @@
 
 
         /*update*/
-        $scope.update = function ($index) {
+        $scope.update = function (data, id) {
+            angular.extend(data, {nguyenLieuId: id});
+            console.log(data);
             var onUpdateSuccess = function success(data){
-                console.log(data);
                 $scope.alerts.push({
                     type: "success",
                     msg: 'MSG_MATERIAL_UPDATED'
                 });
             };
-            StoreService.update($scope.lstMaterial[$index], onUpdateSuccess, onError);
+            StoreService.update(data, onUpdateSuccess, onError);
         }
 
         /*delete*/
