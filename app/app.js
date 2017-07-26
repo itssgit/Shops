@@ -259,6 +259,8 @@
                 templateUrl: "app/components/store/detail/store.detail.view.html"
             }).when("/sales", {
                 templateUrl: "app/components/sales/sales.view.html"
+            }).when("/category", {
+                templateUrl: "app/components/category/category.view.html"
             }).when("/sales/order/detail", {
                 templateUrl: "app/components/sales/order/order.detail.view.html"
             }).when("/sales/order/detail/edit", {

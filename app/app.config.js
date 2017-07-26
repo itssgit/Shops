@@ -65,6 +65,17 @@
                 list: uriOrder + "find",
                 order: uriOrder + "findOne?donHangID="
             },
+
+            uriCategory =  uri + "nhomnguyenlieu/",
+            categoryURI = {
+                list: uriCategory + "find",
+                product: uriCategory + "findOne?sanPhamID=",
+                update: uriCategory + "update",
+                deleteList: uriCategory + "deleteList",
+                delete: uriCategory + "delete",
+                create: uriCategory + "create"
+            },
+
             constant = {
                 DELETED: 1
             };
@@ -77,7 +88,8 @@
             productURI: productURI,
             materialURI: materialURI,
             orderURI: orderURI,
-            constant: constant
+            constant: constant,
+            categoryURI: categoryURI
         }
     }
     angular.module("app").factory("AppConfig", [AppConfig])
