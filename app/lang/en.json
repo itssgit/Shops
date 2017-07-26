@@ -8,6 +8,10 @@
     "BACK_TO_SALES": "back to sales",
 
     "CATEGORY": "Category",
+    "CATEGORY_NAME": "Category name",
+    "CATEGORY_DES": "Description",
+    "CATEGORY_DISPLAY": "Display",
+
     "CANCEL": "Cancel",
     "CHOOSE_FILE": "Choose File",
     "CHOOSE_MATERIALS": "Choose materials",

@@ -8,6 +8,10 @@
     "BACK_TO_SALES": "bán hàng",
 
     "CATEGORY": "Nhóm sản phẩm",
+    "CATEGORY_NAME": "Tên nhóm",
+    "CATEGORY_DES": "Mô tả",
+    "CATEGORY_DISPLAY": "Hiển thị",
+
     "CANCEL": "Hủy",
     "CHOOSE_FILE": "Chọn file",
     "CHOOSE_MATERIALS": "Chọn nguyên liệu",
