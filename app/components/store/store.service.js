@@ -12,7 +12,6 @@
         }
 
         this.update = function(material, onSuccess, onError){
-            console.log(material);
             var url = AppConfig.materialURI.update;
             HttpService.callPostService(url, material, onSuccess, onError);
         }

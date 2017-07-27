@@ -1,11 +1,15 @@
 (function() {
     "use strict";
 
-    function ProductDetailCtrl($scope, $routeParams,$location, ProductDetailService, StoreService) {
+    function ProductDetailCtrl($scope, $routeParams,$location, ProductDetailService, StoreService, CategoryService) {
         $scope.lstProductMaterial=[];
         $scope.lstMaterial = [];
         $scope.keyword="";
 
+
+        var onError = function error(data){
+            alert(data.message);
+        }
         /*product info*/
         var id = $routeParams.id;
         if($location.$$path == "/products/edit"){
@@ -25,6 +29,11 @@
             $scope.title = 'CREATE_PRODUCT';
         }
         /*get category*/
+        var onGetListCategorySuccess = function success(data){
+            $scope.lstCategory = data.value.list;
+            console.log($scope.lstCategory);
+        }
+        CategoryService.getListCategory(onGetListCategorySuccess, onError);
 
         //////////////////////////////////
         /*material detail*/
@@ -57,9 +66,7 @@
             $scope.lstMaterial = data.value.list;
             $scope.filtered = $scope.lstMaterial;
         }
-        var onError = function error(data){
-            alert(data.message);
-        }
+
         StoreService.listMaterial(onGetListSuccess, onError);
 
         /*search materials*/
@@ -151,5 +158,5 @@
         }
 
     }
-    angular.module("app").controller("ProductDetailCtrl", ["$scope", "$routeParams","$location", "ProductDetailService", "StoreService", ProductDetailCtrl])
+    angular.module("app").controller("ProductDetailCtrl", ["$scope", "$routeParams","$location", "ProductDetailService", "StoreService","CategoryService", ProductDetailCtrl])
 })();

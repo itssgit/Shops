@@ -98,15 +98,27 @@
                                 </div>
                             </uib-tab>
                             <uib-tab heading="{{'PICTURES' | translate}}">
-                                <label>{{'PICTURES' | translate}}</label>
-                                <div ng-controller="fileCtrl" class="dropzone-custom-display">
-                                    <form class="dropzone" dropzone="" id="dropzone">
-                                        <div class="dz-default dz-message">
-                                        </div>
-                                    </form>
-                                    <div>
-                                        <button class="btn btn-danger btn-reset-custom" ng-click="reset()">{{'REMOVE' | translate}}</button>
-                                        <button class="btn btn-primary" ng-click="uploadFile()">{{'REMOVE' | translate}}</button>
+                                <div class="form-group fit-content">
+                                    <div class="col-md-12">
+                                        <section class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <strong>
+                                                    <span data-translate="PICTURES"/>
+                                                </strong>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div ng-controller="fileCtrl" class="dropzone-custom-display">
+                                                    <form class="dropzone" dropzone="" id="dropzone">
+                                                        <div class="dz-default dz-message">
+                                                        </div>
+                                                    </form>
+                                                    <div class="btn-reset-custom">
+                                                        <button class="btn btn-danger " ng-click="reset()">{{'REMOVE' | translate}}</button>
+                                                        <button class="btn btn-primary" ng-click="uploadFile()">{{'UPLOAD' | translate}}</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
                                     </div>
                                 </div>
                             </uib-tab>
