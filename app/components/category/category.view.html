@@ -40,7 +40,7 @@
                 <table class="table table-bordered table-striped table-product-custom">
                     <thead>
                     <tr class="bg-dark">
-                        <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-checked="isCheck" type="checkbox" ng-click="selectAll(filtered)"><span></span></label></th>
+                        <th class="th-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-checked="isCheck" type="checkbox" ng-click="selectAll(lstCategories)"><span></span></label></th>
                         <th class="th-picture-custom"><div class="th">
                             {{'PICTURES' | translate}}
                         </div>
@@ -81,11 +81,31 @@
                     <tr data-ng-repeat="category in lstData">
                         <td class="td-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="category.selected" ng-click="selectedRow(category)" type="checkbox" ><span></span></label></td>
                         <td><img src="http://wallpapersdsc.net/wp-content/uploads/2016/09/Yogurt-Images.jpg" class="image-table-custom"/></td>
-                        <td>{{category.tenSanPham}}</td>
-                        <td class="price-custom">{{category.donGia | customCurrency}}</td>
-                        <td>{{category.moTa}}</td>
                         <td>
-                            <a href="#category/edit?id={{category.sanPhamId}}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</a>
+                            <span editable-text="category.tenSanPham" e-name="tenSanPham" e-form="rowform" e-required>
+                                {{category.tenSanPham}}</span>
+                        </td>
+                        <td class="price-custom">
+                            <span editable-text="category.donGia" e-name="donGia" e-form="rowform" e-required>
+                            {{category.donGia | customCurrency}}</span>
+                        </td>
+                        <td>
+                            <span editable-text="category.moTa" e-name="moTa" e-form="rowform" e-required>
+                            {{category.moTa}}</span>
+                        </td>
+                        <td>
+                            <form editable-form name="rowform" onbeforesave="update($data)" ng-show="rowform.$visible"
+                                  class="form-buttons form-inline" shown="inserted == material">
+                                <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                                    {{'SAVE' | translate}}
+                                </button>
+                                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                                    {{'CANCEL' | translate}}
+                                </button>
+                            </form>
+                            <div class="buttons" ng-show="!rowform.$visible">
+                                <button class="btn btn-default" ng-click="rowform.$show()"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{{'EDIT' | translate}}</button>
+                            </div>
                         </td>
                     </tr>
                     </tbody>

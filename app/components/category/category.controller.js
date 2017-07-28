@@ -16,9 +16,23 @@
         };
 
         CategoryService.getListCategory(onGetListSuccess, onGetListError);
+        $scope.filtered = [];
 
         $scope.order = function(property){
-            $scope.filtered = ProductService.order($scope.lstProduct, property);
+            $scope.filtered = CategoryService.order($scope.lstProduct, property);
+        };
+
+        $scope.update = function (data, id) {
+            angular.extend(data, {nguyenLieuId: id});
+            console.log(data);
+            var onUpdateSuccess = function success(data){
+                $scope.alerts.push({
+                    type: "success",
+                    msg: 'MSG_MATERIAL_UPDATED'
+                });
+            };
+            debugger;
+            StoreService.update(data, onUpdateSuccess, onError);
         };
 
         $scope.delete = function(){
