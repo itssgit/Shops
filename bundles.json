@@ -1,0 +1,59 @@
+{
+  "styles": {
+    "files": [
+      "assets/css/main.css",
+      "app/shops.css",
+      "assets/css/xeditable.css",
+      "assets/dropzone/dropzone.css",
+      "assets/css/style.css"
+    ],
+    "concat_file": "site.css",
+    "output": "site.min.css",
+    "dir": "assets/css/"
+  },
+  "scripts": {
+    "files": [
+      "assets/js/vendor/vendor.js",
+      "assets/js/ui/ui.js",
+      "app/app.js",
+      "app/app.config.js",
+
+      "app/shared/login/login.controller.js",
+      "app/lang/language.controller.js",
+      "app/components/dashboard/dashboard.controller.js",
+      "app/components/product/products.controller.js",
+      "app/components/product/detail/products.detail.controller.js",
+      "app/components/store/store.controller.js",
+      "app/components/store/detail/store.detail.controller.js",
+      "app/components/sales/sales.controller.js",
+      "app/components/sales/order/order.detail.controller.js",
+      "app/components/category/category.controller.js",
+
+      "assets/js/angular/angular-cookies.js",
+      "assets/js/angular/angular-recaptcha.js",
+      "assets/js/angular/angular-messages.js",
+      "assets/js/lib/xeditable.js",
+      "assets/js/lib/dropzone.js",
+
+      "app/shared/service/http.service.js",
+      "app/shared/service/cookies.service.js",
+      "app/shared/service/binding.service.js",
+      "app/shared/login/login.service.js",
+      "app/components/product/products.service.js",
+      "app/components/product/detail/products.detail.service.js",
+      "app/components/store/store.service.js",
+      "app/components/sales/sales.service.js",
+      "app/components/sales/order/order.detail.service.js",
+      "app/components/category/category.service.js",
+
+      "app/shared/filter/format.currencies.filter.js",
+      "app/shared/filter/sum.total-order.filter.js",
+
+      "app/shared/directives/dropzone-directives.js",
+      "app/shared/directives/formatprice-directives.js"
+    ],
+    "concat_file": "site.js",
+    "output": "site.min.js",
+    "dir": "assets/js/"
+  }
+}
