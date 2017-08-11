@@ -8,7 +8,7 @@
         "app.chart", "app.ui", "app.ui.form",
         "app.ui.form.validation", "app.page", "app.table",
         "app.task", "app.calendar","ngCookies",
-        "vcRecaptcha", "ngMessages", "xeditable"])
+        "vcRecaptcha", "ngMessages"])
 }(),
     function() {
         "use strict";
@@ -184,17 +184,15 @@
         angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", AppCtrl])
     }(),
     function(){
-        function fileCtrl ($scope) {
-            $scope.uploadFile = function() {
-                $scope.processDropzone();
-            };
-
-            $scope.reset = function() {
-                $scope.resetDropzone();
-            };
+        "use strict";
+        function ModalInstanceCtrl($scope, $uibModalInstance) {
+            $scope.ok = function() {
+                $uibModalInstance.close()
+            }, $scope.cancel = function() {
+                $uibModalInstance.dismiss("cancel")
+            }
         }
-
-        angular.module('app').controller('fileCtrl', ["$scope",fileCtrl]);
+        angular.module('app').controller("ModalInstanceCtrl", ["$scope", "$uibModalInstance", ModalInstanceCtrl]);
     }(),
     // custom page
     function() {
@@ -216,9 +214,7 @@
                         case "/forgot-password":
                             return b.addClass("body-wide body-auth");
                         case "/page/lock-screen":
-                            return b.addClass("body-wide body-lock")
-                        case "/sales/order/detail/edit/addproduct":
-                            return b.addClass("body-wide");
+                            return b.addClass("body-wide body-lock");
                     }
                 }, d(c.path()), a.$watch(e, function(a, b) {
                     return a !== b ? d(c.path()) : void 0
@@ -247,26 +243,10 @@
                 templateUrl: "app/shared/sign-up/sign-up.view.html"
             }).when("/forgot-password", {
                 templateUrl: "app/shared/forgot-password/forgot-password.view.html"
-            }).when("/products", {
-                templateUrl: "app/components/product/products.view.html"
-            }).when("/products/create", {
-                templateUrl: "app/components/product/detail/products.detail.view.html"
-            }).when("/products/edit", {
-                templateUrl: "app/components/product/detail/products.detail.view.html"
-            }).when("/stores", {
-                templateUrl: "app/components/store/store.view.html"
-            }).when("/stores-import", {
-                templateUrl: "app/components/store/detail/store.detail.view.html"
-            }).when("/sales", {
-                templateUrl: "app/components/sales/sales.view.html"
-            }).when("/category", {
-                templateUrl: "app/components/category/category.view.html"
-            }).when("/sales/order/detail", {
-                templateUrl: "app/components/sales/order/order.detail.view.html"
-            }).when("/sales/order/detail/edit", {
-                templateUrl: "app/components/sales/order/order.detail.edit.html"
-            }).when("/sales/order/detail/edit/addproduct", {
-                templateUrl: "app/components/product/popup/products.choose.popup.html"
+            }).when("/store", {
+                templateUrl: "app/components/store/store.list.view.html"
+            }).when("/store/addnew", {
+                templateUrl: "app/components/store/addnew/store.addnew.view.html"
             }).when("/404", {
                 templateUrl: "app/shared/page/404.html"
             }).otherwise({

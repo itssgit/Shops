@@ -2,68 +2,75 @@
  * Created by vietdd on 16/06/2017.
  */
 (function () {
-    angular.module("app").controller("StoreCtrl", ["$scope","$filter", "StoreService", StoreCtrl]);
-    function StoreCtrl($scope, $filter, StoreService) {
-
-        /*get list materials*/
-        var onGetListSuccess = function success(data){
-            $scope.lstMaterial = data.value.list;
-            $scope.filtered = $scope.lstMaterial;
+    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "StoreService", StoreCtrl]);
+    function StoreCtrl($scope, $uibModal, $uibModalStack, StoreService) {
+        /*---get list material---*/
+        var onError = function onError(data){
+            var modal = $uibModal.open({
+                animation: 1,
+                templateUrl: "modalAlertError.html",
+                controller: "ModalInstanceCtrl",
+                size: 'sm'
+            });
+            modal.result.then(function() {
+                $uibModalStack.dismissAll();
+            })
         }
-        var onError = function error(data){
-            alert(data.message);
+        $scope.listMaterial = [];
+        var onGetListSuccess = function onSuccess(data){
+            $scope.listMaterial = data.value;
         }
-        StoreService.listMaterial(onGetListSuccess, onError);
-        $scope.filtered = [];
+        StoreService.getListMaterial(onGetListSuccess, onError);
+        /*--------------------*/
 
-
-        /*update*/
-        $scope.update = function (data, id) {
-            angular.extend(data, {nguyenLieuId: id});
-            console.log(data);
-            var onUpdateSuccess = function success(data){
-                $scope.alerts.push({
-                    type: "success",
-                    msg: 'MSG_MATERIAL_UPDATED'
-                });
-            };
-            StoreService.update(data, onUpdateSuccess, onError);
-        }
-
-        /*delete*/
-        $scope.delete = function(){
-            var selectedMaterial = $filter('filter')($scope.filtered, {selected: 'true'});
-            var lstId = selectedMaterial.map(function(a) {return a.nguyenLieuId;});
-            var onDeleteSuccess = function success(data){
-                angular.forEach(selectedMaterial, function(value, key){
-                    var index = $scope.filtered.indexOf(value);
-                    $scope.filtered.splice(index, 1);
-                });
-
-                $scope.alerts.push({
-                    type: "success",
-                    msg: 'MSG_MATERIAL_DELETED'
+        /*select checkbox*/
+        $scope.open = function() {
+            if($scope.selected){
+                $uibModal.open({
+                    animation: 1,
+                    templateUrl: "modalInfoMaterial.html",
+                    controller: "ModalInstanceCtrl",
+                    size: 'lg',
+                    scope: $scope,
                 });
             }
+        };
+        /*--------------------*/
 
-            StoreService.deleteList(lstId, onDeleteSuccess, onError);
+        /*click update on popup*/
+        $scope.update = function(id){
+            var modal = $uibModal.open({
+                animation: 1,
+                templateUrl: "modalConfirmUpdate.html",
+                controller: "ModalInstanceCtrl",
+                size: 'sm'
+            });
+            modal.result.then(function() {
+                $uibModalStack.dismissAll();
+            })
         }
+        /*--------------------*/
 
-        /*sort*/
-        $scope.order = function(property){
-            $scope.filtered = StoreService.order($scope.lstMaterial, property);
+        /*click delete on popup*/
+        $scope.delete = function(id){
+            var modal = $uibModal.open({
+                animation: 1,
+                templateUrl: "modalConfirmDelete.html",
+                controller: "ModalInstanceCtrl",
+                size: 'sm'
+            });
+            modal.result.then(function() {
+                $uibModalStack.dismissAll();
+            })
         }
+        /*--------------------*/
 
-
-        /*pagination*/
-        $scope.$watch('filtered', function() {
-            $scope.lstData = $scope.filtered;
-        });
-        var begin, end;
-        $scope.$watch('currentPage + numPerPage', function() {
-            begin = (($scope.currentPage - 1) * $scope.numPerPage)
-                , end = begin + $scope.numPerPage;
-            $scope.lstData = $scope.filtered.slice(begin, end);
-        });
+        $scope.download = function(){
+            var blob = new Blob([document.getElementById('dataTable').innerHTML], {
+                type: "text/plain;charset=utf-8"
+            });
+            saveAs(blob, "Report.xls");
+        }
     }
+
 })();

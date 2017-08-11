@@ -19,10 +19,8 @@
     <!-- end Needs images -->
 
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
     <!--<link rel="stylesheet" href="assets/css/main2.css">-->
-    <link rel="stylesheet" href="app/shops.css">
-    <link rel="stylesheet" href="assets/css/xeditable.css">
-    <link rel="stylesheet" href="assets/dropzone/dropzone.css">
 
 </head>
 <body data-ng-app="app" id="app" class="app" data-custom-page data-off-canvas-nav data-ng-controller="AppCtrl"
@@ -63,6 +61,12 @@
     </footer>
 </div>
 
+<script type="text/ng-template" id="modalAlertError.html">
+    <div class="modal-header alert-danger">
+        <h5>{{'LABEL_ERROR_HAPPEN' | translate}}</h5>
+    </div>
+</script>
+
 
 <script src="assets/js/vendor/vendor.js"></script>
 <script src="assets/js/ui/ui.js"></script>
@@ -73,42 +77,29 @@
 <script src="app/shared/login/login.controller.js"></script>
 <script src="app/lang/language.controller.js"></script>
 <script src="app/components/dashboard/dashboard.controller.js"></script>
-<script src="app/components/product/products.controller.js"></script>
-<script src="app/components/product/detail/products.detail.controller.js"></script>
 <script src="app/components/store/store.controller.js"></script>
-<script src="app/components/store/detail/store.detail.controller.js"></script>
-<script src="app/components/sales/sales.controller.js"></script>
-<script src="app/components/sales/order/order.detail.controller.js"></script>
-<script src="app/components/category/category.controller.js"></script>
+<script src="app/components/store/addnew/store.addnew.controller.js"></script>
+
 
 <!-- libs -->
 <script src="assets/js/angular/angular-cookies.js"></script>
 <script src="assets/js/angular/angular-recaptcha.js"></script>
 <script src="assets/js/angular/angular-messages.js"></script>
-<script src="assets/js/lib/xeditable.js"></script>
-<script src="assets/js/lib/dropzone.js"></script>
+<script src="assets/js/angular/FileSaver.js"></script>
 
 <!--services -->
 <script src="app/shared/service/http.service.js"></script>
 <script src="app/shared/service/cookies.service.js"></script>
 <script src="app/shared/service/binding.service.js"></script>
 <script src="app/shared/login/login.service.js"></script>
-<script src="app/components/product/products.service.js"></script>
-<script src="app/components/product/detail/products.detail.service.js"></script>
 <script src="app/components/store/store.service.js"></script>
-<script src="app/components/sales/sales.service.js"></script>
-<script src="app/components/sales/order/order.detail.service.js"></script>
-<script src="app/components/category/category.service.js"></script>
 
 <!--filter-->
 <script src="app/shared/filter/format.currencies.filter.js"></script>
 <script src="app/shared/filter/sum.total-order.filter.js"></script>
+<script src="app/shared/filter/positive.number.filter.js"></script>
 
 <!-- directives -->
-<script src="app/shared/directives/dropzone-directives.js"></script>
 <script src="app/shared/directives/formatprice-directives.js"></script>
-<script type="text/javascript">
-    Dropzone.autoDiscover = false;
-</script>
 </body>
 </html>

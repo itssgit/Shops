@@ -1,0 +1,194 @@
+
+<div class="page page-table" data-ng-controller="StoreCtrl">
+
+    <section class="panel panel-default table-dynamic">
+        <div class="panel-heading clearfix">
+            <strong><span data-translate="TITLE_STORE_MANAGE"></span></strong>
+            <div class="pull-right" style="text-transform: none;">
+                <button class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> {{'BTN_WAREHOUSING' | translate}}</button>
+                <button class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span> {{'BTN_ADJUST' | translate}}</button>
+                <a href="#store/addnew" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> {{'BTN_ADD_NEW' | translate}}</a>
+                <button class="btn btn-info"><span class="glyphicon glyphicon-export"></span> {{'BTN_EXPORT' | translate}}</button>
+            </div>
+        </div>
+
+        <div class="table-filters">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <div class="col-md-3">
+                        <label data-translate="LABEL_MATERIAL_CODE"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text"
+                               placeholder="{{'MATERIAL_CODE' | translate}}"
+                               class="form-control"
+                               data-ng-model="searchKeywords"
+                               data-ng-keyup="search()">
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="col-md-3">
+                        <label data-translate="LABEL_MATERIAL_NAME"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text"
+                               placeholder="{{'MATERIAL_NAME' | translate}}"
+                               class="form-control"
+                               data-ng-model="searchKeywords"
+                               data-ng-keyup="search()">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <div class="col-md-3">
+                        <label data-translate="LABEL_MATERIAL_STATUS"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text"
+                               placeholder="{{'MATERIAL_CODE' | translate}}"
+                               class="form-control"
+                               data-ng-model="searchKeywords"
+                               data-ng-keyup="search()">
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="col-md-3">
+                        <label data-translate="LABEL_MATERIAL_TYPE"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text"
+                               placeholder="{{'MATERIAL_CODE' | translate}}"
+                               class="form-control"
+                               data-ng-model="searchKeywords"
+                               data-ng-keyup="search()">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-info"><span class="glyphicon glyphicon-search"></span> {{'BTN_SEARCH' | translate}}</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="dataTable">
+            <table class="table table-bordered table-striped table-responsive">
+                <thead>
+                <tr class="bg-dark-light">
+                    <th><div class="th">
+                        <label class="ui-checkbox"><input name="checkbox1" type="checkbox" ng-click="download()"><span></span></label>
+                    </div></th>
+                    <th><div class="th">
+                        {{'MATERIAL_CODE' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('name') "
+                              data-ng-class="{active: row == 'name'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-name') "
+                              data-ng-class="{active: row == '-name'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        {{'MATERIAL_NAME' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('price') "
+                              data-ng-class="{active: row == 'price'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-price') "
+                              data-ng-class="{active: row == '-price'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        {{'MATERIAL_IN_STOCK' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('sales') "
+                              data-ng-class="{active: row == 'sales'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-sales') "
+                              data-ng-class="{active: row == '-sales'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        {{'MATERIAL_TYPE' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        {{'MATERIAL_STATUS' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" order('rating') "
+                              data-ng-class="{active: row == 'rating'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" order('-rating') "
+                              data-ng-class="{active: row == '-rating'}"></span>
+                    </div></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><label class="ui-checkbox"><input name="checkbox1" ng-model="selected" ng-click="open()" type="checkbox"><span></span></label></td>
+                    <td>store.name</td>
+                    <td>store.price</td>
+                    <td>store.sales</td>
+                    <td>store.rating</td>
+                    <td>store.rating</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="table-footer">
+            <div class="row">
+                <div class="col-md-6 page-num-info">
+                    <span>
+                        Show
+                        <select data-ng-model="numPerPage"
+                                data-ng-options="num for num in numPerPageOpt"
+                                data-ng-change="onNumPerPageChange()">
+                        </select>
+                        entries per page
+                    </span>
+                </div>
+                <div class="col-md-6 text-right pagination-container">
+                    <uib-pagination class="pagination-sm"
+                                    ng-model="currentPage"
+                                    total-items="filteredStores.length"
+                                    max-size="4"
+                                    ng-change="select(currentPage)"
+                                    items-per-page="numPerPage"
+                                    rotate="false"
+                                    previous-text="&lsaquo;" next-text="&rsaquo;"
+                                    boundary-links="true"></uib-pagination>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <script type="text/ng-template" id="modalInfoMaterial.html">
+        <div class="modal-header">
+            <h4>Tên hàng hóa</h4>
+        </div>
+        <div class="modal-body">
+            <div ng-include=" 'app/components/store/store.info.modal.html' "></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="modalConfirmUpdate.html">
+        <div class="modal-header">
+            <h5>{{'LABEL_MATERIAL_CONRM_UPDATE' | translate}}</h5>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" ng-click="ok()">{{'BTN_OK' | translate}}</button>
+            <button class="btn btn-toolbar" ng-click="cancel()">{{'BTN_CANCEL' | translate}}</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="modalConfirmDelete.html">
+        <div class="modal-header">
+            <h5>{{'LABEL_MATERIAL_CONFIRM_DELETE' | translate}}</h5>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" ng-click="ok()">{{'BTN_OK' | translate}}</button>
+            <button class="btn btn-toolbar" ng-click="cancel()">{{'BTN_CANCEL' | translate}}</button>
+        </div>
+    </script>
+</div>

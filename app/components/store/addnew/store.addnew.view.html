@@ -1,0 +1,142 @@
+<div class="page page-table" data-ng-controller="StoreAddNewCtrl">
+
+    <section class="panel panel-default table-dynamic">
+        <div class="panel-heading clearfix">
+            <strong><span data-translate="TITLE_STORE_MANAGE"></span>
+            </strong>
+            <a href="#store"><i class="glyphicon glyphicon-circle-arrow-left"></i> {{'LABEL_BACK_TO_STORE_LIST' | translate}}</a>
+        </div>
+
+        <div class="panel-body">
+            <form name="materialInfo" ng-submit="save()" novalidate>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ui-tab-container ui-tab-horizontal">
+                            <uib-tabset justified="false" class="ui-tab" style="overflow: auto;">
+                                <uib-tab heading="{{'LABEL_MATERIAL_INFO'| translate}}">
+                                    <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                        <label data-translate="LABEL_MATERIAL_CODE"></label><span class="text-color-red"> *</span>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text"
+                                                               placeholder="{{'MATERIAL_CODE' | translate}}"
+                                                               data-ng-model="material.inventoryCode"
+                                                               class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row" ng-class="{ 'has-error' : materialInfo.inventoryName.$invalid && materialInfo.inventoryName.$touched }">
+                                                    <div class="col-md-3">
+                                                        <label data-translate="LABEL_MATERIAL_NAME"></label><span class="text-color-red"> *</span>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text"
+                                                               name="inventoryName"
+                                                               data-ng-model="material.inventoryName"
+                                                               required
+                                                               class="form-control">
+                                                        <p ng-show="materialInfo.inventoryName.$error.required && materialInfo.inventoryName.$touched" class="help-block">{{'MSG_MATERIAL_NAME_REQUIRED' | translate}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                        <label data-translate="LABEL_MATERIAL_PRICE"></label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="number"
+                                                               data-ng-model="material.unitPrice"
+                                                               format="positive"
+                                                               class="form-control text-right">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                        <label data-translate="LABEL_MATERIAL_IN_STOCK"></label><span class="text-color-red"> *</span>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="number"
+                                                               data-ng-model="material.quantity"
+                                                               format="positive"
+                                                               class="form-control text-right">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                        <label data-translate="LABEL_MATERIAL_QUOTA"></label><span class="text-color-red"> *</span>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="number"
+                                                               data-ng-model="material.quotaNo"
+                                                               format="positive"
+                                                               class="form-control text-right">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                        <label data-translate="LABEL_MATERIAL_TYPE"></label><span class="text-color-red"> *</span>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text"
+                                                               data-ng-model="material.inventoryType"
+                                                               class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-3">
+                                                        <label data-translate="LABEL_MATERIAL_UNIT"></label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text"
+                                                               data-ng-model="material.unit"
+                                                               class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="col-md-6">
+                                            <div>
+                                            </div>
+                                            <button class="btn btn-info"><span class="glyphicon glyphicon-camera"></span> {{'BTN_CHOOSE_IMAGE' | translate}}</button>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                                <uib-tab heading="{{'LABEL_MATERIAL_DESC_DETAIL' | translate}}">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <section class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div
+                                                            text-angular
+                                                            ng-model="material.inventoryDesc"
+                                                            class="ui-editor"
+                                                            ta-text-editor-class="form-control editor-height"
+                                                            ta-html-editor-class="form-control editor-height"></div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                        </div>
+                    </div>
+                </div>
+                <div class="row button-bottom-right">
+                    <div class="col-md-12">
+                        <button class="btn btn-info" type="submit" ng-disabled="materialInfo.$invalid"><span class="glyphicon glyphicon-save"></span> {{'BTN_SAVE' | translate}}</button>
+                        <button class="btn btn-info" type="button" ng-disabled="materialInfo.$invalid"><span class="glyphicon glyphicon-save"></span> {{'BTN_SAVE_CONTINUE' | translate}}</button>
+                        <button class="btn btn-info" type="button"><span class="glyphicon glyphicon-remove"></span> {{'BTN_CANCEL' | translate}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script type="text/ng-template" id="modalConfirmCreate.html">
+        <div class="modal-header">
+            <h5>{{'LABEL_MATERIAL_CONFIRM_CREATE' | translate}}</h5>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" ng-click="ok()">{{'BTN_OK' | translate}}</button>
+            <button class="btn btn-toolbar" ng-click="cancel()">{{'BTN_CANCEL' | translate}}</button>
+        </div>
+    </script>
+</div>

@@ -1,0 +1,177 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="ui-tab-container ui-tab-horizontal">
+            <uib-tabset justified="false" class="ui-tab" style="overflow: auto;">
+                <uib-tab heading="{{'LABEL_MATERIAL_INFO' | translate}}">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-9">
+                                <img src="http://www.goodkarma-cafe.com/wp-content/uploads/2017/07/cafe.png" style="width: 100%">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group row">
+                                    <img src="http://www.goodkarma-cafe.com/wp-content/uploads/2017/07/cafe.png" style="width: 100%">
+                                </div>
+                                <div class="form-group row">
+                                    <img src="http://www.goodkarma-cafe.com/wp-content/uploads/2017/07/cafe.png" style="width: 100%">
+                                </div>
+                                <div class="form-group row">
+                                    <img src="http://www.goodkarma-cafe.com/wp-content/uploads/2017/07/cafe.png" style="width: 100%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label data-translate="LABEL_MATERIAL_CODE"></label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text"
+                                           placeholder="{{'MATERIAL_CODE' | translate}}"
+                                           class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label data-translate="LABEL_MATERIAL_NAME"></label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text"
+                                           class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label data-translate="LABEL_MATERIAL_PRICE"></label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text"
+                                           class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label data-translate="LABEL_MATERIAL_IN_STOCK"></label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text"
+                                           class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label data-translate="LABEL_MATERIAL_QUOTA"></label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text"
+                                           class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label data-translate="LABEL_MATERIAL_TYPE"></label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text"
+                                           class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label data-translate="LABEL_MATERIAL_UNIT"></label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text"
+                                           class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align: right">
+                        <div class="col-md-12">
+                            <button class="btn btn-info" ng-click="update()"><span class="glyphicon glyphicon-save"></span> {{'BTN_UPDATE' | translate}}</button>
+                            <button class="btn btn-danger" ng-click="delete()"><span class="glyphicon glyphicon-trash"></span> {{'BTN_DELETE' | translate}}</button>
+                        </div>
+                    </div>
+                </uib-tab>
+                <uib-tab heading="{{'LABEL_MATERIAL_STOCK_CARD' | translate}}">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered table-striped table-responsive">
+                                <thead>
+                                <tr class="bg-dark-light">
+                                    <th><div class="th">
+                                        <label class="ui-checkbox"><input name="checkbox1" type="checkbox"><span></span></label>
+                                    </div></th>
+                                    <th><div class="th">
+                                        {{'MATERIAL_CODE' | translate}}
+                                        <span class="fa fa-angle-up"
+                                              data-ng-click=" order('name') "
+                                              data-ng-class="{active: row == 'name'}"></span>
+                                        <span class="fa fa-angle-down"
+                                              data-ng-click=" order('-name') "
+                                              data-ng-class="{active: row == '-name'}"></span>
+                                    </div></th>
+                                    <th><div class="th">
+                                        {{'MATERIAL_NAME' | translate}}
+                                        <span class="fa fa-angle-up"
+                                              data-ng-click=" order('price') "
+                                              data-ng-class="{active: row == 'price'}"></span>
+                                        <span class="fa fa-angle-down"
+                                              data-ng-click=" order('-price') "
+                                              data-ng-class="{active: row == '-price'}"></span>
+                                    </div></th>
+                                    <th><div class="th">
+                                        {{'MATERIAL_IN_STOCK' | translate}}
+                                        <span class="fa fa-angle-up"
+                                              data-ng-click=" order('sales') "
+                                              data-ng-class="{active: row == 'sales'}"></span>
+                                        <span class="fa fa-angle-down"
+                                              data-ng-click=" order('-sales') "
+                                              data-ng-class="{active: row == '-sales'}"></span>
+                                    </div></th>
+                                    <th><div class="th">
+                                        {{'MATERIAL_TYPE' | translate}}
+                                        <span class="fa fa-angle-up"
+                                              data-ng-click=" order('rating') "
+                                              data-ng-class="{active: row == 'rating'}"></span>
+                                        <span class="fa fa-angle-down"
+                                              data-ng-click=" order('-rating') "
+                                              data-ng-class="{active: row == '-rating'}"></span>
+                                    </div></th>
+                                    <th><div class="th">
+                                        {{'MATERIAL_STATUS' | translate}}
+                                        <span class="fa fa-angle-up"
+                                              data-ng-click=" order('rating') "
+                                              data-ng-class="{active: row == 'rating'}"></span>
+                                        <span class="fa fa-angle-down"
+                                              data-ng-click=" order('-rating') "
+                                              data-ng-class="{active: row == '-rating'}"></span>
+                                    </div></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><label class="ui-checkbox"><input name="checkbox1" ng-model="selected" ng-click="open()" type="checkbox"><span></span></label></td>
+                                    <td>{{data}}</td>
+                                    <td>store.price</td>
+                                    <td>store.sales</td>
+                                    <td>store.rating</td>
+                                    <td>store.rating</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align: right">
+                        <div class="col-md-12">
+                            <button class="btn btn-info"><span class="glyphicon glyphicon-export"></span> {{'BTN_EXPORT' | translate}}</button>
+                        </div>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

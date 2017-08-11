@@ -44,52 +44,16 @@
 
             //Khai bao link webservice
             uri = "http://giaiphapshop.com:8088/shops-services/",
-            uriProduct =  uri + "sanpham/",
-            productURI = {
-                list: uriProduct + "find",
-                product: uriProduct + "findOne?sanPhamID=",
-                update: uriProduct + "update",
-                deleteList: uriProduct + "deleteList",
-                delete: uriProduct + "delete",
-                create: uriProduct + "create"
-            },
-            uriMaterial = uri + "nguyenlieu/",
-            materialURI = {
-                list: uriMaterial + "find",
-                update: uriMaterial + "update",
-                createList: uriMaterial + "createList",
-                deleteList: uriMaterial + "deleteList"
-            },
-            uriOrder = uri + "donhang/",
-            orderURI = {
-                list: uriOrder + "find",
-                order: uriOrder + "findOne?donHangID="
-            },
-
-            uriCategory =  uri + "nhomnguyenlieu/",
-            categoryURI = {
-                list: uriCategory + "find",
-                product: uriCategory + "findOne?sanPhamID=",
-                update: uriCategory + "update",
-                deleteList: uriCategory + "deleteList",
-                delete: uriCategory + "delete",
-                create: uriCategory + "create"
-            },
-
-            constant = {
-                DELETED: 1
-            };
-
+            inventoryUri = {
+                list: uri + "inventory/find",
+                create: uri + "inventory/create"
+            }
 
         return {
             pageTransitionOpts: a,
             main: d,
             color: e,
-            productURI: productURI,
-            materialURI: materialURI,
-            orderURI: orderURI,
-            constant: constant,
-            categoryURI: categoryURI
+            inventoryUri: inventoryUri
         }
     }
     angular.module("app").factory("AppConfig", [AppConfig])
