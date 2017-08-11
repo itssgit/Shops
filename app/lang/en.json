@@ -12,6 +12,7 @@
     "BTN_DELETE": "Delete",
     "BTN_UPDATE": "Update",
     "BTN_OK": "OK",
+    "BTN_SEARCH_TRANSACTION": "Transaction lookup",
 
     "LABEL_MATERIAL_CODE": "Material code",
     "LABEL_MATERIAL_NAME": "Material name",

@@ -12,6 +12,7 @@
     "BTN_DELETE": "Xóa",
     "BTN_UPDATE": "Cập nhật",
     "BTN_OK": "Chấp nhận",
+    "BTN_SEARCH_TRANSACTION": "Tra cứu giao dịch",
 
     "LABEL_MATERIAL_CODE": "Mã hàng hóa",
     "LABEL_MATERIAL_NAME": "Tên hàng hóa",
