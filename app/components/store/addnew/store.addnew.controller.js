@@ -26,7 +26,7 @@
             modal.result.then(function() {
                 var onCreateSuccess = function (data) {
                     // thong bao thanh cong, quay ve man hinh list
-                    alert("ok");
+                    console.log(data);
                 }
 
                 StoreService.createMaterial($scope.material, onCreateSuccess, onError)

@@ -18,7 +18,8 @@
         }
         $scope.listMaterial = [];
         var onGetListSuccess = function onSuccess(data){
-            $scope.listMaterial = data.value;
+            $scope.data = data.value;
+            $scope.listMaterial = $scope.data;
         }
         StoreService.getListMaterial(onGetListSuccess, onError);
         /*--------------------*/
@@ -71,6 +72,15 @@
             });
             saveAs(blob, "Report.xls");
         }
+
+        /*pagination*/
+        var begin, end;
+        $scope.$watch('currentPage + numPerPage', function() {
+            begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+            $scope.listMaterial = $scope.data.slice(begin, end);
+        });
+        /*--------------------*/
     }
 
 })();

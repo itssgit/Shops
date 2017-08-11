@@ -39,5 +39,6 @@
 
     "MSG_MATERIAL_NAME_REQUIRED": "Material name is required.",
 
-    "TITLE_STORE_MANAGE": "Store manage"
+    "TITLE_STORE_MANAGE": "Store manage",
+    "TITLE_STORE": "Store"
 }

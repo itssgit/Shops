@@ -128,7 +128,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <tr data-ng-repeat="material in listMaterial">
                     <td><label class="ui-checkbox"><input name="checkbox1" ng-model="selected" ng-click="open()" type="checkbox"><span></span></label></td>
                     <td>store.name</td>
                     <td>store.price</td>
@@ -146,8 +146,7 @@
                     <span>
                         Show
                         <select data-ng-model="numPerPage"
-                                data-ng-options="num for num in numPerPageOpt"
-                                data-ng-change="onNumPerPageChange()">
+                                data-ng-options="num for num in numPerPageOpt">
                         </select>
                         entries per page
                     </span>
@@ -155,9 +154,8 @@
                 <div class="col-md-6 text-right pagination-container">
                     <uib-pagination class="pagination-sm"
                                     ng-model="currentPage"
-                                    total-items="filteredStores.length"
+                                    total-items="data.length"
                                     max-size="4"
-                                    ng-change="select(currentPage)"
                                     items-per-page="numPerPage"
                                     rotate="false"
                                     previous-text="&lsaquo;" next-text="&rsaquo;"
