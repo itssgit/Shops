@@ -45,8 +45,9 @@
             //Khai bao link webservice
             uri = "http://giaiphapshop.com:8088/shops-services/",
             inventoryUri = {
-                list: uri + "inventory/find",
-                create: uri + "inventory/create"
+                list: uri + "inventory/findAll",
+                create: uri + "inventory/create",
+                update: uri + "inventory/update"
             }
 
         return {

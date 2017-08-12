@@ -16,5 +16,10 @@
             var url = AppConfig.inventoryUri.create;
             HttpService.callPostService(url, data, onSuccess, onError);
         }
+
+        this.updateInfo = function(data, onSuccess, onError){
+            var url = AppConfig.inventoryUri.update;
+            HttpService.callPostService(url, data, onSuccess, onError);
+        }
     }
 })();

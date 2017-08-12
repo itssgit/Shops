@@ -16,7 +16,7 @@
                 $uibModalStack.dismissAll();
             })
         }
-        $scope.listMaterial = [];
+        $scope.data = [];
         var onGetListSuccess = function onSuccess(data){
             $scope.data = data.value;
             $scope.listMaterial = $scope.data;
@@ -25,8 +25,22 @@
         /*--------------------*/
 
         /*select checkbox*/
-        $scope.open = function() {
-            if($scope.selected){
+        var index;
+        $scope.open = function(selected, $index) {
+            index = $index;
+            $scope.selectedMaterial = {
+                "inventoryCode": $scope.listMaterial[$index].inventoryCode,
+                "quantity": $scope.listMaterial[$index].quantity,
+                "quotaNo": $scope.listMaterial[$index].quotaNo,
+                "unitPrice": $scope.listMaterial[$index].unitPrice,
+                "unit": $scope.listMaterial[$index].unit,
+                "inventoryType": $scope.listMaterial[$index].inventoryType,
+                "inventoryName": $scope.listMaterial[$index].inventoryName,
+                "inventoryId": $scope.listMaterial[$index].inventoryId,
+                "status": $scope.listMaterial[$index].status,
+                "inventoryDesc": $scope.listMaterial[$index].inventoryDesc
+            };
+            if(selected){
                 $uibModal.open({
                     animation: 1,
                     templateUrl: "modalInfoMaterial.html",
@@ -39,7 +53,7 @@
         /*--------------------*/
 
         /*click update on popup*/
-        $scope.update = function(id){
+        $scope.update = function(){
             var modal = $uibModal.open({
                 animation: 1,
                 templateUrl: "modalConfirmUpdate.html",
@@ -47,13 +61,23 @@
                 size: 'sm'
             });
             modal.result.then(function() {
-                $uibModalStack.dismissAll();
+                //update info
+                var onUpdateInfoSuccess = function onSuccess(){
+                    $scope.alerts[0] = {
+                        type: "success",
+                        msg: 'MSG_MATERIAL_UPDATED',
+                        show: true
+                    };
+                    $uibModalStack.dismissAll();
+                    $scope.listMaterial[index] = $scope.selectedMaterial;
+                }
+                StoreService.updateInfo($scope.selectedMaterial, onUpdateInfoSuccess, onError);
             })
         }
         /*--------------------*/
 
         /*click delete on popup*/
-        $scope.delete = function(id){
+        $scope.delete = function(){
             var modal = $uibModal.open({
                 animation: 1,
                 templateUrl: "modalConfirmDelete.html",
@@ -66,7 +90,14 @@
         }
         /*--------------------*/
 
-        $scope.download = function(){
+        /*click search*/
+        $scope.search = function(){
+
+        }
+        /*--------------------*/
+
+
+        $scope.export = function(){
             var blob = new Blob([document.getElementById('dataTable').innerHTML], {
                 type: "text/plain;charset=utf-8"
             });

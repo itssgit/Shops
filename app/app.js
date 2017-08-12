@@ -129,7 +129,7 @@
     function() {
         "use strict";
 
-        function AppCtrl($scope, b, c, d, e) {
+        function AppCtrl($scope, b, $route, d, e) {
             $scope.pageTransitionOpts = e.pageTransitionOpts,
             $scope.main = e.main,
             $scope.color = e.color,
@@ -141,7 +141,11 @@
                     $scope.main.fixedSidebar = !1)), c.fixedSidebar === !0 && ($scope.main.fixedHeader = !0),
                 c.fixedHeader === !1 && ($scope.main.fixedSidebar = !1)
             }, !0), b.$on("$routeChangeSuccess", function(a, b, c) {
-                d.scrollTo(0, 0)
+                d.scrollTo(0, 0);
+                // if(!$scope.alerts[0].show){
+                //     $scope.alerts.splice(0);
+                // }
+                // $scope.alerts[0].show = false;
             });
 
             /*Check all & select row*/
@@ -169,8 +173,8 @@
 
             /*alert*/
             $scope.alerts = [];
-            $scope.closeAlert = function($index) {
-                return $scope.alerts.splice($index, 1)
+            $scope.closeAlert = function() {
+                return $scope.alerts.splice(0)
             };
 
             /*date picker*/
@@ -180,6 +184,10 @@
             $scope.datePicker = function(){
                 $scope.popupDialog.opened = !0;
             }
+
+            d.on('click', function(){
+                return $scope.alerts.splice(0)
+            })
         }
         angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", AppCtrl])
     }(),

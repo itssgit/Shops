@@ -38,6 +38,8 @@
     "MATERIAL_STATUS": "Status",
 
     "MSG_MATERIAL_NAME_REQUIRED": "Material name is required.",
+    "MSG_MATERIAL_CREATED": "Material has been created.",
+    "MSG_MATERIAL_UPDATED": "Material has been updated.",
 
     "TITLE_STORE_MANAGE": "Store manage",
     "TITLE_STORE": "Store"

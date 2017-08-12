@@ -38,6 +38,8 @@
     "MATERIAL_STATUS": "Trạng thái",
 
     "MSG_MATERIAL_NAME_REQUIRED": "Tên hàng hóa không được bỏ trống.",
+    "MSG_MATERIAL_CREATED": "Đã tạo hàng hóa mới.",
+    "MSG_MATERIAL_UPDATED": "Đã cập nhật hàng hóa.",
 
     "TITLE_STORE_MANAGE": "Quản lý kho",
     "TITLE_STORE": "Kho"

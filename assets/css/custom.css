@@ -20,3 +20,19 @@
     min-height: 200px;
     padding: 6px 12px;
 }
+
+.th-checkbox{
+    width: 40px;
+}
+.th > .ui-checkbox {
+    margin: 0px 0px 0px 20px !important;
+}
+.td-checkbox > .ui-checkbox {
+    margin: 0px 0px 0px 20px !important;
+}
+.table-dynamic .table-bordered thead th>.th {
+    padding: 15px 20px 15px 15px !important;
+}
+.table>thead>tr>th {
+    vertical-align: middle !important;
+}
