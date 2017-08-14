@@ -18,6 +18,7 @@
     "LABEL_ENTRIES_PER_PAGE": "entries per page",
     "LABEL_FIRST": "First",
     "LABEL_LAST": "Last",
+    "LABEL_RESULT": "On total",
 
     "LABEL_MATERIAL_CODE": "Material code",
     "LABEL_MATERIAL_NAME": "Material name",
