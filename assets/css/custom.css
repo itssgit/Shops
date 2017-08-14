@@ -36,3 +36,16 @@
 .table>thead>tr>th {
     vertical-align: middle !important;
 }
+.col-left-custom{
+    padding-left: 0 !important;
+}
+.col-right-custom{
+    padding-right: 0 !important;
+}
+.ui-select{
+    width: 100% !important;
+    margin: 0 !important;
+}
+.ui-select>select{
+    width: 100% !important;
+}

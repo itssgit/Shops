@@ -2,8 +2,10 @@
  * Created by vietdd on 16/06/2017.
  */
 (function () {
-    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "StoreService", StoreCtrl]);
-    function StoreCtrl($scope, $uibModal, $uibModalStack, StoreService) {
+    'use strict';
+
+    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "AppConfig", "StoreService", StoreCtrl]);
+    function StoreCtrl($scope, $uibModal, $uibModalStack,AppConfig, StoreService) {
         /*---get list material---*/
         var onError = function onError(data){
             var modal = $uibModal.open({
@@ -21,7 +23,7 @@
             $scope.data = data.value;
             $scope.listMaterial = $scope.data;
         }
-        StoreService.getListMaterial(onGetListSuccess, onError);
+        StoreService.getListMaterial("", onGetListSuccess, onError);
         /*--------------------*/
 
         /*select checkbox*/
@@ -62,7 +64,7 @@
             });
             modal.result.then(function() {
                 //update info
-                var onUpdateInfoSuccess = function onSuccess(){
+                var onUpdateInfoSuccess = function onSuccess(data){
                     $scope.alerts[0] = {
                         type: "success",
                         msg: 'MSG_MATERIAL_UPDATED',
@@ -85,14 +87,50 @@
                 size: 'sm'
             });
             modal.result.then(function() {
-                $uibModalStack.dismissAll();
+                var onDeleteSuccess = function onSuccess(data){
+                    if(data.resultCode == AppConfig.constant.MSG_NOT_OK){
+                        //check type
+                        $scope.alerts[0] = {
+                            type: "danger",
+                            msg: 'MSG_MATERIAL_DELETED_ERROR',
+                            show: true
+                        };
+                    } else{
+                        $scope.alerts[0] = {
+                            type: "success",
+                            msg: 'MSG_MATERIAL_DELETED',
+                            show: true
+                        };
+                    }
+                    $scope.listMaterial.splice(index, 1);
+                    $uibModalStack.dismissAll();
+                }
+                StoreService.deleteMaterial($scope.selectedMaterial.inventoryId, onDeleteSuccess, onError);
             })
         }
         /*--------------------*/
 
         /*click search*/
+        $scope.searchCode = "";
+        $scope.searchName = "";
+        $scope.searchType = "";
+        $scope.searchStatus = "";
         $scope.search = function(){
-
+            var param="";
+            if($scope.searchCode){
+                param += "inventoryCode=" + $scope.searchCode;
+            }
+            if($scope.searchName)
+            {
+                param += "&inventoryName="+ $scope.searchName;
+            }
+            if($scope.searchType){
+                param += "&inventoryType=-1";
+            }
+            if($scope.searchStatus){
+                param += "&inventoryStatus=i";
+            }
+            StoreService.getListMaterial(param, onGetListSuccess, onError);
         }
         /*--------------------*/
 
@@ -106,7 +144,7 @@
 
         /*pagination*/
         var begin, end;
-        $scope.$watch('currentPage + numPerPage', function() {
+        $scope.$watch('currentPage + numPerPage + data', function() {
             begin = (($scope.currentPage - 1) * $scope.numPerPage)
                 , end = begin + $scope.numPerPage;
             $scope.listMaterial = $scope.data.slice(begin, end);

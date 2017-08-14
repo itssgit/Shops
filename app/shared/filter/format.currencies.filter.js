@@ -8,7 +8,7 @@ function formatPrice() {
         } else {
             var value = input.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
             var symbol = symbol || ' VND';
-            return value + symbol;
+            return value + " " + symbol;
         }
     }
 }

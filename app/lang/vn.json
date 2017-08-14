@@ -14,6 +14,11 @@
     "BTN_OK": "Chấp nhận",
     "BTN_SEARCH_TRANSACTION": "Tra cứu giao dịch",
 
+    "LABEL_SHOW": "Hiển thị ",
+    "LABEL_ENTRIES_PER_PAGE": "record trên trang",
+    "LABEL_FIRST": "Đầu tiên",
+    "LABEL_LAST": "Cuối cùng",
+
     "LABEL_MATERIAL_CODE": "Mã hàng hóa",
     "LABEL_MATERIAL_NAME": "Tên hàng hóa",
     "LABEL_MATERIAL_STATUS": "Trạng thái",
@@ -29,7 +34,14 @@
     "LABEL_MATERIAL_CONFIRM_DELETE": "Bạn có chắc muốn xóa hàng hóa?",
     "LABEL_MATERIAL_CONFIRM_CREATE": "Bạn có muốn tạo hàng hóa?",
     "LABEL_MATERIAL_DESC_DETAIL": "Mô tả chi tiết",
+    "LABEL_MATERIAL_DESCRIPTION": "Mô tả",
+    "LABEL_MATERIAL_ORDER_NOTE": "Ghi chú đặt hàng",
     "LABEL_ERROR_HAPPEN": "Có lỗi xảy ra.",
+    "LABEL_STATUS_DELETED": "Đã xóa",
+    "LABEL_STATUS_IN_STOCK": "Còn hàng",
+    "LABEL_STATUS_OUT_OF_STOCK": "Hết hàng",
+    "LABEL_PLEASE_CHOOSE_STATUS": "Chọn trạng thái",
+    "LABEL_PLEASE_CHOOSE_MATERIAL_TYPE": "Chọn loại hàng hóa",
 
     "MATERIAL_NAME": "Tên hàng hóa",
     "MATERIAL_CODE": "Mã hàng hóa",
@@ -38,8 +50,10 @@
     "MATERIAL_STATUS": "Trạng thái",
 
     "MSG_MATERIAL_NAME_REQUIRED": "Tên hàng hóa không được bỏ trống.",
+    "MSG_MATERIAL_CODE_REQUIRED": "Mã hàng hóa không được bỏ trống.",
     "MSG_MATERIAL_CREATED": "Đã tạo hàng hóa mới.",
     "MSG_MATERIAL_UPDATED": "Đã cập nhật hàng hóa.",
+    "MSG_MATERIAL_DELETED": "Đã xóa hàng hóa.",
 
     "TITLE_STORE_MANAGE": "Quản lý kho",
     "TITLE_STORE": "Kho"

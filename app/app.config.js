@@ -41,19 +41,24 @@
                 danger: "#E87352",
                 gray: "#DCDCDC"
             },
+            constant = {
+                MSG_NOT_OK: "NOT_OK"
+            },
 
             //Khai bao link webservice
             uri = "http://giaiphapshop.com:8088/shops-services/",
             inventoryUri = {
-                list: uri + "inventory/findAll",
+                list: uri + "inventory/find?",
                 create: uri + "inventory/create",
-                update: uri + "inventory/update"
+                update: uri + "inventory/update",
+                delete: uri + "inventory/delete"
             }
 
         return {
             pageTransitionOpts: a,
             main: d,
             color: e,
+            constant: constant,
             inventoryUri: inventoryUri
         }
     }

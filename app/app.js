@@ -167,8 +167,8 @@
             }
 
             /*Pagination*/
-            $scope.numPerPageOpt = [5, 10, 20, 50, 100];
-            $scope.numPerPage = $scope.numPerPageOpt[2];
+            $scope.numPerPageOpt = [10, 20, 50, 100];
+            $scope.numPerPage = $scope.numPerPageOpt[0];
             $scope.currentPage = 1;
 
             /*alert*/
@@ -252,6 +252,7 @@
             }).when("/forgot-password", {
                 templateUrl: "app/shared/forgot-password/forgot-password.view.html"
             }).when("/store", {
+                // templateUrl: "app/components/store/store.info.modal.html"
                 templateUrl: "app/components/store/store.list.view.html"
             }).when("/store/addnew", {
                 templateUrl: "app/components/store/addnew/store.addnew.view.html"

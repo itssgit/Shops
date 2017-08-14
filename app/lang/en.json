@@ -14,6 +14,11 @@
     "BTN_OK": "OK",
     "BTN_SEARCH_TRANSACTION": "Transaction lookup",
 
+    "LABEL_SHOW": "Show",
+    "LABEL_ENTRIES_PER_PAGE": "entries per page",
+    "LABEL_FIRST": "First",
+    "LABEL_LAST": "Last",
+
     "LABEL_MATERIAL_CODE": "Material code",
     "LABEL_MATERIAL_NAME": "Material name",
     "LABEL_MATERIAL_STATUS": "Status",
@@ -29,7 +34,14 @@
     "LABEL_MATERIAL_CONFIRM_DELETE": "Are you sure you want to delete this material?",
     "LABEL_MATERIAL_CONFIRM_CREATE": "Are you want to create material?",
     "LABEL_MATERIAL_DESC_DETAIL": "Description detail",
+    "LABEL_MATERIAL_DESCRIPTION": "Description",
+    "LABEL_MATERIAL_ORDER_NOTE": "Order node",
     "LABEL_ERROR_HAPPEN": "Error happen.",
+    "LABEL_STATUS_DELETED": "Deleted",
+    "LABEL_STATUS_IN_STOCK": "In stock",
+    "LABEL_STATUS_OUT_OF_STOCK": "Out of stock",
+    "LABEL_PLEASE_CHOOSE_STATUS": "Choose status",
+    "LABEL_PLEASE_CHOOSE_MATERIAL_TYPE": "Choose type",
 
     "MATERIAL_NAME": "Material name",
     "MATERIAL_CODE": "Material code",
@@ -38,8 +50,10 @@
     "MATERIAL_STATUS": "Status",
 
     "MSG_MATERIAL_NAME_REQUIRED": "Material name is required.",
+    "MSG_MATERIAL_CODE_REQUIRED": "Material code is required.",
     "MSG_MATERIAL_CREATED": "Material has been created.",
     "MSG_MATERIAL_UPDATED": "Material has been updated.",
+    "MSG_MATERIAL_DELETED": "Material has been deleted.",
 
     "TITLE_STORE_MANAGE": "Store manage",
     "TITLE_STORE": "Store"
