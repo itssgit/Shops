@@ -18,7 +18,7 @@
     "LABEL_ENTRIES_PER_PAGE": "entries per page",
     "LABEL_FIRST": "First",
     "LABEL_LAST": "Last",
-    "LABEL_RESULT": "On total",
+    "LABEL_RESULT": "(Total",
 
     "LABEL_MATERIAL_CODE": "Material code",
     "LABEL_MATERIAL_NAME": "Material name",
@@ -52,6 +52,7 @@
 
     "MSG_MATERIAL_NAME_REQUIRED": "Material name is required.",
     "MSG_MATERIAL_CODE_REQUIRED": "Material code is required.",
+    "MSG_MATERIAL_TYPE_REQUIRED": "Material type iss required.",
     "MSG_MATERIAL_CREATED": "Material has been created.",
     "MSG_MATERIAL_UPDATED": "Material has been updated.",
     "MSG_MATERIAL_DELETED": "Material has been deleted.",
