@@ -4,8 +4,8 @@
 (function () {
     'use strict';
 
-    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "AppConfig", "StoreService", StoreCtrl]);
-    function StoreCtrl($scope, $uibModal, $uibModalStack,AppConfig, StoreService) {
+    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "$filter", "AppConfig", "StoreService", StoreCtrl]);
+    function StoreCtrl($scope, $uibModal, $uibModalStack, $filter, AppConfig, StoreService) {
         /*---get list material---*/
         var onError = function onError(data){
             var modal = $uibModal.open({
@@ -63,6 +63,7 @@
                 size: 'sm'
             });
             modal.result.then(function() {
+                $scope.selectedMaterial.unitPrice = $scope.selectedMaterial.unitPrice.toString().replace(/[^\d]/g, '');
                 //update info
                 var onUpdateInfoSuccess = function onSuccess(data){
                     $scope.alerts[0] = {
@@ -122,18 +123,24 @@
             }
             if($scope.searchName)
             {
-                param += "&inventoryName="+ $scope.searchName;
+                param += "&inventoryName=" + $scope.searchName;
             }
             if($scope.searchType){
-                param += "&inventoryType=-1";
+                param += "&inventoryType=" + $scope.searchType;
             }
             if($scope.searchStatus){
-                param += "&inventoryStatus=i";
+                param += "&inventoryStatus=" + $scope.searchStatus;
             }
             StoreService.getListMaterial(param, onGetListSuccess, onError);
         }
         /*--------------------*/
 
+        /*click sort*/
+        $scope.sort = function(property){
+            $scope.data = $filter("orderBy")($scope.data, property);
+            $scope.listMaterial = $scope.data.slice(begin, end);
+        }
+        /*--------------------*/
 
         $scope.export = function(){
             var blob = new Blob([document.getElementById('dataTable').innerHTML], {

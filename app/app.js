@@ -142,29 +142,25 @@
                 c.fixedHeader === !1 && ($scope.main.fixedSidebar = !1)
             }, !0), b.$on("$routeChangeSuccess", function(a, b, c) {
                 d.scrollTo(0, 0);
-                // if(!$scope.alerts[0].show){
-                //     $scope.alerts.splice(0);
-                // }
-                // $scope.alerts[0].show = false;
             });
 
             /*Check all & select row*/
-            $scope.isCheck=false;
-            $scope.selectAll = function(data){
-                if ($scope.isCheck) {
-                    $scope.isCheck = false;
-                } else {
-                    $scope.isCheck = true;
-                }
-                angular.forEach(data, function (dt) {
-                    dt.selected = $scope.isCheck;
-                });
-            }
-            $scope.selectedRow = function(row){
-                if(row.selected == false){
-                    $scope.isCheck=false;
-                }
-            }
+            // $scope.isCheck=false;
+            // $scope.selectAll = function(data){
+            //     if ($scope.isCheck) {
+            //         $scope.isCheck = false;
+            //     } else {
+            //         $scope.isCheck = true;
+            //     }
+            //     angular.forEach(data, function (dt) {
+            //         dt.selected = $scope.isCheck;
+            //     });
+            // }
+            // $scope.selectedRow = function(row){
+            //     if(row.selected == false){
+            //         $scope.isCheck=false;
+            //     }
+            // }
 
             /*Pagination*/
             $scope.numPerPageOpt = [10, 20, 50, 100];
@@ -176,6 +172,10 @@
             $scope.closeAlert = function() {
                 return $scope.alerts.splice(0)
             };
+            d.on('click', function(){
+                //remove alert
+                return $scope.alerts.splice(0)
+            })
 
             /*date picker*/
             $scope.popupDialog = {
@@ -184,10 +184,6 @@
             $scope.datePicker = function(){
                 $scope.popupDialog.opened = !0;
             }
-
-            d.on('click', function(){
-                return $scope.alerts.splice(0)
-            })
         }
         angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", AppCtrl])
     }(),

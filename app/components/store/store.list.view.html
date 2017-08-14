@@ -47,8 +47,8 @@
                     </div>
                     <div class="col-md-9">
                         <span class="ui-select">
-                            <select>
-                                <option value="-1">{{'LABEL_PLEASE_CHOOSE_STATUS' | translate}}</option>
+                            <select ng-model="searchStatus">
+                                <option value="" ng-selected="true">-- {{'LABEL_PLEASE_CHOOSE_STATUS' | translate}} --</option>
                                 <option value="0">{{'LABEL_STATUS_DELETED' | translate}}</option>
                                 <option value="1">{{'LABEL_STATUS_IN_STOCK' | translate}}</option>
                                 <option value="2">{{'LABEL_STATUS_OUT_OF_STOCK' | translate}}</option>
@@ -62,11 +62,10 @@
                     </div>
                     <div class="col-md-9">
                         <span class="ui-select">
-                            <select>
-                                <option value="-1">{{'LABEL_PLEASE_CHOOSE_MATERIAL_TYPE' | translate}}</option>
+                            <select ng-model="searchType">
+                                <option value="" ng-selected="true">-- {{'LABEL_PLEASE_CHOOSE_MATERIAL_TYPE' | translate}} --</option>
                                 <option value="0">{{'LABEL_STATUS_DELETED' | translate}}</option>
                                 <option value="1">{{'LABEL_STATUS_IN_STOCK' | translate}}</option>
-                                <option value="2">{{'LABEL_STATUS_OUT_OF_STOCK' | translate}}</option>
                             </select>
                         </span>
                     </div>
@@ -89,47 +88,41 @@
                     <th><div class="th">
                         {{'MATERIAL_CODE' | translate}}
                         <span class="fa fa-angle-up"
-                              data-ng-click=" order('name') "
-                              data-ng-class="{active: row == 'name'}"></span>
+                              data-ng-click=" sort('inventoryCode') "
+                              data-ng-class="{active: row == 'inventoryCode'}"></span>
                         <span class="fa fa-angle-down"
-                              data-ng-click=" order('-name') "
-                              data-ng-class="{active: row == '-name'}"></span>
+                              data-ng-click=" sort('-inventoryCode') "
+                              data-ng-class="{active: row == '-inventoryCode'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'MATERIAL_NAME' | translate}}
                         <span class="fa fa-angle-up"
-                              data-ng-click=" order('price') "
-                              data-ng-class="{active: row == 'price'}"></span>
+                              data-ng-click=" sort('inventoryName') "
+                              data-ng-class="{active: row == 'inventoryName'}"></span>
                         <span class="fa fa-angle-down"
-                              data-ng-click=" order('-price') "
-                              data-ng-class="{active: row == '-price'}"></span>
+                              data-ng-click=" sort('-inventoryName') "
+                              data-ng-class="{active: row == '-inventoryName'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'MATERIAL_IN_STOCK' | translate}}
                         <span class="fa fa-angle-up"
-                              data-ng-click=" order('sales') "
-                              data-ng-class="{active: row == 'sales'}"></span>
+                              data-ng-click=" sort('quantity') "
+                              data-ng-class="{active: row == 'quantity'}"></span>
                         <span class="fa fa-angle-down"
-                              data-ng-click=" order('-sales') "
-                              data-ng-class="{active: row == '-sales'}"></span>
+                              data-ng-click=" sort('-quantity') "
+                              data-ng-class="{active: row == '-quantity'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'MATERIAL_TYPE' | translate}}
                         <span class="fa fa-angle-up"
-                              data-ng-click=" order('rating') "
-                              data-ng-class="{active: row == 'rating'}"></span>
+                              data-ng-click=" sort('inventoryType') "
+                              data-ng-class="{active: row == 'inventoryType'}"></span>
                         <span class="fa fa-angle-down"
-                              data-ng-click=" order('-rating') "
-                              data-ng-class="{active: row == '-rating'}"></span>
+                              data-ng-click=" sort('-inventoryType') "
+                              data-ng-class="{active: row == '-inventoryType'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'MATERIAL_STATUS' | translate}}
-                        <span class="fa fa-angle-up"
-                              data-ng-click=" order('rating') "
-                              data-ng-class="{active: row == 'rating'}"></span>
-                        <span class="fa fa-angle-down"
-                              data-ng-click=" order('-rating') "
-                              data-ng-class="{active: row == '-rating'}"></span>
                     </div></th>
                 </tr>
                 </thead>
