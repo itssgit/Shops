@@ -30,7 +30,7 @@
                 fixedHeader: !0,
                 fixedSidebar: !0,
                 pageTransition: a[0],
-                skin: "12"
+                skin: "21"
             },
             e = {
                 primary: "#31C0BE",

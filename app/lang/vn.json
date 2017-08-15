@@ -10,6 +10,7 @@
     "BTN_CANCEL": "Bỏ qua",
     "BTN_SAVE_CONTINUE": "Lưu và tiếp tục",
     "BTN_DELETE": "Xóa",
+    "BTN_DELETE_LIST": "Xóa (được chọn)",
     "BTN_UPDATE": "Cập nhật",
     "BTN_OK": "Chấp nhận",
     "BTN_SEARCH_TRANSACTION": "Tra cứu giao dịch",
@@ -43,6 +44,8 @@
     "LABEL_STATUS_OUT_OF_STOCK": "Hết hàng",
     "LABEL_PLEASE_CHOOSE_STATUS": "Chọn trạng thái",
     "LABEL_PLEASE_CHOOSE_MATERIAL_TYPE": "Chọn loại hàng hóa",
+    "LABEL_TYPE_MATERIAL": "Nguyên vật liệu",
+    "LABEL_TYPE_AVAILABLE_SELL": "Hàng bán sẵn",
 
     "MATERIAL_NAME": "Tên hàng hóa",
     "MATERIAL_CODE": "Mã hàng hóa",

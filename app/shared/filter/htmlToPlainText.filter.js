@@ -30,4 +30,22 @@
         };
     }
     angular.module('app').filter('materialStatus', [materialStatus]);
+})(),
+(function(){
+    function materialType() {
+        return function(input) {
+            var text = "";
+            switch (input){
+                case 0:
+                    text = 'LABEL_TYPE_MATERIAL';
+                    break;
+                case 1:
+                    text = 'LABEL_TYPE_AVAILABLE_SELL';
+                    break;
+            }
+            return  text;
+        };
+    }
+    angular.module('app').filter('materialType', [materialType]);
 })();
+

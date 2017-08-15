@@ -10,6 +10,7 @@
     "BTN_CANCEL": "Cancel",
     "BTN_SAVE_CONTINUE": "Save & continue",
     "BTN_DELETE": "Delete",
+    "BTN_DELETE_LIST": "Delete (selected)",
     "BTN_UPDATE": "Update",
     "BTN_OK": "OK",
     "BTN_SEARCH_TRANSACTION": "Transaction lookup",
@@ -43,6 +44,8 @@
     "LABEL_STATUS_OUT_OF_STOCK": "Out of stock",
     "LABEL_PLEASE_CHOOSE_STATUS": "Choose status",
     "LABEL_PLEASE_CHOOSE_MATERIAL_TYPE": "Choose type",
+    "LABEL_TYPE_MATERIAL": "Material",
+    "LABEL_TYPE_AVAILABLE_SELL": "Available for sell",
 
     "MATERIAL_NAME": "Material name",
     "MATERIAL_CODE": "Material code",

@@ -12,6 +12,7 @@
                 <button class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span> {{'BTN_ADJUST' | translate}}</button>
                 <a href="#store/addnew" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> {{'BTN_ADD_NEW' | translate}}</a>
                 <button class="btn btn-info" data-ng-click="export()"><span class="glyphicon glyphicon-export"></span> {{'BTN_EXPORT' | translate}}</button>
+                <button class="btn btn-danger" data-ng-click="deleteList()"><span class="glyphicon glyphicon-trash"></span> {{'BTN_DELETE_LIST' | translate}}</button>
             </div>
         </div>
 
@@ -132,7 +133,7 @@
                     <td>{{material.inventoryCode}}</td>
                     <td>{{material.inventoryName}}</td>
                     <td>{{material.quantity}}</td>
-                    <td>{{material.inventoryType}}</td>
+                    <td>{{material.inventoryType | materialType | translate}}</td>
                     <td>{{material.status | materialStatus | translate}}</td>
                 </tr>
                 </tbody>
@@ -165,7 +166,8 @@
     </section>
     <script type="text/ng-template" id="modalInfoMaterial.html">
         <div class="modal-header">
-            <h4>Tên hàng hóa</h4>
+            <h4 class="col-md-11">{{selectedMaterial.inventoryName}}</h4>
+            <button type="button" ng-click="cancel()" class="close col-md-1 text-right" aria-label="Close"><span aria-hidden="true">&times;</span>
         </div>
         <div class="modal-body">
             <div ng-include=" 'app/components/store/store.info.modal.html' "></div>
