@@ -3,6 +3,7 @@
     "BTN_ADD_NEW": "Add new",
     "BTN_EDIT": "Edit",
     "BTN_EXPORT": "Export file",
+    "BTN_IMPORT": "Import file",
     "BTN_ADJUST": "Adjust",
     "BTN_WAREHOUSING": "Import",
     "BTN_CHOOSE_IMAGE": "Choose image",
@@ -14,6 +15,8 @@
     "BTN_UPDATE": "Update",
     "BTN_OK": "OK",
     "BTN_SEARCH_TRANSACTION": "Transaction lookup",
+    "BTN_SAVE_TEMP": "Save (temp)",
+    "BTN_FINISH": "Finish",
 
     "LABEL_SHOW": "Show",
     "LABEL_ENTRIES_PER_PAGE": "entries per page",
@@ -47,6 +50,22 @@
     "LABEL_TYPE_MATERIAL": "Material",
     "LABEL_TYPE_AVAILABLE_SELL": "Available for sell",
 
+    "LABEL_COUPON_CODE": "Coupon code",
+    "LABEL_COUPON_CODE_AUTO": "Auto code",
+    "LABEL_COUPON_STATUS": "Status",
+    "LABEL_COUPON_TOTAL_BY_STORE": "Total by store",
+    "LABEL_COUPON_TOTAL_ADJUST": "Total adjusted",
+    "LABEL_COUPON_REAL_TOTAL": "Sum total",
+    "LABEL_COUPON_MATERIAL_CODE": "Material code",
+    "LABEL_COUPON_MATERIAL_NAME": "Material name",
+    "LABEL_COUPON_QUANTITY_IN_STOCK": "Quantity in stock",
+    "LABEL_COUPON_QUANTITY_ADJUST": "Quantity adjust",
+    "LABEL_COUPON_REAL_QUANTITY": "Real quantity",
+    "LABEL_COUPON_NOTE": "Note",
+    "LABEL_COUPON_CAPITAL_COST": "Capital cost",
+    "LABEL_COUPON_INTO_MONEY": "Total",
+
+
     "MATERIAL_NAME": "Material name",
     "MATERIAL_CODE": "Material code",
     "MATERIAL_IN_STOCK": "In stock",
@@ -61,5 +80,7 @@
     "MSG_MATERIAL_DELETED": "Material has been deleted.",
 
     "TITLE_STORE_MANAGE": "Store manage",
+    "TITLE_STORE_ADJUST": "Adjust store",
+    "TITLE_STORE_ADDNEW": "Add new",
     "TITLE_STORE": "Store"
 }

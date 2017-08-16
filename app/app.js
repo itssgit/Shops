@@ -252,6 +252,8 @@
                 templateUrl: "app/components/store/store.list.view.html"
             }).when("/store/addnew", {
                 templateUrl: "app/components/store/addnew/store.addnew.view.html"
+            }).when("/store/adjust", {
+                templateUrl: "app/components/store/adjust/store.adjust.view.html"
             }).when("/404", {
                 templateUrl: "app/shared/page/404.html"
             }).otherwise({

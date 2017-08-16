@@ -1,6 +1,9 @@
 .text-color-red{
     color: red;
 }
+.text-color-blue{
+    color: #00b7ff;
+}
 .button-bottom-right{
     text-align: right;
     margin-top: 10px;
@@ -48,4 +51,9 @@
 }
 .ui-select>select{
     width: 100% !important;
+}
+.border-bottom{
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }

@@ -3,6 +3,7 @@
     "BTN_ADD_NEW": "Thêm mới",
     "BTN_EDIT": "Sửa",
     "BTN_EXPORT": "Xuất file",
+    "BTN_IMPORT": "Import file",
     "BTN_ADJUST": "Điều chỉnh",
     "BTN_WAREHOUSING": "Nhập kho",
     "BTN_CHOOSE_IMAGE": "Chọn ảnh",
@@ -14,6 +15,8 @@
     "BTN_UPDATE": "Cập nhật",
     "BTN_OK": "Chấp nhận",
     "BTN_SEARCH_TRANSACTION": "Tra cứu giao dịch",
+    "BTN_SAVE_TEMP": "Lưu tạm",
+    "BTN_FINISH": "Hoàn thành",
 
     "LABEL_SHOW": "Hiển thị ",
     "LABEL_ENTRIES_PER_PAGE": "record trên trang",
@@ -47,6 +50,21 @@
     "LABEL_TYPE_MATERIAL": "Nguyên vật liệu",
     "LABEL_TYPE_AVAILABLE_SELL": "Hàng bán sẵn",
 
+    "LABEL_COUPON_CODE": "Mã phiếu nhập",
+    "LABEL_COUPON_CODE_AUTO": "Mã phiếu tự động",
+    "LABEL_COUPON_STATUS": "Trạng thái",
+    "LABEL_COUPON_TOTAL_BY_STORE": "Tổng giá trị theo kho",
+    "LABEL_COUPON_TOTAL_ADJUST": "Tổng giá trị điều chỉnh",
+    "LABEL_COUPON_REAL_TOTAL": "Tổng giá trị thực tế",
+    "LABEL_COUPON_MATERIAL_CODE": "Mã hàng hóa",
+    "LABEL_COUPON_MATERIAL_NAME": "Tên hàng hóa",
+    "LABEL_COUPON_QUANTITY_IN_STOCK": "Số lượng trong kho",
+    "LABEL_COUPON_QUANTITY_ADJUST": "Số điều chỉnh",
+    "LABEL_COUPON_REAL_QUANTITY": "Lượng thực tế",
+    "LABEL_COUPON_NOTE": "Ghi chú",
+    "LABEL_COUPON_CAPITAL_COST": "Giá vốn",
+    "LABEL_COUPON_INTO_MONEY": "Thành tiền",
+
     "MATERIAL_NAME": "Tên hàng hóa",
     "MATERIAL_CODE": "Mã hàng hóa",
     "MATERIAL_IN_STOCK": "Tồn kho",
@@ -61,6 +79,8 @@
     "MSG_MATERIAL_DELETED": "Đã xóa hàng hóa.",
 
     "TITLE_STORE_MANAGE": "Quản lý kho",
+    "TITLE_STORE_ADJUST": "Điều chỉnh kho",
+    "TITLE_STORE_ADDNEW": "Thêm mới",
     "TITLE_STORE": "Kho"
 
 }
