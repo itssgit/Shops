@@ -55,6 +55,9 @@
                 create: uri + "inventory/create",
                 update: uri + "inventory/update",
                 delete: uri + "inventory/delete"
+            },
+            stockTransUri = {
+                list: uri + ""
             }
 
         return {

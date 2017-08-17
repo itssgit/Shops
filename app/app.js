@@ -162,6 +162,21 @@
             //     }
             // }
 
+            /*material types*/
+            var onError = function onError(){
+                var modal = $uibModal.open({
+                    animation: 1,
+                    templateUrl: "modalAlertError.html",
+                    controller: "ModalInstanceCtrl",
+                    size: 'sm'
+                });
+            }
+            var onGetTypeSuccess = function onSuccess(data){
+                $scope.searchType = data.value.optionSetValueDTOList;
+            }
+            CommonService.getValuesByCode('TYPE_PRODUCT', onGetTypeSuccess, onError);
+            console.log("12");
+
             /*Pagination*/
             $scope.numPerPageOpt = [10, 20, 50, 100];
             $scope.numPerPage = $scope.numPerPageOpt[0];

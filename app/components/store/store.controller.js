@@ -4,8 +4,8 @@
 (function () {
     'use strict';
 
-    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "$filter", "AppConfig", "CommonService", "StoreService", StoreCtrl]);
-    function StoreCtrl($scope, $uibModal, $uibModalStack, $filter, AppConfig, CommonService, StoreService) {
+    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "$filter", "AppConfig","StoreService", StoreCtrl]);
+    function StoreCtrl($scope, $uibModal, $uibModalStack, $filter, AppConfig, StoreService) {
         /*---get list material---*/
         var onError = function onError(data){
             var modal = $uibModal.open({
@@ -25,12 +25,6 @@
         }
         StoreService.getListMaterial("", onGetListSuccess, onError);
         /*--------------------*/
-
-        /*get type*/
-        var onGetTypeSuccess = function onSuccess(data){
-            $scope.searchType = data.value.optionSetValueDTOList;
-        }
-        CommonService.getValuesByCode('TYPE_PRODUCT', onGetTypeSuccess, onError);
 
         /*select checkbox*/
         var index;

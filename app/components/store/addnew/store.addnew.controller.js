@@ -15,6 +15,7 @@
                 $uibModalStack.dismissAll();
             })
         }
+
         $scope.material = {};
         /*click save button*/
         $scope.save = function(){
