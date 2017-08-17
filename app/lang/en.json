@@ -7,6 +7,7 @@
     "BTN_ADJUST": "Adjust",
     "BTN_WAREHOUSING": "Import",
     "BTN_CHOOSE_IMAGE": "Choose image",
+    "BTN_CHOOSE_FILE": "Choose file",
     "BTN_SAVE": "Save",
     "BTN_CANCEL": "Cancel",
     "BTN_SAVE_CONTINUE": "Save & continue",
@@ -64,6 +65,8 @@
     "LABEL_COUPON_NOTE": "Note",
     "LABEL_COUPON_CAPITAL_COST": "Capital cost",
     "LABEL_COUPON_INTO_MONEY": "Total",
+
+    "LABEL_IMPORT_FROM_FILE": "Import from file data",
 
 
     "MATERIAL_NAME": "Material name",

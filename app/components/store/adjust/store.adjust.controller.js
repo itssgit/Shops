@@ -3,8 +3,8 @@
  */
 (function(){
     'use strict';
-    angular.module('app').controller('StoreImportCtrl', [StoreImportCtrl]);
-    function StoreImportCtrl(){
+    angular.module('app').controller('StoreAdjustCtrl', [StoreAdjustCtrl]);
+    function StoreAdjustCtrl(){
 
     }
 

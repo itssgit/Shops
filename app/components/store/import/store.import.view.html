@@ -9,7 +9,7 @@
             </strong>
             <a href="#store"><i class="glyphicon glyphicon-circle-arrow-left"></i> {{'LABEL_BACK_TO_STORE_LIST' | translate}}</a>
             <div class="pull-right" style="text-transform: none;">
-                <button class="btn btn-info"><span class="glyphicon glyphicon-export"></span> {{'BTN_IMPORT' | translate}}</button>
+                <button class="btn btn-info" data-ng-click="chooseFile()"><span class="glyphicon glyphicon-export"></span> {{'BTN_IMPORT' | translate}}</button>
             </div>
         </div>
         <div class="col-md-8" style="border-style: groove;border-color: aliceblue; border-bottom: none; border-left: none; border-top: none;">
@@ -67,17 +67,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="material in listMaterial">
+                    <tr>
                         <td>{{$index + 1}}</td>
-                        <td>X</td>
-                        <td>{{material.quantity}}</td>
-                        <td>{{material.inventoryType | materialType | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
+                        <td>
+                            <button type="button" ng-click="remove($index)" class="close text-color-red "><span>&times;</span></button>
+                        </td>
+                        <td>material.quantity}}</td>
+                        <td>{{material.inventoryType | materialType | translate</td>
+                        <td>{{material.status | materialStatus | translate</td>
+                        <td>{{material.status | materialStatus | translate</td>
+                        <td>{{material.status | materialStatus | translate</td>
+                        <td>{{material.status | materialStatus | translate</td>
+                        <td>material.status | materialStatus | translat</td>
+                        <td>material.status | materialStatus | translate</td>
                     </tr>
                     </tbody>
                 </table>
@@ -158,11 +160,35 @@
                 </div>
                 <div class="form-group row text-right" style="padding-top: 50px;">
                     <div class="col-md-12">
-                        <button class="btn btn-info ng-binding"><span class="glyphicon glyphicon-save"></span> Lưu tạm</button>
-                        <button class="btn btn-info ng-binding"><span class="glyphicon glyphicon-save"></span> Hoàn thành</button>
+                        <button class="btn btn-info"><span class="glyphicon glyphicon-save"></span> {{'BTN_SAVE_TEMP' | translate}}</button>
+                        <button class="btn btn-info"><span class="glyphicon glyphicon-save"></span> {{'BTN_FINISH' | translate}}</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script type="text/ng-template" id="modalChooseFile.html">
+        <div class="modal-header">
+            <h4 class="col-md-11">{{'LABEL_IMPORT_FROM_FILE' | translate}}</h4>
+            <button type="button" ng-click="cancel()" class="close col-md-1 text-right" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+            Xử lý dữ liệu (tải về file mẫu : Excel 2003 hoặc bản cao hơn)
+            <hr>
+            <div class="callout callout-warning">
+                <p>Notification will show in lower right corner.</p>
+                <p>Notification will show in lower right corner.</p>
+                <p>Notification will show in lower right corner.</p>
+                <p>Notification will show in lower right corner.</p>
+                <p>Notification will show in lower right corner.</p>
+                <p>Notification will show in lower right corner.</p>
+            </div>
+            <div class="text-right">
+                <button class="btn btn-info"><span class="glyphicon glyphicon-floppy-open"></span> {{'BTN_CHOOSE_FILE' | translate}}</button>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </script>
 </div>

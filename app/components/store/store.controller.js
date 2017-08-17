@@ -4,8 +4,8 @@
 (function () {
     'use strict';
 
-    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "$filter", "AppConfig", "StoreService", StoreCtrl]);
-    function StoreCtrl($scope, $uibModal, $uibModalStack, $filter, AppConfig, StoreService) {
+    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "$filter", "AppConfig", "CommonService", "StoreService", StoreCtrl]);
+    function StoreCtrl($scope, $uibModal, $uibModalStack, $filter, AppConfig, CommonService, StoreService) {
         /*---get list material---*/
         var onError = function onError(data){
             var modal = $uibModal.open({
@@ -25,6 +25,12 @@
         }
         StoreService.getListMaterial("", onGetListSuccess, onError);
         /*--------------------*/
+
+        /*get type*/
+        var onGetTypeSuccess = function onSuccess(data){
+            $scope.searchType = data.value.optionSetValueDTOList;
+        }
+        CommonService.getValuesByCode('TYPE_PRODUCT', onGetTypeSuccess, onError);
 
         /*select checkbox*/
         var index;
@@ -114,7 +120,7 @@
         /*click search*/
         $scope.searchCode = "";
         $scope.searchName = "";
-        $scope.searchType = "";
+        $scope.type = "";
         $scope.searchStatus = "";
         $scope.search = function(){
             var param="";
@@ -126,7 +132,7 @@
                 param += "&inventoryName=" + $scope.searchName;
             }
             if($scope.searchType){
-                param += "&inventoryType=" + $scope.searchType;
+                param += "&inventoryType=" + $scope.type;
             }
             if($scope.searchStatus){
                 param += "&inventoryStatus=" + $scope.searchStatus;

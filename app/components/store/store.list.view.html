@@ -8,7 +8,7 @@
             <strong><span data-translate="TITLE_STORE_MANAGE"></span></strong>
             <div class="pull-right" style="text-transform: none;">
                 <button class="btn btn-info"><span class="glyphicon glyphicon-search"></span> {{'BTN_SEARCH_TRANSACTION' | translate}}</button>
-                <button class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> {{'BTN_WAREHOUSING' | translate}}</button>
+                <a href="#store/import" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> {{'BTN_WAREHOUSING' | translate}}</a>
                 <a href="#store/adjust" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span> {{'BTN_ADJUST' | translate}}</a>
                 <a href="#store/addnew" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> {{'BTN_ADD_NEW' | translate}}</a>
                 <button class="btn btn-info" data-ng-click="export()"><span class="glyphicon glyphicon-export"></span> {{'BTN_EXPORT' | translate}}</button>
@@ -63,10 +63,9 @@
                     </div>
                     <div class="col-md-9">
                         <span class="ui-select">
-                            <select ng-model="searchType">
-                                <option value="" ng-selected="true">-- {{'LABEL_PLEASE_CHOOSE_MATERIAL_TYPE' | translate}} --</option>
-                                <option value="0">{{'LABEL_STATUS_DELETED' | translate}}</option>
-                                <option value="1">{{'LABEL_STATUS_IN_STOCK' | translate}}</option>
+                            <select ng-model="type">
+                                <option value="">-- {{'LABEL_PLEASE_CHOOSE_MATERIAL_TYPE' | translate}} --</option>
+                                <option ng-repeat="type in searchType track by $index" value="{{type.optionSetValue}}">{{type.optionSetName}}</option>
                             </select>
                         </span>
                     </div>

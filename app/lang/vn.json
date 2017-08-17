@@ -7,6 +7,7 @@
     "BTN_ADJUST": "Điều chỉnh",
     "BTN_WAREHOUSING": "Nhập kho",
     "BTN_CHOOSE_IMAGE": "Chọn ảnh",
+    "BTN_CHOOSE_FILE": "Chọn file",
     "BTN_SAVE": "Lưu",
     "BTN_CANCEL": "Bỏ qua",
     "BTN_SAVE_CONTINUE": "Lưu và tiếp tục",
@@ -64,6 +65,8 @@
     "LABEL_COUPON_NOTE": "Ghi chú",
     "LABEL_COUPON_CAPITAL_COST": "Giá vốn",
     "LABEL_COUPON_INTO_MONEY": "Thành tiền",
+
+    "LABEL_IMPORT_FROM_FILE": "Nhập hàng hóa từ file dữ liệu",
 
     "MATERIAL_NAME": "Tên hàng hóa",
     "MATERIAL_CODE": "Mã hàng hóa",

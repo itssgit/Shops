@@ -129,10 +129,10 @@
     function() {
         "use strict";
 
-        function AppCtrl($scope, b, $route, d, e) {
-            $scope.pageTransitionOpts = e.pageTransitionOpts,
-            $scope.main = e.main,
-            $scope.color = e.color,
+        function AppCtrl($scope, b, $route, d, AppConfig, CommonService) {
+            $scope.pageTransitionOpts = AppConfig.pageTransitionOpts,
+            $scope.main = AppConfig.main,
+            $scope.color = AppConfig.color,
             $scope.$watch("main", function(c, d) {
                 "horizontal" === c.menu && "vertical" === d.menu && b.$broadcast("nav:reset"),
                 c.fixedHeader === !1 && c.fixedSidebar === !0 && (d.fixedHeader === !1 && d.fixedSidebar === !1 && ($scope.main.fixedHeader = !0,
@@ -185,7 +185,7 @@
                 $scope.popupDialog.opened = !0;
             }
         }
-        angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", AppCtrl])
+        angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", "CommonService", AppCtrl])
     }(),
     function(){
         "use strict";
@@ -254,6 +254,8 @@
                 templateUrl: "app/components/store/addnew/store.addnew.view.html"
             }).when("/store/adjust", {
                 templateUrl: "app/components/store/adjust/store.adjust.view.html"
+            }).when("/store/import", {
+                templateUrl: "app/components/store/import/store.import.view.html"
             }).when("/404", {
                 templateUrl: "app/shared/page/404.html"
             }).otherwise({

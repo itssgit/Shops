@@ -47,6 +47,9 @@
 
             //Khai bao link webservice
             uri = "http://giaiphapshop.com:8088/shops-services/",
+            optionSet = {
+                values: uri + "optionSet/getValueByCode?optionSetCode="
+            },
             inventoryUri = {
                 list: uri + "inventory/find?",
                 create: uri + "inventory/create",
@@ -59,6 +62,7 @@
             main: d,
             color: e,
             constant: constant,
+            optionSet: optionSet,
             inventoryUri: inventoryUri
         }
     }
