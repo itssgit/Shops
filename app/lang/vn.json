@@ -65,6 +65,14 @@
     "LABEL_COUPON_NOTE": "Ghi chú",
     "LABEL_COUPON_CAPITAL_COST": "Giá vốn",
     "LABEL_COUPON_INTO_MONEY": "Thành tiền",
+    "LABEL_COUPON_PRICE": "Đơn giá",
+    "LABEL_COUPON_VAT": "VAT",
+    "LABEL_COUPON_DISCOUNT": "Giảm giá",
+    "LABEL_COUPON_QUANTITY": "Số lượng",
+    "LABEL_COUPON_TOTAL_PRICE_MATERIAL": "Tổng tiền hàng",
+    "LABEL_COUPON_TOTAL_VAT": "Tổng VAT",
+    "LABEL_COUPON_TOTAL_DISCOUNT": "Tổng tiền giảm giá",
+    "LABEL_COUPON_TOTAL": "Tổng tiền",
 
     "LABEL_IMPORT_FROM_FILE": "Nhập hàng hóa từ file dữ liệu",
 

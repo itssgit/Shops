@@ -2,7 +2,7 @@
  * Created by vietdd on 03/07/2017.
  */
 
-function formatPrice($filter) {
+function format($filter) {
 
     return {
         require: '?ngModel',
@@ -10,16 +10,16 @@ function formatPrice($filter) {
             if (!ctrl) return;
 
             ctrl.$formatters.unshift(function (a) {
-                return $filter(attrs.format)(ctrl.$modelValue, "VND ")
+                return $filter(attrs.format)(ctrl.$modelValue)
             });
 
             elem.bind('blur', function(event) {
                 var plainNumber = elem.val().replace(/[^\d|\-+|\.+]/g, '');
-                elem.val($filter(attrs.format)(plainNumber, "VND "));
+                elem.val($filter(attrs.format)(plainNumber));
             });
         }
     };
 }
 
-angular.module('app').directive('format', ['$filter',formatPrice]);
+angular.module('app').directive('format', ['$filter',format]);
 

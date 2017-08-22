@@ -164,7 +164,7 @@
 
             /*material types*/
             var onError = function onError(){
-                var modal = $uibModal.open({
+                $uibModal.open({
                     animation: 1,
                     templateUrl: "modalAlertError.html",
                     controller: "ModalInstanceCtrl",
@@ -175,7 +175,6 @@
                 $scope.searchType = data.value.optionSetValueDTOList;
             }
             CommonService.getValuesByCode('TYPE_PRODUCT', onGetTypeSuccess, onError);
-            console.log("12");
 
             /*Pagination*/
             $scope.numPerPageOpt = [10, 20, 50, 100];

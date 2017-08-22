@@ -12,28 +12,27 @@
                 <button class="btn btn-info" data-ng-click="chooseFile()"><span class="glyphicon glyphicon-export"></span> {{'BTN_IMPORT' | translate}}</button>
             </div>
         </div>
-        <div class="col-md-8" style="border-style: groove;border-color: aliceblue; border-bottom: none; border-left: none; border-top: none;">
+        <div class="col-md-9" style="border-style: groove;border-color: aliceblue; border-bottom: none; border-left: none; border-top: none;">
             <div class="table-filters">
                 <div class="row">
                     <div class="form-group">
                         <div class="col-md-2">
-                            <label data-translate="LABEL_MATERIAL_CODE"></label>
+                            <label data-translate="LABEL_COUPON_MATERIAL_NAME"></label>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-5">
                             <input type="text"
-                                   placeholder="{{'MATERIAL_CODE' | translate}}"
-                                   class="form-control"
-                                   data-ng-model="searchCode">
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <button class="btn btn-info" data-ng-click="search()"><span class="glyphicon glyphicon-search"></span> {{'BTN_SEARCH' | translate}}</button>
+                                   placeholder="{{'LABEL_COUPON_MATERIAL_NAME' | translate}}"
+                                   data-ng-model="searchKeyWord"
+                                   uib-typeahead="st as st.inventoryName for st in stockTrans | filter:{inventoryName:$viewValue} | limitTo:8"
+                                   typeahead-on-select="onSelect($item)"
+                                   class="form-control">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="dataTable" class="table-responsive">
-                <table class="table table-bordered table-striped table-material">
+            <div id="dataTable" class="table-responsive" style="font-size: 10px">
+                <table class="table table-bordered table-material">
                     <thead>
                     <tr class="bg-dark-light">
                         <th><div class="th">
@@ -47,19 +46,16 @@
                             {{'LABEL_COUPON_MATERIAL_NAME' | translate}}
                         </div></th>
                         <th><div class="th">
-                            {{'LABEL_COUPON_QUANTITY_IN_STOCK' | translate}}
+                            {{'LABEL_COUPON_QUANTITY' | translate}}
                         </div></th>
                         <th><div class="th">
-                            {{'LABEL_COUPON_QUANTITY_ADJUST' | translate}}
+                            {{'LABEL_COUPON_PRICE' | translate}}
                         </div></th>
                         <th><div class="th">
-                            {{'LABEL_COUPON_REAL_QUANTITY' | translate}}
+                            {{'LABEL_COUPON_VAT' | translate}}
                         </div></th>
                         <th><div class="th">
-                            {{'LABEL_COUPON_NOTE' | translate}}
-                        </div></th>
-                        <th><div class="th">
-                            {{'LABEL_COUPON_CAPITAL_COST' | translate}}
+                            {{'LABEL_COUPON_DISCOUNT' | translate}}
                         </div></th>
                         <th><div class="th">
                             {{'LABEL_COUPON_INTO_MONEY' | translate}}
@@ -67,19 +63,43 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr data-ng-repeat="st in selectedMaterial">
                         <td>{{$index + 1}}</td>
                         <td>
-                            <button type="button" ng-click="remove($index)" class="close text-color-red "><span>&times;</span></button>
+                            <button type="button" ng-click="remove($index, st)" class="close text-color-red "><span>&times;</span></button>
                         </td>
-                        <td>material.quantity}}</td>
-                        <td>{{material.inventoryType | materialType | translate</td>
-                        <td>{{material.status | materialStatus | translate</td>
-                        <td>{{material.status | materialStatus | translate</td>
-                        <td>{{material.status | materialStatus | translate</td>
-                        <td>{{material.status | materialStatus | translate</td>
-                        <td>material.status | materialStatus | translat</td>
-                        <td>material.status | materialStatus | translate</td>
+                        <td>{{st.inventoryCode}}</td>
+                        <td>{{st.inventoryName}}</td>
+                        <td>
+                            <input type="number"
+                                   data-ng-model="st.quantity"
+                                   ng-blur="calculateTotal(st.quantity)"
+                                   class="form-control border-bottom text-size-10">
+                        </td>
+                        <td>
+                            <input type="text"
+                                   format="number"
+                                   data-ng-model="st.unitPrice"
+                                   ng-blur="calculateTotal(st.unitPrice, 'unitPrice', $index)"
+                                   class="form-control border-bottom text-size-10">
+                        </td>
+                        <td>
+                            <input type="text"
+                                   format="number"
+                                   data-ng-model="st.vat"
+                                   ng-blur="calculateTotal(st.vat, 'vat', $index)"
+                                   class="form-control border-bottom text-size-10">
+                        </td>
+                        <td>
+                            <input type="text"
+                                   format="number"
+                                   data-ng-model="st.promotion"
+                                   ng-blur="calculateTotal(st.promotion, 'promotion', $index)"
+                                   class="form-control border-bottom text-size-10">
+                        </td>
+                        <td>
+                            {{st.totalPrice | number}}
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -93,13 +113,13 @@
                     <select data-ng-model="numPerPage"
                             data-ng-options="num for num in numPerPageOpt">
                     </select>
-                    {{'LABEL_ENTRIES_PER_PAGE'| translate}} {{'LABEL_RESULT' | translate}} {{data.length}} record)
+                    {{'LABEL_ENTRIES_PER_PAGE'| translate}} {{'LABEL_RESULT' | translate}} {{selectedMaterial.length}} record)
                 </span>
                     </div>
                     <div class="col-md-6 text-right pagination-container">
                         <uib-pagination class="pagination-sm"
                                         ng-model="currentPage"
-                                        total-items="data.length"
+                                        total-items="selectedMaterial.length"
                                         max-size="4"
                                         items-per-page="numPerPage"
                                         rotate="false"
@@ -109,9 +129,9 @@
                 </div>
             </footer>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="text-right">
-                <h5>15/08/2017 15:15:00</h5>
+                <h5>{{CurrentDate | date: 'dd/MM/yyyy hh:mm:ss'}}</h5>
             </div>
             <hr>
             <div>
@@ -122,6 +142,7 @@
                     <div class="col-md-7">
                         <input type="text"
                                placeholder="{{'LABEL_COUPON_CODE_AUTO' | translate}}"
+                               ng-disabled="true"
                                class="form-control border-bottom">
                     </div>
                 </div>
@@ -135,27 +156,35 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-md-6 col-right-custom">
-                        <label data-translate="LABEL_COUPON_TOTAL_BY_STORE"></label>
+                        <label data-translate="LABEL_COUPON_TOTAL_PRICE_MATERIAL"></label>
                     </div>
                     <div class="col-md-6 col-left-custom text-right">
-                        {{300000 | customCurrency}}
+                        {{total.materialPrice | customCurrency}}
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-6 col-right-custom">
-                        <label data-translate="LABEL_COUPON_TOTAL_ADJUST"></label>
+                        <label data-translate="LABEL_COUPON_TOTAL_VAT"></label>
                     </div>
                     <div class="col-md-6 col-left-custom text-right">
-                        {{4500000 | customCurrency}}
+                        {{total.vat | customCurrency}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6 col-right-custom">
+                        <label data-translate="LABEL_COUPON_TOTAL_DISCOUNT"></label>
+                    </div>
+                    <div class="col-md-6 col-left-custom text-right">
+                        {{total.discount | customCurrency}}
                     </div>
                 </div>
                 <hr style="width: 40%;" align="right">
                 <div class="form-group row">
                     <div class="col-md-6 col-right-custom">
-                        <label data-translate="LABEL_COUPON_REAL_TOTAL"></label>
+                        <label data-translate="LABEL_COUPON_TOTAL"></label>
                     </div>
                     <div class="col-md-6 col-left-custom text-right text-color-blue">
-                        {{4500000 | customCurrency}}
+                        {{total.totalAmount | customCurrency}}
                     </div>
                 </div>
                 <div class="form-group row text-right" style="padding-top: 50px;">
