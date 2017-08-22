@@ -12,27 +12,26 @@
                 <button class="btn btn-info"><span class="glyphicon glyphicon-export"></span> {{'BTN_IMPORT' | translate}}</button>
             </div>
         </div>
-        <div class="col-md-8" style="border-style: groove;border-color: aliceblue; border-bottom: none; border-left: none; border-top: none;">
+        <div class="col-md-9" style="border-style: groove;border-color: aliceblue; border-bottom: none; border-left: none; border-top: none;">
             <div class="table-filters">
                 <div class="row">
                     <div class="form-group">
                         <div class="col-md-2">
                             <label data-translate="LABEL_MATERIAL_CODE"></label>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-5">
                             <input type="text"
                                    placeholder="{{'MATERIAL_CODE' | translate}}"
-                                   class="form-control"
-                                   data-ng-model="searchCode">
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <button class="btn btn-info" data-ng-click="search()"><span class="glyphicon glyphicon-search"></span> {{'BTN_SEARCH' | translate}}</button>
+                                   data-ng-model="searchKeyWord"
+                                   uib-typeahead="st as st.inventoryName for st in stockTrans | filter:{inventoryName:$viewValue} | limitTo:8"
+                                   typeahead-on-select="onSelect($item)"
+                                   class="form-control">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="dataTable" class="table-responsive">
+            <div id="dataTable" class="table-responsive text-size-10">
                 <table class="table table-bordered table-striped table-material">
                     <thead>
                     <tr class="bg-dark-light">
@@ -67,17 +66,42 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="material in listMaterial">
+                    <tr data-ng-repeat="st in selectedMaterial">
                         <td>{{$index + 1}}</td>
-                        <td>X</td>
-                        <td>{{material.quantity}}</td>
-                        <td>{{material.inventoryType | materialType | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
-                        <td>{{material.status | materialStatus | translate}}</td>
+                        <td>
+                            <button type="button" ng-click="remove($index, st)" class="close text-color-red "><span>&times;</span></button>
+                        </td>
+                        <td>{{st.inventoryCode}}</td>
+                        <td>{{st.inventoryName}}</td>
+                        <td>
+                            <input type="number"
+                                   data-ng-model="st.quantity"
+                                   ng-blur="calculateTotal()"
+                                   class="form-control border-bottom text-size-10">
+                        </td>
+                        <td>
+                            <input type="number"
+                                   data-ng-model="st.adjust"
+                                   ng-blur="calculateTotal()"
+                                   class="form-control border-bottom text-size-10">
+                        </td>
+                        <td>
+                            {{st.realQuantity}}  </td>
+                        <td>
+                            <input type="text"
+                                   data-ng-model="st.note"
+                                   class="form-control border-bottom text-size-10">
+                        </td>
+                        <td>
+                            <input type="text"
+                                   format="number"
+                                   data-ng-model="st.unitPrice"
+                                   ng-blur="calculateTotal(st.unitPrice, 'unitPrice', $index)"
+                                   class="form-control border-bottom text-size-10">
+                        </td>
+                        <td>
+                            {{st.totalPrice | number}}
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -91,13 +115,13 @@
                     <select data-ng-model="numPerPage"
                             data-ng-options="num for num in numPerPageOpt">
                     </select>
-                    {{'LABEL_ENTRIES_PER_PAGE'| translate}} {{'LABEL_RESULT' | translate}} {{data.length}} record)
+                    {{'LABEL_ENTRIES_PER_PAGE'| translate}} {{'LABEL_RESULT' | translate}} {{selectedMaterial.length}} record)
                 </span>
                     </div>
                     <div class="col-md-6 text-right pagination-container">
                         <uib-pagination class="pagination-sm"
                                         ng-model="currentPage"
-                                        total-items="data.length"
+                                        total-items="selectedMaterial.length"
                                         max-size="4"
                                         items-per-page="numPerPage"
                                         rotate="false"
@@ -107,9 +131,9 @@
                 </div>
             </footer>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="text-right">
-                <h5>15/08/2017 15:15:00</h5>
+                <h5>{{CurrentDate | date:'dd/MM/yyyy hh:mm:ss'}}</h5>
             </div>
             <hr>
             <div>
@@ -120,6 +144,7 @@
                     <div class="col-md-7">
                         <input type="text"
                                placeholder="{{'LABEL_COUPON_CODE_AUTO' | translate}}"
+                               ng-disabled="true"
                                class="form-control border-bottom">
                     </div>
                 </div>
@@ -136,7 +161,7 @@
                         <label data-translate="LABEL_COUPON_TOTAL_BY_STORE"></label>
                     </div>
                     <div class="col-md-6 col-left-custom text-right">
-                        {{300000 | customCurrency}}
+                        {{total.storeAmount | customCurrency}}
                     </div>
                 </div>
                 <div class="form-group row">
@@ -144,7 +169,7 @@
                         <label data-translate="LABEL_COUPON_TOTAL_ADJUST"></label>
                     </div>
                     <div class="col-md-6 col-left-custom text-right">
-                        {{4500000 | customCurrency}}
+                        {{total.adjustAmount | customCurrency}}
                     </div>
                 </div>
                 <hr style="width: 40%;" align="right">
@@ -153,7 +178,7 @@
                         <label data-translate="LABEL_COUPON_REAL_TOTAL"></label>
                     </div>
                     <div class="col-md-6 col-left-custom text-right text-color-blue">
-                        {{4500000 | customCurrency}}
+                        {{total.realAmount | customCurrency}}
                     </div>
                 </div>
                 <div class="form-group row text-right" style="padding-top: 50px;">
