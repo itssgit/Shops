@@ -125,7 +125,7 @@
             {
                 param += "&inventoryName=" + $scope.searchName;
             }
-            if($scope.searchType){
+            if($scope.type){
                 param += "&inventoryType=" + $scope.type;
             }
             if($scope.searchStatus){

@@ -74,6 +74,10 @@
     "LABEL_COUPON_TOTAL_DISCOUNT": "Total discount",
     "LABEL_COUPON_TOTAL": "Total price",
     "LABEL_COUPON_TEMP_TICKET": "Temp",
+    "LABEL_COUPON_TYPE_TICKET": "Type",
+    "LABEL_PLEASE_CHOOSE_STOCK_TRANS_TYPE": "Choose type",
+    "LABEL_SEARCH_START_DATE":"Start date",
+    "LABEL_SEARCH_END_DATE":"End date",
 
     "LABEL_IMPORT_FROM_FILE": "Import from file data",
 
@@ -94,6 +98,7 @@
     "TITLE_STORE_MANAGE": "Store manage",
     "TITLE_STORE_ADJUST": "Adjust store",
     "TITLE_STORE_ADDNEW": "Add new",
+    "TITLE_STORE_SEARCH": "Search",
     "TITLE_STORE": "Store",
     "TITLE_PRODUCTS": "Products"
 }

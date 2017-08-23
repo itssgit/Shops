@@ -171,10 +171,16 @@
                     size: 'sm'
                 });
             }
-            var onGetTypeSuccess = function onSuccess(data){
-                $scope.searchType = data.value.optionSetValueDTOList;
+            var onGetTypeProductSuccess = function onSuccess(data){
+                $scope.searchTypeProduct = data.value.optionSetValueDTOList;
             }
-            CommonService.getValuesByCode('TYPE_PRODUCT', onGetTypeSuccess, onError);
+            CommonService.getValuesByCode('TYPE_PRODUCT', onGetTypeProductSuccess, onError);
+
+            /* get type stock trans*/
+            var onGetTypeStockTransSuccess = function onSuccess(data){
+                $scope.searchTypeStockTrans = data.value.optionSetValueDTOList;
+            }
+            CommonService.getValuesByCode('TYPE_TRANS', onGetTypeStockTransSuccess, onError);
 
             /*Pagination*/
             $scope.numPerPageOpt = [10, 20, 50, 100];
@@ -190,14 +196,6 @@
                 //remove alert
                 return $scope.alerts.splice(0)
             })
-
-            /*date picker*/
-            $scope.popupDialog = {
-                opened: !1
-            };
-            $scope.datePicker = function(){
-                $scope.popupDialog.opened = !0;
-            }
         }
         angular.module("app").controller("AppCtrl", ["$scope", "$rootScope", "$route", "$document", "AppConfig", "CommonService", AppCtrl])
     }(),
@@ -211,6 +209,34 @@
             }
         }
         angular.module('app').controller("ModalInstanceCtrl", ["$scope", "$uibModalInstance", ModalInstanceCtrl]);
+    }(),
+    function(){
+        "use strict";
+        function DatepickerCtrl($scope) {
+            $scope.today = function() {
+                $scope.startDate = new Date
+                $scope.endDate = new Date
+            },
+            $scope.today(),
+            $scope.open1 = function() {
+                $scope.popup1.opened = !0
+            },
+            $scope.open2 = function() {
+                $scope.popup2.opened = !0
+            },
+            $scope.dateOptions = {
+                formatYear: "yy",
+                startingDay: 1
+            },
+            $scope.format = "dd/MM/yyyy",
+            $scope.altInputFormats = ["M!/d!/yyyy"],
+            $scope.popup1 = {
+                opened: !1
+            }, $scope.popup2 = {
+                opened: !1
+            };
+        }
+        angular.module('app').controller("DatepickerCtrl", ["$scope", DatepickerCtrl]);
     }(),
     // custom page
     function() {
@@ -270,6 +296,8 @@
                 templateUrl: "app/components/store/adjust/store.adjust.view.html"
             }).when("/store/import", {
                 templateUrl: "app/components/store/import/store.import.view.html"
+            }).when("/store/search", {
+                templateUrl: "app/components/store/search/store.search.view.html"
             }).when("/404", {
                 templateUrl: "app/shared/page/404.html"
             }).otherwise({

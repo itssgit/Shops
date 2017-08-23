@@ -83,7 +83,7 @@
                                                         <span class="ui-select">
                                                             <select ng-model="material.inventoryType" name="inventoryType" required>
                                                                 <option value="">-- {{'LABEL_PLEASE_CHOOSE_MATERIAL_TYPE' | translate}} --</option>
-                                                                <option ng-repeat="type in searchType track by $index" value="{{type.optionSetValue}}">{{type.optionSetName}}</option>
+                                                                <option ng-repeat="type in searchTypeProduct track by $index" value="{{type.optionSetValue}}">{{type.optionSetName}}</option>
                                                             </select>
                                                         </span>
                                                         <p ng-show="materialInfo.inventoryType.$error.required && materialInfo.inventoryType.$dirty" class="help-block">{{'MSG_MATERIAL_TYPE_REQUIRED' | translate}}</p>

@@ -1,73 +1,81 @@
 
-<div class="page page-table" data-ng-controller="StoreCtrl">
+<div class="page page-table" data-ng-controller="StoreSearchCtrl">
     <div ng-if="alerts.length > 0">
         <uib-alert type="{{alerts[0].type}}" close="closeAlert()">{{alerts[0].msg | translate}}</uib-alert>
     </div>
     <section class="panel panel-default table-dynamic">
         <div class="panel-heading clearfix">
-            <strong><span data-translate="TITLE_STORE_MANAGE"></span></strong>
-            <div class="pull-right" style="text-transform: none;">
-                <a href="#store/search" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> {{'BTN_SEARCH_TRANSACTION' | translate}}</a>
-                <a href="#store/import" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> {{'BTN_WAREHOUSING' | translate}}</a>
-                <a href="#store/adjust" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span> {{'BTN_ADJUST' | translate}}</a>
-                <a href="#store/addnew" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> {{'BTN_ADD_NEW' | translate}}</a>
-                <button class="btn btn-info" data-ng-click="export()"><span class="glyphicon glyphicon-export"></span> {{'BTN_EXPORT' | translate}}</button>
-                <button class="btn btn-danger" data-ng-click="deleteList()"><span class="glyphicon glyphicon-trash"></span> {{'BTN_DELETE_LIST' | translate}}</button>
-            </div>
+            <strong><span data-translate="TITLE_STORE_SEARCH"></span>
+            </strong>
+            <a href="#store"><i class="glyphicon glyphicon-circle-arrow-left"></i> {{'LABEL_BACK_TO_STORE_LIST' | translate}}</a>
         </div>
 
         <div class="table-filters">
             <div class="row">
                 <div class="form-group col-md-6">
                     <div class="col-md-3">
-                        <label data-translate="LABEL_MATERIAL_CODE"></label>
+                        <label data-translate="LABEL_COUPON_CODE"></label>
                     </div>
                     <div class="col-md-9">
                         <input type="text"
-                               placeholder="{{'MATERIAL_CODE' | translate}}"
+                               placeholder="{{'LABEL_COUPON_CODE' | translate}}"
                                class="form-control"
                                data-ng-model="searchCode">
                     </div>
                 </div>
                 <div class="form-group col-md-6">
                     <div class="col-md-3">
-                        <label data-translate="LABEL_MATERIAL_NAME"></label>
-                    </div>
-                    <div class="col-md-9">
-                        <input type="text"
-                               placeholder="{{'MATERIAL_NAME' | translate}}"
-                               class="form-control"
-                               data-ng-model="searchName">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <div class="col-md-3">
-                        <label data-translate="LABEL_MATERIAL_STATUS"></label>
-                    </div>
-                    <div class="col-md-9">
-                        <span class="ui-select">
-                            <select ng-model="searchStatus">
-                                <option value="" ng-selected="true">-- {{'LABEL_PLEASE_CHOOSE_STATUS' | translate}} --</option>
-                                <option value="0">{{'LABEL_STATUS_DELETED' | translate}}</option>
-                                <option value="1">{{'LABEL_STATUS_IN_STOCK' | translate}}</option>
-                                <option value="2">{{'LABEL_STATUS_OUT_OF_STOCK' | translate}}</option>
-                            </select>
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group col-md-6">
-                    <div class="col-md-3">
-                        <label data-translate="LABEL_MATERIAL_TYPE"></label>
+                        <label data-translate="LABEL_COUPON_TYPE_TICKET"></label>
                     </div>
                     <div class="col-md-9">
                         <span class="ui-select">
                             <select ng-model="type">
-                                <option value="">-- {{'LABEL_PLEASE_CHOOSE_MATERIAL_TYPE' | translate}} --</option>
-                                <option ng-repeat="type in searchTypeProduct track by $index" value="{{type.optionSetValue}}">{{type.optionSetName}}</option>
+                                <option value="">-- {{'LABEL_PLEASE_CHOOSE_STOCK_TRANS_TYPE' | translate}} --</option>
+                                <option ng-repeat="type in searchTypeStockTrans track by $index" value="{{type.optionSetValue}}">{{type.optionSetName}}</option>
                             </select>
                         </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-ng-controller="DatepickerCtrl">
+                <div class="form-group col-md-6">
+                    <div class="col-md-3">
+                        <label data-translate="LABEL_SEARCH_START_DATE"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-group ui-datepicker">
+                            <input type="text"
+                                   class="form-control"
+                                   uib-datepicker-popup="{{format}}"
+                                   ng-model="date.startDate"
+                                   is-open="popup1.opened"
+                                   datepicker-options="dateOptions"
+                                   date-disabled="disabled(date, mode)"
+                                   ng-required="true"
+                                   close-text="Close"
+                                   alt-input-formats="altInputFormats" />
+                            <span class="input-group-addon" ng-click="open1()"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="col-md-3">
+                        <label data-translate="LABEL_SEARCH_END_DATE"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-group ui-datepicker">
+                            <input type="text"
+                                   class="form-control"
+                                   uib-datepicker-popup="{{format}}"
+                                   ng-model="date.endDate"
+                                   is-open="popup2.opened"
+                                   datepicker-options="dateOptions"
+                                   date-disabled="disabled(date, mode)"
+                                   ng-required="true"
+                                   close-text="Close"
+                                   alt-input-formats="altInputFormats" />
+                            <span class="input-group-addon" ng-click="open2()"><i class="fa fa-calendar"></i></span>
+                        </div>
                     </div>
                 </div>
             </div>

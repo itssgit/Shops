@@ -74,6 +74,10 @@
     "LABEL_COUPON_TOTAL_DISCOUNT": "Tổng tiền giảm giá",
     "LABEL_COUPON_TOTAL": "Tổng tiền",
     "LABEL_COUPON_TEMP_TICKET": "Phiếu tạm",
+    "LABEL_COUPON_TYPE_TICKET": "Loại phiếu",
+    "LABEL_PLEASE_CHOOSE_STOCK_TRANS_TYPE": "Chọn loại phiếu",
+    "LABEL_SEARCH_START_DATE":"Từ ngày",
+    "LABEL_SEARCH_END_DATE":"Đến ngày",
 
     "LABEL_IMPORT_FROM_FILE": "Nhập hàng hóa từ file dữ liệu",
 
@@ -93,6 +97,7 @@
     "TITLE_STORE_MANAGE": "Quản lý kho",
     "TITLE_STORE_ADJUST": "Điều chỉnh kho",
     "TITLE_STORE_ADDNEW": "Thêm mới",
+    "TITLE_STORE_SEARCH": "Tra cứu giao dịch",
     "TITLE_STORE": "Kho",
     "TITLE_PRODUCTS": "Sản phẩm"
 
