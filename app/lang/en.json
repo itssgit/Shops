@@ -73,6 +73,7 @@
     "LABEL_COUPON_TOTAL_VAT": "Total VAT",
     "LABEL_COUPON_TOTAL_DISCOUNT": "Total discount",
     "LABEL_COUPON_TOTAL": "Total price",
+    "LABEL_COUPON_TEMP_TICKET": "Temp",
 
     "LABEL_IMPORT_FROM_FILE": "Import from file data",
 
@@ -93,5 +94,6 @@
     "TITLE_STORE_MANAGE": "Store manage",
     "TITLE_STORE_ADJUST": "Adjust store",
     "TITLE_STORE_ADDNEW": "Add new",
-    "TITLE_STORE": "Store"
+    "TITLE_STORE": "Store",
+    "TITLE_PRODUCTS": "Products"
 }

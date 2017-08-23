@@ -42,7 +42,12 @@
                 gray: "#DCDCDC"
             },
             constant = {
-                MSG_NOT_OK: "NOT_OK"
+                MSG_NOT_OK: "NOT_OK",
+                TYPE_IMPORT_STOCK: "PN",
+                TYPE_ADJUST_STOCK: "DC",
+                STATUS_TEMP: 2,
+                STATUS_FINISH: 1,
+                CODE_GEN: "AUTOCODE"
             },
 
             //Khai bao link webservice
@@ -55,6 +60,9 @@
                 create: uri + "inventory/create",
                 update: uri + "inventory/update",
                 delete: uri + "inventory/delete"
+            },
+            stockTransUri = {
+                insert: uri + "stockTrans/create"
             }
 
         return {
@@ -63,7 +71,8 @@
             color: e,
             constant: constant,
             optionSet: optionSet,
-            inventoryUri: inventoryUri
+            inventoryUri: inventoryUri,
+            stockTransUri: stockTransUri
         }
     }
     angular.module("app").factory("AppConfig", [AppConfig])

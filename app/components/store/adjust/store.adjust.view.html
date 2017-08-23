@@ -153,7 +153,7 @@
                         <label data-translate="LABEL_COUPON_STATUS"></label>
                     </div>
                     <div class="col-md-7">
-                        Phiếu tạm
+                        {{'LABEL_COUPON_TEMP_TICKET' | translate}}
                     </div>
                 </div>
                 <div class="form-group row">
@@ -183,8 +183,8 @@
                 </div>
                 <div class="form-group row text-right" style="padding-top: 50px;">
                     <div class="col-md-12">
-                        <button class="btn btn-info ng-binding"><span class="glyphicon glyphicon-save"></span> Lưu tạm</button>
-                        <button class="btn btn-info ng-binding"><span class="glyphicon glyphicon-save"></span> Hoàn thành</button>
+                        <button class="btn btn-info" ng-disabled="selectedMaterial.length == 0" ng-click="save(constant.STATUS_TEMP)"><span class="glyphicon glyphicon-save"></span> {{'BTN_SAVE_TEMP' | translate}}</button>
+                        <button class="btn btn-info" ng-disabled="selectedMaterial.length == 0" ng-click="save(constant.STATUS_FINISH)"><span class="glyphicon glyphicon-save"></span> {{'BTN_FINISH' | translate}}</button>
                     </div>
                 </div>
             </div>

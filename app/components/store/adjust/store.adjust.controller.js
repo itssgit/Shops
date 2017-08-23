@@ -3,8 +3,11 @@
  */
 (function(){
     'use strict';
-    angular.module('app').controller('StoreAdjustCtrl', ['$scope', '$uibModal','StoreService', StoreAdjustCtrl]);
+    angular.module('app').controller('StoreAdjustCtrl', ['$scope', '$uibModal', 'AppConfig','StoreService', StoreAdjustCtrl]);
     function StoreAdjustCtrl($scope, $uibModal, StoreService){
+
+        $scope.constant = AppConfig.constant;
+
         var onError = function onError(data){
             var modal = $uibModal.open({
                 animation: 1,
@@ -98,6 +101,40 @@
             $scope.total.adjustAmount = parseInt($scope.total.adjustAmount, 10);
             $scope.total.storeAmount = parseInt($scope.total.storeAmount, 10);
             $scope.total.realAmount = $scope.total.adjustAmount + $scope.total.storeAmount;
+        }
+
+        /*click save temp button*/
+        $scope.save = function(status){
+            var prepareStockTransDetailDTOList = [];
+            for(var i=0; i < $scope.selectedMaterial.length; i++){
+                prepareStockTransDetailDTOList.push({
+                    "inventoryId": $scope.selectedMaterial[i].inventoryId,
+                    "promotion": $scope.selectedMaterial[i].promotion,
+                    "quantity": $scope.selectedMaterial[i].quantity,
+                    "status": AppConfig.constant.STATUS_TEMP,
+                    "unitPrice": $scope.selectedMaterial[i].unitPrice,
+                    "vat": $scope.selectedMaterial[i].vat
+                });
+            }
+            var data = {
+                "staffCode": "admin",
+                "status": status,
+                "stockTransDetailDTOList": prepareStockTransDetailDTOList,
+                "stockTransNo": AppConfig.constant.AUTOCODE,
+                "totalPrice": $scope.total.totalAmount,
+                "totalPromotion": $scope.total.discount,
+                "totalVat": $scope.total.vat,
+                "typeTrans": AppConfig.constant.TYPE_ADJUST_STOCK
+            }
+
+            var onInsertSuccess = function onSuccess(data){
+                $scope.alerts[0] = {
+                    type: "success",
+                    msg: 'MSG_IMPORT_STORE_SUCCESS',
+                    show: true
+                };
+            }
+            StoreService.insertUpdateStockTrans(data, onInsertSuccess, onError);
         }
 
     }

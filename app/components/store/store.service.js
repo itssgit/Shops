@@ -26,5 +26,10 @@
             var url = AppConfig.inventoryUri.delete;
             HttpService.callPostService(url, id, onSuccess, onError);
         }
+
+        this.insertUpdateStockTrans = function(data, onSuccess, onError){
+            var url = AppConfig.stockTransUri.insert;
+            HttpService.callPostService(url, data, onSuccess, onError);
+        }
     }
 })();

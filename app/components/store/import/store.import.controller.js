@@ -3,18 +3,19 @@
  */
 (function(){
     'use strict';
-    angular.module('app').controller('StoreImportCtrl', ['$scope', '$uibModal','StoreService', StoreImportCtrl]);
-    function StoreImportCtrl($scope, $uibModal, StoreService){
+    angular.module('app').controller('StoreImportCtrl', ['$scope', '$uibModal', 'AppConfig', 'StoreService', StoreImportCtrl]);
+    function StoreImportCtrl($scope, $uibModal, AppConfig, StoreService){
+
+        $scope.constant = AppConfig.constant;
+
         var onError = function onError(data){
-            var modal = $uibModal.open({
+            $uibModal.open({
                 animation: 1,
                 templateUrl: "modalAlertError.html",
                 controller: "ModalInstanceCtrl",
                 size: 'sm'
             });
-            modal.result.then(function() {
-                $uibModalStack.dismissAll();
-            })
+            console.log(data);
         }
 
         var onGetListSuccess = function onSuccess(data){
@@ -109,6 +110,14 @@
             $scope.total.vat = 0;
             for(var i=0; i < $scope.selectedMaterial.length; i++){
                 $scope.selectedMaterial[i].totalPrice = $scope.selectedMaterial[i].unitPrice*$scope.selectedMaterial[i].quantity + $scope.selectedMaterial[i].vat - $scope.selectedMaterial[i].promotion;
+                prepareStockTransDetailDTOList.push({
+                    "inventoryId": $scope.selectedMaterial[i].inventoryId,
+                    "promotion": $scope.selectedMaterial[i].promotion,
+                    "quantity": $scope.selectedMaterial[i].quantity,
+                    "status": AppConfig.constant.STATUS_TEMP,
+                    "unitPrice": $scope.selectedMaterial[i].unitPrice,
+                    "vat": $scope.selectedMaterial[i].vat
+                });
 
                 $scope.total.materialPrice += $scope.selectedMaterial[i].quantity*$scope.selectedMaterial[i].unitPrice;
                 $scope.total.vat += $scope.selectedMaterial[i].vat;
@@ -119,6 +128,39 @@
             $scope.total.totalAmount = $scope.total.materialPrice + $scope.total.vat - $scope.total.discount;
         }
 
+        /*click save temp button*/
+        $scope.save = function(status){
+            var prepareStockTransDetailDTOList = [];
+            for(var i=0; i < $scope.selectedMaterial.length; i++){
+                prepareStockTransDetailDTOList.push({
+                    "inventoryId": $scope.selectedMaterial[i].inventoryId,
+                    "promotion": $scope.selectedMaterial[i].promotion,
+                    "quantity": $scope.selectedMaterial[i].quantity,
+                    "status": AppConfig.constant.STATUS_TEMP,
+                    "unitPrice": $scope.selectedMaterial[i].unitPrice,
+                    "vat": $scope.selectedMaterial[i].vat
+                });
+            }
+            var data = {
+                "staffCode": "admin",
+                "status": status,
+                "stockTransDetailDTOList": prepareStockTransDetailDTOList,
+                "stockTransNo": AppConfig.constant.AUTOCODE,
+                "totalPrice": $scope.total.totalAmount,
+                "totalPromotion": $scope.total.discount,
+                "totalVat": $scope.total.vat,
+                "typeTrans": AppConfig.constant.TYPE_IMPORT_STOCK
+            }
+
+            var onInsertSuccess = function onSuccess(data){
+                $scope.alerts[0] = {
+                    type: "success",
+                    msg: 'MSG_IMPORT_STORE_SUCCESS',
+                    show: true
+                };
+            }
+            StoreService.insertUpdateStockTrans(data, onInsertSuccess, onError);
+        }
     }
 
 })();
