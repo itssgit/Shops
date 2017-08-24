@@ -1,25 +1,46 @@
 (function() {
     function a(a) {
+        console.log(a);
         a.useStaticFilesLoader({
             prefix: "app/lang/",
             suffix: ".json"
-        }), a.preferredLanguage("vn"), a.useSanitizeValueStrategy(null)
+        }),
+            // a.preferredLanguage("vn"),
+            a.useSanitizeValueStrategy(null)
     }
 
-    function b(a, b) {
-        a.lang = "VietNam", a.setLang = function(c) {
-            switch (c) {
+    function LangCtrl($scope, $translate, $cookies) {
+        var cookieLang = $cookies.get('lang');
+        if(cookieLang){
+            $scope.lang = cookieLang;
+            switch (cookieLang) {
                 case "English":
-                    b.use("en");
+                    $translate.use("en");
                     break;
                 case "VietNam":
-                    b.use("vn");
+                    $translate.use("vn");
                     break;
             }
-            return a.lang = c
-        }, a.getFlag = function() {
-            var b;
-            switch (b = a.lang) {
+        } else{
+            $scope.lang = "VietNam";
+            $translate.use("vn");
+        }
+        $scope.setLang = function(langSelected) {
+            switch (langSelected) {
+                case "English":
+                    $translate.use("en");
+                    break;
+                case "VietNam":
+                    $translate.use("vn");
+                    break;
+            }
+            //save application language to cookie
+            $cookies.put('lang', langSelected);
+            return $scope.lang = langSelected
+        },
+        $scope.getFlag = function() {
+            var flag;
+            switch (flag = $scope.lang) {
                 case "English":
                     return "flags-american";
                 case "VietNam":
@@ -27,5 +48,6 @@
             }
         }
     }
-    angular.module("app.lang", ["pascalprecht.translate"]).config(["$translateProvider", a]).controller("LangCtrl", ["$scope", "$translate", b])
+    angular.module("app.lang",["ngCookies"]);
+    angular.module("app.lang", ["pascalprecht.translate"]).config(["$translateProvider", a]).controller("LangCtrl", ["$scope", "$translate", "$cookies", LangCtrl])
 })();

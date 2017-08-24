@@ -4,9 +4,9 @@
     angular.module('app').controller('SigninCtrl', SigninCtrl);
 
     // dependencies
-    SigninCtrl.$inject = ['LoginService','Cookies','$scope','$location','BindingService'];
+    SigninCtrl.$inject = ['LoginService','$scope','$location','BindingService'];
 
-    function SigninCtrl(LoginService, Cookies, $scope, $location, BindingService) {
+    function SigninCtrl(LoginService, $scope, $location, BindingService) {
 
         //captcha gg
         // $scope.model = {
@@ -37,10 +37,7 @@
                 "roleId": 1,
                 "userName": "string"
             };
-            Cookies.set("user",data);
             LoginService.login(data, onLoginSuccess, onLoginError);
-            // var d = JSON.parse(localStorage.getItem('test') || {});
-            // console.log(d);
         };
     }
 })();
