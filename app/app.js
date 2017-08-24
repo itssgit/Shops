@@ -298,6 +298,10 @@
                 templateUrl: "app/components/store/import/store.import.view.html"
             }).when("/store/search", {
                 templateUrl: "app/components/store/search/store.search.view.html"
+            }).when("/product/list", {
+                templateUrl: "app/components/product/product.list.view.html"
+            }).when("/product/addnew", {
+                templateUrl: "app/components/product/addnew/product.addnew.view.html"
             }).when("/404", {
                 templateUrl: "app/shared/page/404.html"
             }).otherwise({

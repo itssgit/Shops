@@ -87,6 +87,18 @@
 
     "LABEL_IMPORT_FROM_FILE": "Import from file data",
 
+    "LABEL_PRODUCT_CODE": "Product code",
+    "LABEL_PRODUCT_NAME": "Product name",
+    "LABEL_PRODUCT_STATUS": "Status",
+    "LABEL_PRODUCT_RECIPE_CODE": "Product recipe code",
+    "LABEL_PRODUCT_CREATED_BY": "Created by",
+    "LABEL_PRODUCT_CREATED_DATE": "Created date",
+    "LABEL_BACK_TO_PRODUCT_LIST": "Products",
+    "LABEL_PRODUCT_FORMAT": "Format",
+    "LABEL_PRODUCT_ATTRIBUTES": "Attributes",
+    "LABEL_PRODUCT_CATEGORY": "Category",
+    "LABEL_PRODUCT_INFO": "Info",
+    "LABEL_PRODUCT_DESCRIPTION": "Description",
 
     "MATERIAL_NAME": "Material name",
     "MATERIAL_CODE": "Material code",
@@ -106,5 +118,10 @@
     "TITLE_STORE_ADDNEW": "Add new",
     "TITLE_STORE_SEARCH": "Search",
     "TITLE_STORE": "Store",
-    "TITLE_PRODUCTS": "Products"
+    "TITLE_PRODUCTS": "Products",
+    "TITLE_PRODUCTS_LIST": "Products",
+    "TITLE_PRODUCTS_CATEGORY": "Categories",
+    "TITLE_PRODUCTS_ATTRIBUTES": "Attributes",
+    "TITLE_PRODUCT_MANAGE": "Product manager",
+    "TITLE_PRODUCT_ADDNEW": "Add new product"
 }

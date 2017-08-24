@@ -1,0 +1,140 @@
+<div class="page page-table" data-ng-controller="StoreAddNewCtrl">
+    <div ng-if="alerts.length > 0">
+        <uib-alert type="{{alerts[0].type}}" close="closeAlert()">{{alerts[0].msg | translate}}</uib-alert>
+    </div>
+    <section class="panel panel-default table-dynamic">
+        <div class="panel-heading clearfix">
+            <strong><span data-translate="TITLE_PRODUCT_ADDNEW"></span>
+            </strong>
+            <a href="#product/list"><i class="glyphicon glyphicon-circle-arrow-left"></i> {{'LABEL_BACK_TO_PRODUCT_LIST' | translate}}</a>
+        </div>
+
+        <div class="panel-body">
+            <form name="productInfo" ng-submit="save()" novalidate>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ui-tab-container ui-tab-horizontal">
+                            <uib-tabset justified="false" class="ui-tab" style="overflow: auto;">
+                                <uib-tab heading="{{'LABEL_PRODUCT_INFO'| translate}}">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <div class="col-md-3">
+                                                    <label data-translate="LABEL_PRODUCT_CODE"></label><span class="text-color-red"> *</span>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text"
+                                                           placeholder="{{'LABEL_PRODUCT_CODE' | translate}}"
+                                                           data-ng-model="product.inventoryCode"
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row" ng-class="{ 'has-error' : materialInfo.inventoryName.$invalid && materialInfo.inventoryName.$touched }">
+                                                <div class="col-md-3">
+                                                    <label data-translate="LABEL_PRODUCT_NAME"></label><span class="text-color-red"> *</span>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text"
+                                                           name="inventoryName"
+                                                           data-ng-model="product.inventoryName"
+                                                           required
+                                                           class="form-control">
+                                                    <p ng-show="materialInfo.inventoryName.$error.required && materialInfo.inventoryName.$touched" class="help-block">{{'MSG_PRODUCT_NAME_REQUIRED' | translate}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-md-3">
+                                                    <label data-translate="LABEL_PRODUCT_DESCRIPTION"></label><span class="text-color-red"> *</span>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <section class="panel panel-default">
+                                                        <div class="panel-body">
+                                                            <div
+                                                                    text-angular
+                                                                    ng-model="product.inventoryDesc"
+                                                                    class="ui-editor"
+                                                                    ta-text-editor-class="form-control editor-height"
+                                                                    ta-html-editor-class="form-control editor-height"/>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div>
+                                            </div>
+                                            <button class="btn btn-info"><span class="glyphicon glyphicon-camera"></span> {{'BTN_CHOOSE_IMAGE' | translate}}</button>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                                <uib-tab heading="{{'LABEL_PRODUCT_FORMAT' | translate}}">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <section class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div
+                                                        text-angular
+                                                        ng-model="product.inventoryDesc"
+                                                        class="ui-editor"
+                                                        ta-text-editor-class="form-control editor-height"
+                                                        ta-html-editor-class="form-control editor-height"/>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                                <uib-tab heading="{{'LABEL_PRODUCT_ATTRIBUTES' | translate}}">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <section class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div
+                                                            text-angular
+                                                            ng-model="product.inventoryDesc"
+                                                            class="ui-editor"
+                                                            ta-text-editor-class="form-control editor-height"
+                                                            ta-html-editor-class="form-control editor-height"></div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                                <uib-tab heading="{{'LABEL_PRODUCT_CATEGORY' | translate}}">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <section class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div
+                                                            text-angular
+                                                            ng-model="product.inventoryDesc"
+                                                            class="ui-editor"
+                                                            ta-text-editor-class="form-control editor-height"
+                                                            ta-html-editor-class="form-control editor-height"></div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                        </div>
+                    </div>
+                </div>
+                <div class="row button-bottom-right">
+                    <div class="col-md-12">
+                        <button class="btn btn-info" type="submit" ng-disabled="materialInfo.$invalid"><span class="glyphicon glyphicon-save"></span> {{'BTN_SAVE' | translate}}</button>
+                        <button class="btn btn-info" type="button" data-ng-click="saveAndContinue()" ng-disabled="materialInfo.$invalid"><span class="glyphicon glyphicon-save"></span> {{'BTN_SAVE_CONTINUE' | translate}}</button>
+                        <a href="#product/list" class="btn btn-info"><span class="glyphicon glyphicon-remove"></span> {{'BTN_CANCEL' | translate}}</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script type="text/ng-template" id="modalConfirmCreate.html">
+        <div class="modal-header">
+            <h5>{{'LABEL_PRODUCT_CONFIRM_CREATE' | translate}}</h5>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" ng-click="ok()">{{'BTN_OK' | translate}}</button>
+            <button class="btn btn-toolbar" ng-click="cancel()">{{'BTN_CANCEL' | translate}}</button>
+        </div>
+    </script>
+</div>

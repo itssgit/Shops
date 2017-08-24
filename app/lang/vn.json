@@ -87,6 +87,19 @@
 
     "LABEL_IMPORT_FROM_FILE": "Nhập hàng hóa từ file dữ liệu",
 
+    "LABEL_PRODUCT_CODE": "Mã sản phẩm",
+    "LABEL_PRODUCT_NAME": "Tên sản phẩm",
+    "LABEL_PRODUCT_STATUS": "Trạng thái",
+    "LABEL_PRODUCT_RECIPE_CODE": "Mã công thức",
+    "LABEL_PRODUCT_CREATED_BY": "Người tạo",
+    "LABEL_PRODUCT_CREATED_DATE": "Ngày tạo",
+    "LABEL_BACK_TO_PRODUCT_LIST": "Danh sách sản phẩm",
+    "LABEL_PRODUCT_FORMAT": "Công thức",
+    "LABEL_PRODUCT_ATTRIBUTES": "Thuộc tính",
+    "LABEL_PRODUCT_CATEGORY": "Nhóm sản phẩm",
+    "LABEL_PRODUCT_INFO": "Thông tin",
+    "LABEL_PRODUCT_DESCRIPTION": "Mô tả",
+
     "MATERIAL_NAME": "Tên hàng hóa",
     "MATERIAL_CODE": "Mã hàng hóa",
     "MATERIAL_IN_STOCK": "Tồn kho",
@@ -105,6 +118,11 @@
     "TITLE_STORE_ADDNEW": "Thêm mới",
     "TITLE_STORE_SEARCH": "Tra cứu giao dịch",
     "TITLE_STORE": "Kho",
-    "TITLE_PRODUCTS": "Sản phẩm"
+    "TITLE_PRODUCTS": "Sản phẩm",
+    "TITLE_PRODUCTS_LIST": "Sản phẩm",
+    "TITLE_PRODUCTS_CATEGORY": "Nhóm sản phẩm",
+    "TITLE_PRODUCTS_ATTRIBUTES": "Thuộc tính",
+    "TITLE_PRODUCT_MANAGE": "Quản lý sản phẩm",
+    "TITLE_PRODUCT_ADDNEW": "Thêm mới sản phẩm"
 
 }
