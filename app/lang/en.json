@@ -100,6 +100,15 @@
     "LABEL_PRODUCT_INFO": "Info",
     "LABEL_PRODUCT_DESCRIPTION": "Description",
 
+    "LABEL_CATEGORY_CODE":"Category code",
+    "LABEL_CATEGORY_STATUS":"Status",
+    "LABEL_CATEGORY_NAME":"Category name",
+    "LABEL_MAIN_CATEGORY_CODE":"Main category code",
+    "LABEL_CATEGORY_CREATED_DATE":"Created date",
+    "LABEL_CATEGORY_CREATED_BY":"Created by",
+    "LABEL_PLEASE_CHOOSE_MAIN_CATEGORY_CODE": "Select main category code",
+
+
     "MATERIAL_NAME": "Material name",
     "MATERIAL_CODE": "Material code",
     "MATERIAL_IN_STOCK": "In stock",
@@ -113,7 +122,7 @@
     "MSG_MATERIAL_UPDATED": "Material has been updated.",
     "MSG_MATERIAL_DELETED": "Material has been deleted.",
 
-    "TITLE_STORE_MANAGE": "Store manage",
+    "TITLE_STORE_MANAGE": "Store management",
     "TITLE_STORE_ADJUST": "Adjust store",
     "TITLE_STORE_ADDNEW": "Add new",
     "TITLE_STORE_SEARCH": "Search",
@@ -122,6 +131,7 @@
     "TITLE_PRODUCTS_LIST": "Products",
     "TITLE_PRODUCTS_CATEGORY": "Categories",
     "TITLE_PRODUCTS_ATTRIBUTES": "Attributes",
-    "TITLE_PRODUCT_MANAGE": "Product manager",
-    "TITLE_PRODUCT_ADDNEW": "Add new product"
+    "TITLE_PRODUCT_MANAGE": "Product management",
+    "TITLE_PRODUCT_ADDNEW": "Add new product",
+    "TITLE_CATEGORY_MANAGE": "Category management"
 }

@@ -302,6 +302,8 @@
                 templateUrl: "app/components/product/product.list.view.html"
             }).when("/product/addnew", {
                 templateUrl: "app/components/product/addnew/product.addnew.view.html"
+            }).when("/product/category", {
+                templateUrl: "app/components/category/category.list.view.html"
             }).when("/404", {
                 templateUrl: "app/shared/page/404.html"
             }).otherwise({

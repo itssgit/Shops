@@ -100,6 +100,14 @@
     "LABEL_PRODUCT_INFO": "Thông tin",
     "LABEL_PRODUCT_DESCRIPTION": "Mô tả",
 
+    "LABEL_CATEGORY_CODE":"Mã nhóm",
+    "LABEL_CATEGORY_STATUS":"Trạng thái",
+    "LABEL_CATEGORY_NAME":"Tên nhóm",
+    "LABEL_MAIN_CATEGORY_CODE":"Mã nhóm cha",
+    "LABEL_CATEGORY_CREATED_DATE":"Ngày tạo",
+    "LABEL_CATEGORY_CREATED_BY":"Người tạo",
+    "LABEL_PLEASE_CHOOSE_MAIN_CATEGORY_CODE": "Chọn mã nhóm cha",
+
     "MATERIAL_NAME": "Tên hàng hóa",
     "MATERIAL_CODE": "Mã hàng hóa",
     "MATERIAL_IN_STOCK": "Tồn kho",
@@ -123,6 +131,7 @@
     "TITLE_PRODUCTS_CATEGORY": "Nhóm sản phẩm",
     "TITLE_PRODUCTS_ATTRIBUTES": "Thuộc tính",
     "TITLE_PRODUCT_MANAGE": "Quản lý sản phẩm",
-    "TITLE_PRODUCT_ADDNEW": "Thêm mới sản phẩm"
+    "TITLE_PRODUCT_ADDNEW": "Thêm mới sản phẩm",
+    "TITLE_CATEGORY_MANAGE": "Quản lý nhóm sản phẩm"
 
 }

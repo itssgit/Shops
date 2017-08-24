@@ -1,0 +1,194 @@
+
+<div class="page page-table" data-ng-controller="CategoryListCtrl">
+    <div ng-if="alerts.length > 0">
+        <uib-alert type="{{alerts[0].type}}" close="closeAlert()">{{alerts[0].msg | translate}}</uib-alert>
+    </div>
+    <section class="panel panel-default table-dynamic">
+        <div class="panel-heading clearfix">
+            <strong><span data-translate="TITLE_CATEGORY_MANAGE"></span></strong>
+            <div class="pull-right" style="text-transform: none;">
+                <a href="#product/addnew" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> {{'BTN_ADD_NEW' | translate}}</a>
+                <button class="btn btn-info" data-ng-click="export()"><span class="glyphicon glyphicon-export"></span> {{'BTN_EXPORT' | translate}}</button>
+                <button class="btn btn-danger" data-ng-click="deleteList()"><span class="glyphicon glyphicon-trash"></span> {{'BTN_DELETE_LIST' | translate}}</button>
+            </div>
+        </div>
+
+        <div class="table-filters">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <div class="col-md-3">
+                        <label data-translate="LABEL_CATEGORY_CODE"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text"
+                               placeholder="{{'LABEL_CATEGORY_CODE' | translate}}"
+                               class="form-control"
+                               data-ng-model="searchCode">
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="col-md-3">
+                        <label data-translate="LABEL_CATEGORY_NAME"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text"
+                               placeholder="{{'LABEL_CATEGORY_NAME' | translate}}"
+                               class="form-control"
+                               data-ng-model="searchName">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <div class="col-md-3">
+                        <label data-translate="LABEL_CATEGORY_STATUS"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <span class="ui-select">
+                            <select ng-model="searchStatus">
+                                <option value="" ng-selected="true">-- {{'LABEL_PLEASE_CHOOSE_STATUS' | translate}} --</option>
+                                <option value="0">{{'LABEL_STATUS_DELETED' | translate}}</option>
+                                <option value="1">{{'LABEL_STATUS_IN_STOCK' | translate}}</option>
+                                <option value="2">{{'LABEL_STATUS_OUT_OF_STOCK' | translate}}</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="col-md-3">
+                        <label data-translate="LABEL_MAIN_CATEGORY_CODE"></label>
+                    </div>
+                    <div class="col-md-9">
+                        <span class="ui-select">
+                            <select ng-model="type">
+                                <option value="">-- {{'LABEL_PLEASE_CHOOSE_MAIN_CATEGORY_CODE' | translate}} --</option>
+                                <option ng-repeat="type in searchTypeProduct track by $index" value="{{type.optionSetValue}}">{{type.optionSetName}}</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-info" data-ng-click="search()"><span class="glyphicon glyphicon-search"></span> {{'BTN_SEARCH' | translate}}</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="dataTable" class="table-responsive">
+            <table class="table table-bordered table-striped table-material">
+                <thead>
+                <tr class="bg-dark-light">
+                    <th class="th-checkbox"><div class="th">
+                        <label class="ui-checkbox"><input name="checkbox1" type="checkbox"><span></span></label>
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_CATEGORY_CODE' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" sort('inventoryCode') "
+                              data-ng-class="{active: row == 'inventoryCode'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" sort('-inventoryCode') "
+                              data-ng-class="{active: row == '-inventoryCode'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_CATEGORY_NAME' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" sort('inventoryName') "
+                              data-ng-class="{active: row == 'inventoryName'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" sort('-inventoryName') "
+                              data-ng-class="{active: row == '-inventoryName'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_MAIN_CATEGORY_CODE' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" sort('quantity') "
+                              data-ng-class="{active: row == 'quantity'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" sort('-quantity') "
+                              data-ng-class="{active: row == '-quantity'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_CATEGORY_CREATED_BY' | translate}} <!-- la expression -->
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" sort('inventoryType') "
+                              data-ng-class="{active: row == 'inventoryType'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" sort('-inventoryType') "
+                              data-ng-class="{active: row == '-inventoryType'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_CATEGORY_CREATED_DATE' | translate}}
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_CATEGORY_STATUS' | translate}}
+                    </div></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="material in listMaterial">
+                    <td class="td-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="selected" ng-click="open(selected, $index)" type="checkbox"><span></span></label></td>
+                    <td>{{material.inventoryCode}}</td>
+                    <td>{{material.inventoryName}}</td>
+                    <td>{{material.quantity}}</td>
+                    <td>{{material.inventoryType | materialType | translate}}</td>
+                    <td>{{material.status | materialStatus | translate}}</td>
+                    <td>{{material.status | materialStatus | translate}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="table-footer">
+            <div class="row">
+                <div class="col-md-6 page-num-info">
+                    <span>
+                        {{'LABEL_SHOW'| translate}}
+                        <select data-ng-model="numPerPage"
+                                data-ng-options="num for num in numPerPageOpt">
+                        </select>
+                        {{'LABEL_ENTRIES_PER_PAGE'| translate}} {{'LABEL_RESULT' | translate}} {{data.length}} record)
+                    </span>
+                </div>
+                <div class="col-md-6 text-right pagination-container">
+                    <uib-pagination class="pagination-sm"
+                                    ng-model="currentPage"
+                                    total-items="data.length"
+                                    max-size="4"
+                                    items-per-page="numPerPage"
+                                    rotate="false"
+                                    previous-text="&lsaquo;" next-text="&rsaquo;"
+                                    boundary-links="true"></uib-pagination>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <script type="text/ng-template" id="modalInfoMaterial.html">
+        <div class="modal-header">
+            <h4 class="col-md-11">{{selectedMaterial.inventoryName}}</h4>
+            <button type="button" ng-click="cancel()" class="close col-md-1 text-right" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+            <div ng-include=" 'app/components/store/store.info.modal.html' "></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="modalConfirmUpdate.html">
+        <div class="modal-header">
+            <h5>{{'LABEL_MATERIAL_CONFIRM_UPDATE' | translate}}</h5>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" ng-click="ok()">{{'BTN_OK' | translate}}</button>
+            <button class="btn btn-toolbar" ng-click="cancel()">{{'BTN_CANCEL' | translate}}</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="modalConfirmDelete.html">
+        <div class="modal-header">
+            <h5>{{'LABEL_MATERIAL_CONFIRM_DELETE' | translate}}</h5>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" ng-click="ok()">{{'BTN_OK' | translate}}</button>
+            <button class="btn btn-toolbar" ng-click="cancel()">{{'BTN_CANCEL' | translate}}</button>
+        </div>
+    </script>
+</div>
