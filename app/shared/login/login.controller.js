@@ -4,9 +4,9 @@
     angular.module('app').controller('SigninCtrl', SigninCtrl);
 
     // dependencies
-    SigninCtrl.$inject = ['LoginService','$scope','$location','BindingService'];
+    SigninCtrl.$inject = ['LoginService','$scope','$location'];
 
-    function SigninCtrl(LoginService, $scope, $location, BindingService) {
+    function SigninCtrl(LoginService, $scope, $location) {
 
         //captcha gg
         // $scope.model = {
@@ -14,7 +14,6 @@
         // };
         
         var onLoginSuccess = function onLoginSuccess(data){
-            BindingService.set(data);
             $location.path("/dashboard");
         };
         var onLoginError = function onLoginError (data) {
