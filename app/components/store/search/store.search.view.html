@@ -94,7 +94,7 @@
                         <label class="ui-checkbox"><input name="checkbox1" type="checkbox"><span></span></label>
                     </div></th>
                     <th><div class="th">
-                        {{'MATERIAL_CODE' | translate}}
+                        {{'LABEL_COUPON_CODE' | translate}}
                         <span class="fa fa-angle-up"
                               data-ng-click=" sort('inventoryCode') "
                               data-ng-class="{active: row == 'inventoryCode'}"></span>
@@ -103,7 +103,7 @@
                               data-ng-class="{active: row == '-inventoryCode'}"></span>
                     </div></th>
                     <th><div class="th">
-                        {{'MATERIAL_NAME' | translate}}
+                        {{'LABEL_COUPON_TYPE_TICKET' | translate}}
                         <span class="fa fa-angle-up"
                               data-ng-click=" sort('inventoryName') "
                               data-ng-class="{active: row == 'inventoryName'}"></span>
@@ -112,7 +112,7 @@
                               data-ng-class="{active: row == '-inventoryName'}"></span>
                     </div></th>
                     <th><div class="th">
-                        {{'MATERIAL_IN_STOCK' | translate}}
+                        {{'LABEL_SEARCH_TIME' | translate}}
                         <span class="fa fa-angle-up"
                               data-ng-click=" sort('quantity') "
                               data-ng-class="{active: row == 'quantity'}"></span>
@@ -121,7 +121,7 @@
                               data-ng-class="{active: row == '-quantity'}"></span>
                     </div></th>
                     <th><div class="th">
-                        {{'MATERIAL_TYPE' | translate}}
+                        {{'LABEL_SEARCH_CREATED_BY' | translate}}
                         <span class="fa fa-angle-up"
                               data-ng-click=" sort('inventoryType') "
                               data-ng-class="{active: row == 'inventoryType'}"></span>
@@ -130,12 +130,21 @@
                               data-ng-class="{active: row == '-inventoryType'}"></span>
                     </div></th>
                     <th><div class="th">
-                        {{'MATERIAL_STATUS' | translate}}
+                        {{'LABEL_SEARCH_TOTAL' | translate}}
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_SEARCH_DISCOUNT' | translate}}
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_SEARCH_VAT' | translate}}
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_SEARCH_NOTE' | translate}}
                     </div></th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr data-ng-repeat="material in listMaterial">
+                <tr data-ng-repeat="st in stocktrans">
                     <td class="td-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="selected" ng-click="open(selected, $index)" type="checkbox"><span></span></label></td>
                     <td>{{material.inventoryCode}}</td>
                     <td>{{material.inventoryName}}</td>

@@ -8,7 +8,7 @@
     'use strict';
 
     angular.module("app").controller("StoreSearchCtrl", ["$scope","$uibModal", "$uibModalStack", "$filter","StoreService", StoreSearchCtrl]);
-    function StoreSearchCtrl($scope, $uibModal, $uibModalStack, $filter, StoreService) {
+    function StoreSearchCtrl($scope, $uibModal, $filter, StoreService) {
         $scope.date = {
             startDate: new Date,
             endDate: new Date
@@ -22,9 +22,6 @@
                 controller: "ModalInstanceCtrl",
                 size: 'sm'
             });
-            modal.result.then(function() {
-                $uibModalStack.dismissAll();
-            })
         }
         // $scope.data = [];
         // var onGetListSuccess = function onSuccess(data){

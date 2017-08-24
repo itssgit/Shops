@@ -4,7 +4,7 @@
 (function(){
     'use strict';
     angular.module('app').controller('StoreAdjustCtrl', ['$scope', '$uibModal', 'AppConfig','StoreService', StoreAdjustCtrl]);
-    function StoreAdjustCtrl($scope, $uibModal, StoreService){
+    function StoreAdjustCtrl($scope, $uibModal, AppConfig, StoreService){
 
         $scope.constant = AppConfig.constant;
 

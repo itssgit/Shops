@@ -78,6 +78,12 @@
     "LABEL_PLEASE_CHOOSE_STOCK_TRANS_TYPE": "Choose type",
     "LABEL_SEARCH_START_DATE":"Start date",
     "LABEL_SEARCH_END_DATE":"End date",
+    "LABEL_SEARCH_TIME":"Time",
+    "LABEL_SEARCH_CREATED_BY":"Created by",
+    "LABEL_SEARCH_TOTAL":"Total",
+    "LABEL_SEARCH_DISCOUNT":"Discount",
+    "LABEL_SEARCH_VAT":"VAT",
+    "LABEL_SEARCH_NOTE":"Note",
 
     "LABEL_IMPORT_FROM_FILE": "Import from file data",
 
