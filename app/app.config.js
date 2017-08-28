@@ -52,6 +52,7 @@
 
             //Khai bao link webservice
             uri = "http://giaiphapshop.com:8088/shops-services/",
+            // uri = "http://192.168.3.8:8080/",
             optionSet = {
                 values: uri + "optionSet/getValueByCode?optionSetCode="
             },
@@ -62,7 +63,7 @@
                 delete: uri + "inventory/delete"
             },
             stockTransUri = {
-                insert: uri + "stockTrans/create"
+                createOrUpdate: uri + "stockTrans/createOrUpdate"
             }
 
         return {

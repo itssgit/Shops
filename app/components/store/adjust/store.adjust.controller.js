@@ -34,6 +34,7 @@
         }
         $scope.CurrentDate = new Date();
         $scope.selectedMaterial=[];
+        $scope.prepareStockTransDetailDTOList = [];
         $scope.onSelect = function(item){
             //remove from source list
             var index = $scope.stockTrans.indexOf(item);
@@ -51,6 +52,7 @@
             $scope.total.storeAmount += item.unitPrice*item.quantity;
             $scope.total.adjustAmount += item.unitPrice*item.adjust;
             $scope.total.realAmount += item.unitPrice*item.quantity + item.unitPrice*item.adjust;
+            $scope.prepareStockTransDetailDTOList.push(item);
         }
 
         /*import - open popup*/
@@ -74,6 +76,7 @@
             $scope.total.realAmount -= item.unitPrice*item.quantity + item.unitPrice*item.adjust;
             $scope.total.adjustAmount -= item.unitPrice*item.adjust;
             $scope.total.storeAmount -= item.unitPrice*item.quantity;
+            $scope.prepareStockTransDetailDTOList.splice($index, 1);
         }
 
         /*calculate Total*/
@@ -101,33 +104,36 @@
             $scope.total.adjustAmount = parseInt($scope.total.adjustAmount, 10);
             $scope.total.storeAmount = parseInt($scope.total.storeAmount, 10);
             $scope.total.realAmount = $scope.total.adjustAmount + $scope.total.storeAmount;
+
+            $scope.prepareStockTransDetailDTOList = $scope.selectedMaterial;
+
         }
 
         /*click save temp button*/
+        var stockTransNo = "";
+        var stockTransId = 0;
         $scope.save = function(status){
-            var prepareStockTransDetailDTOList = [];
-            for(var i=0; i < $scope.selectedMaterial.length; i++){
-                prepareStockTransDetailDTOList.push({
-                    "inventoryId": $scope.selectedMaterial[i].inventoryId,
-                    "promotion": $scope.selectedMaterial[i].promotion,
-                    "quantity": $scope.selectedMaterial[i].quantity,
-                    "status": AppConfig.constant.STATUS_TEMP,
-                    "unitPrice": $scope.selectedMaterial[i].unitPrice,
-                    "vat": $scope.selectedMaterial[i].vat
-                });
-            }
             var data = {
-                "staffCode": "admin",
-                "status": status,
-                "stockTransDetailDTOList": prepareStockTransDetailDTOList,
-                "stockTransNo": AppConfig.constant.AUTOCODE,
-                "totalPrice": $scope.total.totalAmount,
-                "totalPromotion": $scope.total.discount,
-                "totalVat": $scope.total.vat,
-                "typeTrans": AppConfig.constant.TYPE_ADJUST_STOCK
+                staffCode: "admin",
+                status: status,
+                stockTransDetailDTOList: $scope.prepareStockTransDetailDTOList,
+                stockTransNo: stockTransNo,
+                stockTransId: stockTransId,
+                totalPrice: $scope.total.totalAmount,
+                totalPromotion: $scope.total.discount,
+                totalVat: $scope.total.vat,
+                typeTrans: AppConfig.constant.TYPE_ADJUST_STOCK
             }
 
-            var onInsertSuccess = function onSuccess(data){
+            var onInsertSuccess = function onSuccess(result){
+                stockTransNo = result.value.stockTransNo;
+                stockTransId = result.value.stockTransId;
+                $scope.prepareStockTransDetailDTOList = result.value.stockTransDetailDTOList;
+                for(var i =0; i < $scope.prepareStockTransDetailDTOList.length; i++){
+                    if($scope.prepareStockTransDetailDTOList[i].inventoryId == $scope.selectedMaterial[i].inventoryId){
+                        $scope.selectedMaterial[i].stockTransDetailId = $scope.prepareStockTransDetailDTOList[i].stockTransDetailId
+                    }
+                }
                 $scope.alerts[0] = {
                     type: "success",
                     msg: 'MSG_IMPORT_STORE_SUCCESS',

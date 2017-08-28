@@ -1,6 +1,5 @@
 (function() {
     function a(a) {
-        console.log(a);
         a.useStaticFilesLoader({
             prefix: "app/lang/",
             suffix: ".json"

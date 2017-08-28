@@ -33,6 +33,7 @@
         }
         $scope.CurrentDate = new Date();
         $scope.selectedMaterial=[];
+        $scope.prepareStockTransDetailDTOList = [];
         $scope.onSelect = function(item){
             //remove from source list
             var index = $scope.stockTrans.indexOf(item);
@@ -48,6 +49,7 @@
             /*calculate  total amount*/
             $scope.total.materialPrice += item.totalPrice;
             $scope.total.totalAmount += item.totalPrice;
+            $scope.prepareStockTransDetailDTOList.push(item);
         }
 
         /*import - open popup*/
@@ -62,6 +64,8 @@
             })
         }
 
+
+
         /*click x button*/
         $scope.remove = function($index, item){
             $scope.selectedMaterial.splice($index, 1);
@@ -72,6 +76,7 @@
             $scope.total.materialPrice -= item.unitPrice*item.quantity;
             $scope.total.vat -= item.vat;
             $scope.total.discount -= item.promotion;
+            $scope.prepareStockTransDetailDTOList.splice($index, 1);
         }
 
         /*calculate Total*/
@@ -110,14 +115,6 @@
             $scope.total.vat = 0;
             for(var i=0; i < $scope.selectedMaterial.length; i++){
                 $scope.selectedMaterial[i].totalPrice = $scope.selectedMaterial[i].unitPrice*$scope.selectedMaterial[i].quantity + $scope.selectedMaterial[i].vat - $scope.selectedMaterial[i].promotion;
-                prepareStockTransDetailDTOList.push({
-                    "inventoryId": $scope.selectedMaterial[i].inventoryId,
-                    "promotion": $scope.selectedMaterial[i].promotion,
-                    "quantity": $scope.selectedMaterial[i].quantity,
-                    "status": AppConfig.constant.STATUS_TEMP,
-                    "unitPrice": $scope.selectedMaterial[i].unitPrice,
-                    "vat": $scope.selectedMaterial[i].vat
-                });
 
                 $scope.total.materialPrice += $scope.selectedMaterial[i].quantity*$scope.selectedMaterial[i].unitPrice;
                 $scope.total.vat += $scope.selectedMaterial[i].vat;
@@ -126,39 +123,42 @@
             $scope.total.vat = parseInt($scope.total.vat, 10);
             $scope.total.discount = parseInt($scope.total.discount, 10);
             $scope.total.totalAmount = $scope.total.materialPrice + $scope.total.vat - $scope.total.discount;
+
+            $scope.prepareStockTransDetailDTOList = $scope.selectedMaterial;
         }
 
         /*click save temp button*/
+        var stockTransNo = "";
+        var stockTransId = 0;
         $scope.save = function(status){
-            var prepareStockTransDetailDTOList = [];
-            for(var i=0; i < $scope.selectedMaterial.length; i++){
-                prepareStockTransDetailDTOList.push({
-                    "inventoryId": $scope.selectedMaterial[i].inventoryId,
-                    "promotion": $scope.selectedMaterial[i].promotion,
-                    "quantity": $scope.selectedMaterial[i].quantity,
-                    "status": AppConfig.constant.STATUS_TEMP,
-                    "unitPrice": $scope.selectedMaterial[i].unitPrice,
-                    "vat": $scope.selectedMaterial[i].vat
-                });
-            }
             var data = {
-                "staffCode": "admin",
-                "status": status,
-                "stockTransDetailDTOList": prepareStockTransDetailDTOList,
-                "stockTransNo": AppConfig.constant.AUTOCODE,
-                "totalPrice": $scope.total.totalAmount,
-                "totalPromotion": $scope.total.discount,
-                "totalVat": $scope.total.vat,
-                "typeTrans": AppConfig.constant.TYPE_IMPORT_STOCK
+                staffCode: "admin",
+                status: status,
+                stockTransDetailDTOList: $scope.prepareStockTransDetailDTOList,
+                stockTransNo: stockTransNo,
+                stockTransId: stockTransId,
+                totalPrice: $scope.total.totalAmount,
+                totalPromotion: $scope.total.discount,
+                totalVat: $scope.total.vat,
+                typeTrans: AppConfig.constant.TYPE_IMPORT_STOCK
             }
 
-            var onInsertSuccess = function onSuccess(data){
+            var onInsertSuccess = function onSuccess(result){
+                stockTransNo = result.value.stockTransNo;
+                stockTransId = result.value.stockTransId;
+                $scope.prepareStockTransDetailDTOList = result.value.stockTransDetailDTOList;
+                for(var i =0; i < $scope.prepareStockTransDetailDTOList.length; i++){
+                    if($scope.prepareStockTransDetailDTOList[i].inventoryId == $scope.selectedMaterial[i].inventoryId){
+                        $scope.selectedMaterial[i].stockTransDetailId = $scope.prepareStockTransDetailDTOList[i].stockTransDetailId
+                    }
+                }
                 $scope.alerts[0] = {
                     type: "success",
                     msg: 'MSG_IMPORT_STORE_SUCCESS',
                     show: true
                 };
             }
+
             StoreService.insertUpdateStockTrans(data, onInsertSuccess, onError);
         }
     }

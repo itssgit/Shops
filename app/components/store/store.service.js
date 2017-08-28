@@ -28,7 +28,7 @@
         }
 
         this.insertUpdateStockTrans = function(data, onSuccess, onError){
-            var url = AppConfig.stockTransUri.insert;
+            var url = AppConfig.stockTransUri.createOrUpdate;
             HttpService.callPostService(url, data, onSuccess, onError);
         }
     }
