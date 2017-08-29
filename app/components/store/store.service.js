@@ -12,6 +12,11 @@
             HttpService.callGetService(url, onSuccess, onError);
         }
 
+        this.getListTransaction = function(param, onSuccess, onError){
+            var url = AppConfig.stockTransUri.listTrans + param;
+            HttpService.callGetService(url, onSuccess, onError);
+        }
+
         this.createMaterial = function(data, onSuccess, onError){
             var url = AppConfig.inventoryUri.create;
             HttpService.callPostService(url, data, onSuccess, onError);

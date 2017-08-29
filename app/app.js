@@ -228,8 +228,8 @@
                 formatYear: "yy",
                 startingDay: 1
             },
-            $scope.format = "dd/MM/yyyy",
-            $scope.altInputFormats = ["M!/d!/yyyy"],
+            $scope.format = "dd-MM-yyyy",
+            $scope.altInputFormats = ["M!-d!-yyyy"],
             $scope.popup1 = {
                 opened: !1
             }, $scope.popup2 = {

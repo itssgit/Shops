@@ -60,10 +60,11 @@
                 list: uri + "inventory/find?",
                 create: uri + "inventory/create",
                 update: uri + "inventory/update",
-                delete: uri + "inventory/delete"
+                delete: uri + "inventory/delete",
             },
             stockTransUri = {
-                createOrUpdate: uri + "stockTrans/createOrUpdate"
+                createOrUpdate: uri + "stockTrans/createOrUpdate",
+                listTrans: uri + "stockTrans/findByCondition?"
             }
 
         return {

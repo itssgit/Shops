@@ -1,0 +1,71 @@
+
+<div class="page page-table">
+    <section class="panel panel-default table-dynamic">
+        <div id="dataTable" class="table-responsive">
+            <table class="table table-bordered table-striped table-material">
+                <thead>
+                <tr class="bg-dark-light">
+                    <th><div class="th">
+                        {{'MATERIAL_CODE' | translate}}
+                    </div></th>
+                    <th><div class="th">
+                        {{'MATERIAL_NAME' | translate}}
+
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_COUPON_QUANTITY' | translate}}
+
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_COUPON_PRICE' | translate}}
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_COUPON_VAT' | translate}}
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_COUPON_DISCOUNT' | translate}}
+                    </div></th>
+                    <th><div class="th">
+                        {{'LABEL_COUPON_INTO_MONEY' | translate}}
+                    </div></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="st in stockTransDetailDTOList">
+                    <td>{{st.inventoryDTO.inventoryCode}}</td>
+                    <td>{{st.inventoryDTO.inventoryName}}</td>
+                    <td>{{st.quantity}}</td>
+                    <td>{{st.unitPrice | customCurrency}}</td>
+                    <td>{{st.vat | customCurrency}}</td>
+                    <td>{{st.promotion | customCurrency}}</td>
+                    <td>{{st.quantity*st.unitPrice + st.vat - st.promotion | customCurrency}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="table-footer">
+            <div class="row">
+                <div class="col-md-6 page-num-info">
+                    <span>
+                        {{'LABEL_SHOW'| translate}}
+                        <select data-ng-model="numPerPage"
+                                data-ng-options="num for num in numPerPageOpt">
+                        </select>
+                        {{'LABEL_ENTRIES_PER_PAGE'| translate}} {{'LABEL_RESULT' | translate}} {{data.length}} record)
+                    </span>
+                </div>
+                <div class="col-md-6 text-right pagination-container">
+                    <uib-pagination class="pagination-sm"
+                                    ng-model="currentPage"
+                                    total-items="data.length"
+                                    max-size="4"
+                                    items-per-page="numPerPage"
+                                    rotate="false"
+                                    previous-text="&lsaquo;" next-text="&rsaquo;"
+                                    boundary-links="true"></uib-pagination>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>

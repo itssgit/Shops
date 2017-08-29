@@ -96,47 +96,65 @@
                     <th><div class="th">
                         {{'LABEL_COUPON_CODE' | translate}}
                         <span class="fa fa-angle-up"
-                              data-ng-click=" sort('inventoryCode') "
-                              data-ng-class="{active: row == 'inventoryCode'}"></span>
+                              data-ng-click=" sort('stockTransNo') "
+                              data-ng-class="{active: row == 'stockTransNo'}"></span>
                         <span class="fa fa-angle-down"
-                              data-ng-click=" sort('-inventoryCode') "
-                              data-ng-class="{active: row == '-inventoryCode'}"></span>
+                              data-ng-click=" sort('-stockTransNo') "
+                              data-ng-class="{active: row == '-stockTransNo'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'LABEL_COUPON_TYPE_TICKET' | translate}}
                         <span class="fa fa-angle-up"
-                              data-ng-click=" sort('inventoryName') "
-                              data-ng-class="{active: row == 'inventoryName'}"></span>
+                              data-ng-click=" sort('typeTrans') "
+                              data-ng-class="{active: row == 'typeTrans'}"></span>
                         <span class="fa fa-angle-down"
-                              data-ng-click=" sort('-inventoryName') "
-                              data-ng-class="{active: row == '-inventoryName'}"></span>
+                              data-ng-click=" sort('-typeTrans') "
+                              data-ng-class="{active: row == '-typeTrans'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'LABEL_SEARCH_TIME' | translate}}
                         <span class="fa fa-angle-up"
-                              data-ng-click=" sort('quantity') "
-                              data-ng-class="{active: row == 'quantity'}"></span>
+                              data-ng-click=" sort('createdTime') "
+                              data-ng-class="{active: row == 'createdTime'}"></span>
                         <span class="fa fa-angle-down"
-                              data-ng-click=" sort('-quantity') "
-                              data-ng-class="{active: row == '-quantity'}"></span>
+                              data-ng-click=" sort('-createdTime') "
+                              data-ng-class="{active: row == '-createdTime'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'LABEL_SEARCH_CREATED_BY' | translate}}
                         <span class="fa fa-angle-up"
-                              data-ng-click=" sort('inventoryType') "
-                              data-ng-class="{active: row == 'inventoryType'}"></span>
+                              data-ng-click=" sort('staffCode') "
+                              data-ng-class="{active: row == 'staffCode'}"></span>
                         <span class="fa fa-angle-down"
-                              data-ng-click=" sort('-inventoryType') "
-                              data-ng-class="{active: row == '-inventoryType'}"></span>
+                              data-ng-click=" sort('-staffCode') "
+                              data-ng-class="{active: row == '-staffCode'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'LABEL_SEARCH_TOTAL' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" sort('totalPrice') "
+                              data-ng-class="{active: row == 'totalPrice'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" sort('-totalPrice') "
+                              data-ng-class="{active: row == '-totalPrice'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'LABEL_SEARCH_DISCOUNT' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" sort('totalPromotion') "
+                              data-ng-class="{active: row == 'totalPromotion'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" sort('-totalPromotion') "
+                              data-ng-class="{active: row == '-totalPromotion'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'LABEL_SEARCH_VAT' | translate}}
+                        <span class="fa fa-angle-up"
+                              data-ng-click=" sort('totalVat') "
+                              data-ng-class="{active: row == 'totalVat'}"></span>
+                        <span class="fa fa-angle-down"
+                              data-ng-click=" sort('-totalVat') "
+                              data-ng-class="{active: row == '-totalVat'}"></span>
                     </div></th>
                     <th><div class="th">
                         {{'LABEL_SEARCH_NOTE' | translate}}
@@ -144,13 +162,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr data-ng-repeat="st in stocktrans">
+                <tr data-ng-repeat="st in listStockTrans">
                     <td class="td-checkbox"><label class="ui-checkbox"><input name="checkbox1" ng-model="selected" ng-click="open(selected, $index)" type="checkbox"><span></span></label></td>
-                    <td>{{material.inventoryCode}}</td>
-                    <td>{{material.inventoryName}}</td>
-                    <td>{{material.quantity}}</td>
-                    <td>{{material.inventoryType | materialType | translate}}</td>
-                    <td>{{material.status | materialStatus | translate}}</td>
+                    <td>{{st.stockTransNo}}</td>
+                    <td>{{st.typeTrans}}</td>
+                    <td>{{st.createdTime | date: 'dd-MM-yyyy'}}</td>
+                    <td>{{st.staffCode}}</td>
+                    <td>{{st.totalPrice | customCurrency}}</td>
+                    <td>{{st.totalPromotion | customCurrency}}</td>
+                    <td>{{st.totalVat | customCurrency}}</td>
+                    <td>{{st.note}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -180,31 +201,13 @@
             </div>
         </footer>
     </section>
-    <script type="text/ng-template" id="modalInfoMaterial.html">
+    <script type="text/ng-template" id="modalInfoStockTrans.html">
         <div class="modal-header">
             <h4 class="col-md-11">{{selectedMaterial.inventoryName}}</h4>
             <button type="button" ng-click="cancel()" class="close col-md-1 text-right" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-            <div ng-include=" 'app/components/store/store.info.modal.html' "></div>
-        </div>
-    </script>
-    <script type="text/ng-template" id="modalConfirmUpdate.html">
-        <div class="modal-header">
-            <h5>{{'LABEL_MATERIAL_CONFIRM_UPDATE' | translate}}</h5>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-info" ng-click="ok()">{{'BTN_OK' | translate}}</button>
-            <button class="btn btn-toolbar" ng-click="cancel()">{{'BTN_CANCEL' | translate}}</button>
-        </div>
-    </script>
-    <script type="text/ng-template" id="modalConfirmDelete.html">
-        <div class="modal-header">
-            <h5>{{'LABEL_MATERIAL_CONFIRM_DELETE' | translate}}</h5>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-info" ng-click="ok()">{{'BTN_OK' | translate}}</button>
-            <button class="btn btn-toolbar" ng-click="cancel()">{{'BTN_CANCEL' | translate}}</button>
+            <div ng-include=" 'app/components/store/search/stockTrans.info.modal.html' "></div>
         </div>
     </script>
 </div>
