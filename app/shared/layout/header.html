@@ -1,4 +1,4 @@
-<header class="top-header clearfix">
+<header class="top-header clearfix" data-ng-controller="SigninCtrl">
 
     <!-- Logo -->
     <div class="logo"
@@ -276,7 +276,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#/login">
+                        <a href="javascript:void(0)" ng-click="logout()">
                             <i class="fa fa-sign-out"></i>
                             <span data-translate="LOG_OUT"></span>
                         </a>

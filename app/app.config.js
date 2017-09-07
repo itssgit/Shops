@@ -52,7 +52,12 @@
 
             //Khai bao link webservice
             uri = "http://giaiphapshop.com:8088/shops-services/",
-            // uri = "http://192.168.3.8:8080/",
+            // uri = "http://localhost:8080/shops-services/",
+
+            user = {
+                login: uri + "authorization/login",
+                logout: uri + "authorization/logout"
+            },
             optionSet = {
                 values: uri + "optionSet/getValueByCode?optionSetCode="
             },
@@ -71,6 +76,7 @@
             pageTransitionOpts: a,
             main: d,
             color: e,
+            user: user,
             constant: constant,
             optionSet: optionSet,
             inventoryUri: inventoryUri,

@@ -8,6 +8,7 @@
         "app.chart", "app.ui", "app.ui.form",
         "app.ui.form.validation", "app.page", "app.table",
         "app.task", "app.calendar","ngCookies",
+        "ngStorage",
         "vcRecaptcha", "ngMessages"])
 }(),
     function() {
@@ -278,8 +279,8 @@
         "use strict";
         angular.module("app").config(["$routeProvider", function(a) {
             a.when("/", {
-                redirectTo: "/dashboard"
-            }).when("/dashboard", {
+                redirectTo: "/login"
+            }).when("/store", {
                 templateUrl: "app/components/dashboard/dashboard.view.html"
             }).when("/login", {
                 templateUrl: "app/shared/login/login.view.html"

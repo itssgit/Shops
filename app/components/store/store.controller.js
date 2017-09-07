@@ -4,8 +4,16 @@
 (function () {
     'use strict';
 
-    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "$filter", "AppConfig","StoreService", StoreCtrl]);
-    function StoreCtrl($scope, $uibModal, $uibModalStack, $filter, AppConfig, StoreService) {
+    angular.module("app").controller("StoreCtrl", ["$scope","$uibModal", "$uibModalStack", "$filter", "AppConfig","StoreService", "$location", "$localStorage", StoreCtrl]);
+    function StoreCtrl($scope, $uibModal, $uibModalStack, $filter, AppConfig, StoreService, $location, $localStorage) {
+        if(!$localStorage.dataUser){
+            $location.path('/login');
+            return;
+        };
+        if(!$localStorage.dataUser.isLogined){
+            $location.path('/login');
+            return;
+        }
         /*---get list material---*/
         var onError = function onError(data){
             var modal = $uibModal.open({

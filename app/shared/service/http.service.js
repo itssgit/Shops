@@ -3,9 +3,9 @@
     angular.module('app')
         .service('HttpService', HttpService);
 
-    HttpService.$inject = ['$http'];
+    HttpService.$inject = ['$http','$localStorage'];
 
-    function HttpService($http) {
+    function HttpService($http, $localStorage) {
         var vm = this;
 
         vm.callGetService = function (url, onSuccess, onError) {
@@ -61,7 +61,6 @@
         };
         
         vm.callPostServiceWithSessionHeader = function (url, data, onSuccess, onError) {
-            var sessionKey = '';
             $http(
                 {
                     method: 'POST',
@@ -69,13 +68,32 @@
                     headers: {
                         'Content-Type': 'application/json;charset=UTF-8',
                         'Accept': '*',
-                        'session-key': sessionKey
+                        'Authorization': $localStorage.dataUser.tokenType + ' ' + $localStorage.dataUser.token
                     },
                     data: data
                 }
             ).then(function (response) {
                     onSuccess(response.data);
                 })
+                .catch(function (rejectResponse) {
+                    onError(rejectResponse.data);
+                });
+        };
+
+        vm.callPostServiceWithSessionHeader = function (url, onSuccess, onError) {
+            $http(
+                {
+                    method: 'POST',
+                    url: url,
+                    headers: {
+                        'Content-Type': 'application/json;charset=UTF-8',
+                        'Accept': '*',
+                        'Authorization': $localStorage.dataUser.tokenType + ' ' + $localStorage.dataUser.token
+                    }
+                }
+            ).then(function (response) {
+                onSuccess(response.data);
+            })
                 .catch(function (rejectResponse) {
                     onError(rejectResponse.data);
                 });

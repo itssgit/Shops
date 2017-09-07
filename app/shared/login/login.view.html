@@ -21,7 +21,9 @@
                 </section>
 
                 <span class="line-thru">OR</span>
-
+                <div ng-if="alerts.length > 0">
+                    <uib-alert type="{{alerts[0].type}}" close="closeAlert()">{{alerts[0].msg | translate}}</uib-alert>
+                </div>
                 <form name="loginForm" ng-submit="login()" class="form-horizontal" novalidate>
                     <fieldset>
                         <div class="form-group" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
@@ -29,7 +31,7 @@
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                <input type="email"
+                                <input type="text"
                                        data-ng-model="email"
                                        name="email"
                                        class="form-control"

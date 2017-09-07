@@ -5,8 +5,13 @@
     function LoginService(HttpService, AppConfig) {
 
         this.login = function(data, onSuccess, onError) {
-            var serviceUrl = "";
-            HttpService.callGetService(serviceUrl, onSuccess, onError);
+            var serviceUrl = AppConfig.user.login;
+            HttpService.callPostService(serviceUrl, data, onSuccess, onError);
+        };
+
+        this.logout = function(onSuccess, onError) {
+            var serviceUrl = AppConfig.user.logout;
+            HttpService.callPostServiceWithSessionHeader(serviceUrl, onSuccess, onError);
         };
     }
 })();
