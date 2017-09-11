@@ -9,7 +9,7 @@
     function CommonService(HttpService, AppConfig) {
         this.getValuesByCode = function(code, onSuccess, onError){
             var url = AppConfig.optionSet.values + code;
-            HttpService.callGetService(url, onSuccess, onError);
+            HttpService.callGetServiceWithSessionHeader(url, onSuccess, onError);
         }
     }
 })();
